@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="180" viewBox="0 0 960 180" role="img" aria-labelledby="title desc">
+  <title id="title">Cactus Digital Media primary horizontal logo</title>
+  <desc id="desc">Official Cactus Digital Media brand asset</desc>
+  <defs>
+    <linearGradient id="aura-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6D5DFB"/>
+      <stop offset="100%" stop-color="#31D6FF"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#0B1020" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      .display { font-family: Manrope, Inter, Arial, sans-serif; font-weight: 800; letter-spacing: -0.055em; }
+      .body { font-family: Manrope, Inter, Arial, sans-serif; font-weight: 500; }
+      .label { font-family: Manrope, Inter, Arial, sans-serif; font-weight: 700; letter-spacing: .13em; }
+    </style>
+  </defs>
+  
+  <g aria-label="Cactus Digital Media signal" fill="#6D5DFB" opacity="1">
+  <rect x="50" y="64.0" width="18.0" height="50.0" rx="9.0"/>
+  <rect x="80.0" y="38" width="18.0" height="102.0" rx="9.0"/>
+  <rect x="110.0" y="64.0" width="18.0" height="50.0" rx="9.0"/>
+</g>
+<text x="165" y="117" class="display" font-size="70" fill="#101828">Cactus Digital Media</text>
+</svg>

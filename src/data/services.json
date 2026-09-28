@@ -1,0 +1,222 @@
+[
+  {
+    "slug": "web-design",
+    "shortLabel": "Websites",
+    "label": "Websites that earn attention \u2014 and action.",
+    "description": "Marketing websites, corporate platforms, and web experiences that make a clear case for your business.",
+    "problem": "When a website is hard to understand or slow to trust, the right audience leaves before the conversation begins.",
+    "solution": "We pair a strong narrative with a fast, accessible interface and a practical path to conversion.",
+    "capabilities": [
+      "Brand-led web design",
+      "Responsive implementation",
+      "Content architecture",
+      "Conversion pathways"
+    ],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "CMS-ready structure",
+      "SEO foundations"
+    ]
+  },
+  {
+    "slug": "web-app-development",
+    "shortLabel": "Web applications",
+    "label": "Operational software with a clear point of view.",
+    "description": "Business systems, dashboards, portals, and web applications designed around real work.",
+    "problem": "Growing teams often rely on disconnected tools, manual handoffs, and unclear operational data.",
+    "solution": "We design useful workflows, then engineer the secure interfaces and services that make them dependable.",
+    "capabilities": [
+      "Product discovery",
+      "Workflow design",
+      "Dashboards & portals",
+      "API integration"
+    ],
+    "technologies": [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "REST & tRPC"
+    ]
+  },
+  {
+    "slug": "mobile-app-development",
+    "shortLabel": "Mobile applications",
+    "label": "Mobile products built for the moments that matter.",
+    "description": "Android and iOS applications that turn a customer journey or field workflow into a better product experience.",
+    "problem": "A mobile idea becomes expensive when its users, edge cases, and business model are not made concrete early.",
+    "solution": "We scope the right mobile experience, validate the core flows, and build toward an adaptable product foundation.",
+    "capabilities": [
+      "iOS & Android strategy",
+      "Mobile UX",
+      "Backend & API design",
+      "Release-readiness"
+    ],
+    "technologies": [
+      "React Native",
+      "Native integrations",
+      "Secure APIs",
+      "Push notifications"
+    ]
+  },
+  {
+    "slug": "desktop-software",
+    "shortLabel": "Desktop software",
+    "label": "Business software that works where work happens.",
+    "description": "Windows and macOS software for operational teams, inventory, point-of-sale, and specialised workflows.",
+    "problem": "Generic tools break down when a business has unique processes, hardware, or offline needs.",
+    "solution": "We map the operation in detail and create purpose-built software that respects the environment it runs in.",
+    "capabilities": [
+      "POS & inventory",
+      "Offline-first workflows",
+      "Hardware integration",
+      "Branch operations"
+    ],
+    "technologies": [
+      "Electron",
+      "Local data",
+      "Cloud sync",
+      "Barcode & print support"
+    ]
+  },
+  {
+    "slug": "ecommerce",
+    "shortLabel": "E-commerce",
+    "label": "Commerce that feels considered from first click to fulfilment.",
+    "description": "Online stores and commerce platforms shaped around products, operations, and customer confidence.",
+    "problem": "An online store can look polished yet still create friction across checkout, inventory, fulfilment, and support.",
+    "solution": "We make the customer path clear while creating practical foundations for catalogues, payments, and operations.",
+    "capabilities": [
+      "Storefront design",
+      "Checkout pathways",
+      "Catalogues & inventory",
+      "Commerce operations"
+    ],
+    "technologies": [
+      "Headless commerce",
+      "Payments",
+      "Analytics",
+      "SEO"
+    ]
+  },
+  {
+    "slug": "saas",
+    "shortLabel": "SaaS products",
+    "label": "SaaS products designed for durable momentum.",
+    "description": "Subscription software from early product framing through scalable product architecture.",
+    "problem": "SaaS ideas need more than feature lists; they require a valuable core workflow, clear access model, and way to grow.",
+    "solution": "We help turn the product thesis into an interface, operating model, and technical plan a team can build on.",
+    "capabilities": [
+      "MVP definition",
+      "Subscription UX",
+      "Multi-tenant architecture",
+      "Product analytics"
+    ],
+    "technologies": [
+      "React",
+      "Cloud services",
+      "Billing systems",
+      "APIs"
+    ]
+  },
+  {
+    "slug": "ai-automation",
+    "shortLabel": "AI & automation",
+    "label": "Automation with a human understanding of the workflow.",
+    "description": "AI assistants, operational automations, and connected systems that help teams do more of the work that matters.",
+    "problem": "Automation fails when it only automates a task instead of understanding the handoff, data, and decision around it.",
+    "solution": "We identify the useful automation boundary, design safe human oversight, and connect the right systems.",
+    "capabilities": [
+      "Workflow mapping",
+      "AI assistants",
+      "System integration",
+      "Operational safeguards"
+    ],
+    "technologies": [
+      "LLM workflows",
+      "APIs",
+      "Document processing",
+      "CRM automation"
+    ]
+  },
+  {
+    "slug": "ui-ux",
+    "shortLabel": "UI/UX design",
+    "label": "Interfaces people understand before they have to think.",
+    "description": "Product interfaces and design systems for web, desktop, and mobile experiences.",
+    "problem": "A product can have capable technology and still feel difficult, inconsistent, or expensive to evolve.",
+    "solution": "We use product reasoning and interaction design to make important journeys clearer and the system more coherent.",
+    "capabilities": [
+      "UX strategy",
+      "Flows & prototyping",
+      "Design systems",
+      "Usability refinement"
+    ],
+    "technologies": [
+      "Figma",
+      "Component systems",
+      "Accessibility",
+      "Product analytics"
+    ]
+  },
+  {
+    "slug": "seo",
+    "shortLabel": "SEO & digital growth",
+    "label": "Discoverability built into the product narrative.",
+    "description": "Search visibility, content systems, and digital-growth foundations for businesses with something valuable to say.",
+    "problem": "Sustainable demand is difficult when a company cannot be found, understood, or trusted in the moments people search.",
+    "solution": "We connect technical foundations, content priorities, and clear measurement around the audience you want to reach.",
+    "capabilities": [
+      "Technical SEO",
+      "Content strategy",
+      "Search intent",
+      "Measurement planning"
+    ],
+    "technologies": [
+      "Search Console",
+      "Analytics",
+      "Structured data",
+      "Content systems"
+    ]
+  },
+  {
+    "slug": "digital-marketing",
+    "shortLabel": "Digital marketing",
+    "label": "Digital momentum with a measurable centre.",
+    "description": "Digital campaigns, content systems, and demand-generation foundations connected to real business priorities.",
+    "problem": "Marketing activity loses value when channels, content, and lead paths do not connect to a useful commercial signal.",
+    "solution": "We shape a clearer growth system around the audience, messages, moments, and measurement that matter most.",
+    "capabilities": [
+      "Campaign systems",
+      "Content direction",
+      "Lead-generation pathways",
+      "Measurement planning"
+    ],
+    "technologies": [
+      "Analytics",
+      "Content systems",
+      "Campaign tooling",
+      "Conversion design"
+    ]
+  },
+  {
+    "slug": "maintenance",
+    "shortLabel": "Maintenance & support",
+    "label": "Products that stay useful as the business moves.",
+    "description": "Long-term product maintenance, optimisation, and measured improvement for established digital products.",
+    "problem": "A released product needs considered stewardship to remain secure, reliable, and aligned with a changing business.",
+    "solution": "We provide practical support plans that connect essential maintenance with product improvement.",
+    "capabilities": [
+      "Performance work",
+      "Reliability improvements",
+      "Feature iteration",
+      "Technical stewardship"
+    ],
+    "technologies": [
+      "Monitoring",
+      "Accessibility",
+      "Performance",
+      "Delivery workflows"
+    ]
+  }
+]
