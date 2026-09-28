@@ -58,15 +58,15 @@ test("mobile navigation opens, navigates, and closes", async ({ page }) => {
 });
 test("portfolio filters and search work", async ({ page }) => {
   await page.goto("/portfolio");
-  await expect(page.locator(".project-card")).toHaveCount(35);
+  await expect(page.locator(".project-card")).toHaveCount(11);
   await page
-    .getByRole("button", { name: "Selected work", exact: true })
+    .getByRole("button", { name: "Mobile Applications", exact: true })
     .click();
-  await expect(page.locator(".project-card")).toHaveCount(4);
-  await page.getByRole("searchbox", { name: "Search projects" }).fill("Golden");
+  await expect(page.locator(".project-card")).toHaveCount(1);
+  await page.getByRole("searchbox", { name: "Search projects" }).fill("GoFuel");
   await expect(page.locator(".project-card")).toHaveCount(1);
   await page.locator(".project-picture").click();
-  await expect(page.locator("h1")).toHaveText("Golden FM Yenagoa");
+  await expect(page.locator("h1")).toHaveText("GoFuel");
 });
 test("project modal traps focus, closes with Escape, and restores focus", async ({
   page,

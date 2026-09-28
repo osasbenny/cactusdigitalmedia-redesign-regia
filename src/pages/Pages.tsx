@@ -149,33 +149,47 @@ export function ServiceDetail() {
 }
 export function Portfolio() {
   const [params, setParams] = useSearchParams();
-  const filter = params.get("view") || "all";
+  const filter = params.get("view") || "recent";
   const [query, setQuery] = useState("");
+  const categories = [
+    "Mobile Applications",
+    "SaaS / Products",
+    "Web Applications",
+    "E-commerce",
+    "Websites",
+  ];
   const list = projects.filter(
     (p) =>
-      (filter !== "featured" || p.featured) &&
+      (filter === "all" ||
+        (filter === "recent"
+          ? p.status === "Recent work"
+          : filter === "archive"
+            ? p.status === "Archived work"
+            : p.category === filter && p.status === "Recent work")) &&
       p.title.toLowerCase().includes(query.toLowerCase()),
   );
   return (
     <>
       <PageHero
-        eyebrow="The portfolio"
-        title="Work you can see."
-        copy="Explore website design and development across different industries, audiences, and ambitions."
+        eyebrow="Recent projects & selected work"
+        title="Ideas made real."
+        copy="Mobile products, digital platforms, and distinctive websites. Explore the work—and the thinking behind the experience."
       />
       <section className="wrap portfolio-section">
         <div className="filter-bar">
           <div role="group" aria-label="Filter portfolio">
             {[
+              ["recent", "Recent work"],
               ["all", "All work"],
-              ["featured", "Selected work"],
+              ...categories.map((c) => [c, c]),
+              ["archive", "Archive"],
             ].map(([value, label]) => (
               <button
                 key={value}
                 className={filter === value ? "filter active" : "filter"}
                 aria-pressed={filter === value}
                 onClick={() =>
-                  setParams(value === "all" ? {} : { view: value })
+                  setParams(value === "recent" ? {} : { view: value })
                 }
               >
                 {label}
@@ -207,7 +221,7 @@ export function Portfolio() {
               className="button dark"
               onClick={() => {
                 setQuery("");
-                setParams({});
+                setParams({ view: "all" });
               }}
             >
               Show all work
@@ -223,52 +237,86 @@ export function ProjectDetail() {
   const { slug } = useParams();
   const p = projects.find((x) => x.slug === slug);
   if (!p) return <NotFound />;
+  const mobile = p.category === "Mobile Applications";
   return (
     <>
       <PageHero
-        eyebrow="Portfolio / Website design"
+        eyebrow={`Portfolio / ${p.category}`}
         title={p.title}
         copy={p.description}
       />
       <section className="wrap project-detail">
-        {p.image && (
-          <img
-            className="case-image"
-            src={p.image}
-            alt={`${p.title} website screenshot`}
-            width="1024"
-            height="1024"
-          />
-        )}
-        <div className="case-summary">
-          <span className="eyebrow">The work</span>
-          <h2>
-            A digital presence
-            <br />
-            for {p.title}.
-          </h2>
-          <p>
-            Website design and development. Explore the archived design
-            {p.liveUrl ? " or visit the current website." : "."}
-          </p>
-          {p.liveUrl ? (
-            <a
-              href={p.liveUrl}
-              className="button dark"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit website <Arrow diagonal />
-            </a>
-          ) : (
-            <p className="muted">
-              A verified live link is not currently available.
-            </p>
-          )}
-          <Link className="text-link" to="/portfolio">
-            Back to all work <Arrow />
-          </Link>
+        <div className="case-summary case-intro">
+          <div>
+            <span className="eyebrow">The experience</span>
+            <h2>{p.context || `A digital presence for ${p.title}.`}</h2>
+            {p.credit && <p>{p.credit}</p>}
+          </div>
+          <div>
+            {p.features && (
+              <ul className="case-features">
+                {p.features.map((f) => (
+                  <li key={f}>{f}</li>
+                ))}
+              </ul>
+            )}
+            {p.liveUrl ? (
+              <a
+                href={p.liveUrl}
+                className="button dark"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit project <Arrow diagonal />
+              </a>
+            ) : (
+              <p className="muted">Explore the project design below.</p>
+            )}
+          </div>
         </div>
+        {p.image && (
+          <div className={mobile ? "case-cover mobile-cover" : "case-cover"}>
+            <img
+              src={p.image}
+              alt={`${p.title} project design`}
+              width={mobile ? 1000 : 1000}
+              height={mobile ? 1000 : 760}
+            />
+          </div>
+        )}
+        {p.gallery && p.gallery.length > 0 && (
+          <div className={mobile ? "case-gallery app-gallery" : "case-gallery"}>
+            {p.gallery.map((img, i) => (
+              <figure key={img.src}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  width={img.width}
+                  height={img.height}
+                />
+                <figcaption>
+                  {mobile
+                    ? img.alt
+                    : `${p.title} — complete website experience`}
+                </figcaption>
+                {!mobile && i === 0 && (
+                  <a
+                    className="text-link"
+                    href={img.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View full-size design <Arrow diagonal />
+                  </a>
+                )}
+              </figure>
+            ))}
+          </div>
+        )}
+        <Link className="text-link" to="/portfolio">
+          Back to all work <Arrow />
+        </Link>
       </section>
       <CTA />
     </>

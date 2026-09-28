@@ -485,6 +485,50 @@
       "dest": "/blog/wordpress-website-design-in-lagos-when-wordpress-is-the-right-choice/index.html"
     },
     {
+      "src": "/portfolio/gofuel/?",
+      "dest": "/portfolio/gofuel/index.html"
+    },
+    {
+      "src": "/portfolio/aurareach/?",
+      "dest": "/portfolio/aurareach/index.html"
+    },
+    {
+      "src": "/portfolio/eecki/?",
+      "dest": "/portfolio/eecki/index.html"
+    },
+    {
+      "src": "/portfolio/ecoroute/?",
+      "dest": "/portfolio/ecoroute/index.html"
+    },
+    {
+      "src": "/portfolio/aura-hire/?",
+      "dest": "/portfolio/aura-hire/index.html"
+    },
+    {
+      "src": "/portfolio/beyond-the-machine/?",
+      "dest": "/portfolio/beyond-the-machine/index.html"
+    },
+    {
+      "src": "/portfolio/elijah-ogunsanya-associates/?",
+      "dest": "/portfolio/elijah-ogunsanya-associates/index.html"
+    },
+    {
+      "src": "/portfolio/elsmith-consulting/?",
+      "dest": "/portfolio/elsmith-consulting/index.html"
+    },
+    {
+      "src": "/portfolio/lignel-healthcare/?",
+      "dest": "/portfolio/lignel-healthcare/index.html"
+    },
+    {
+      "src": "/portfolio/renowncrown/?",
+      "dest": "/portfolio/renowncrown/index.html"
+    },
+    {
+      "src": "/portfolio/echobroad/?",
+      "dest": "/portfolio/echobroad/index.html"
+    },
+    {
       "handle": "filesystem"
     },
     {

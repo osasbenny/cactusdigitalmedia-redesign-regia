@@ -2,7 +2,24 @@ import serviceData from "./services.json" with { type: "json" };
 import projectData from "./projects.json" with { type: "json" };
 import postData from "./posts.json" with { type: "json" };
 export const services = serviceData;
-export const projects = projectData;
+export interface Project {
+  slug: string;
+  title: string;
+  category: string;
+  description: string;
+  image: string | null;
+  imageSmall?: string;
+  gallery?: { src: string; alt: string; width?: number; height?: number }[];
+  sourceUrl: string | null;
+  liveUrl: string | null;
+  featured: boolean;
+  status: string;
+  technologies: string[];
+  context?: string;
+  features?: string[];
+  credit?: string;
+}
+export const projects: Project[] = projectData;
 export const posts = postData;
 export const brand = {
   name: "Cactus Digital Media",

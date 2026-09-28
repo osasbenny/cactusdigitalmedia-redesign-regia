@@ -168,7 +168,7 @@ export default function Home() {
       </section>
       <section className="wrap section">
         <SectionTitle
-          eyebrow="02 / Selected work"
+          eyebrow="02 / Recent work"
           title={
             <>
               Less talk.
@@ -176,13 +176,13 @@ export default function Home() {
               <em>More to explore.</em>
             </>
           }
-          copy="A closer look at website projects across industries. Different businesses. Different challenges. Thoughtful digital experiences."
+          copy="From fuel access and client discovery to local commerce. Explore recent digital products and websites built for very different ambitions."
           link={{ to: "/portfolio", text: "View the full portfolio" }}
         />
         <div className="project-grid">
           {projects
             .filter((p) => p.featured)
-            .slice(0, 4)
+            .slice(0, 6)
             .map((p) => (
               <ProjectCard key={p.slug} project={p} />
             ))}

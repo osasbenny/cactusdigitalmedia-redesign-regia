@@ -10,13 +10,19 @@ export default function ProjectCard({
     <article className="project-card">
       <Link
         to={`/portfolio/${project.slug}`}
-        className="project-picture"
+        className={`project-picture ${project.category === "Mobile Applications" ? "mobile-project" : ""}`}
         aria-label={`View ${project.title}`}
       >
         {project.image ? (
           <img
             src={project.image}
-            alt={`${project.title} website design`}
+            alt={`${project.title} project design`}
+            srcSet={
+              project.imageSmall
+                ? `${project.imageSmall} 640w, ${project.image} 1000w`
+                : undefined
+            }
+            sizes="(max-width: 600px) 90vw, 44vw"
             loading="lazy"
             width="1024"
             height="1024"
@@ -38,7 +44,9 @@ export default function ProjectCard({
             <Link to={`/portfolio/${project.slug}`}>{project.title}</Link>
           </h3>
         </div>
-        <span className="project-index">Digital experience</span>
+        <span className="project-index">
+          {project.status === "Recent work" ? "Case study" : "Website design"}
+        </span>
       </div>
     </article>
   );

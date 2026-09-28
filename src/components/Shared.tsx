@@ -116,7 +116,7 @@ export function Cinematic({
       />
       <button
         className="video-control"
-        aria-label={active ? "Pause animation" : "Play animation"}
+        aria-label={active ? "Pause animation" : "Play film animation"}
         onClick={() => {
           const el = ref.current;
           if (!el) return;

@@ -7,3 +7,6 @@ Verified before this checkpoint: production build passes; 17 API unit tests pass
 New owner instruction: use Portfolio-Mockups-screencapture(1).zip as the NEW portfolio/recent project source and retrieve GoFuel screenshots from https://gofuel.ng. Integrate these after this immediate push. Commit and push at every completed checkpoint.
 
 Remaining: inspect new archive; replace/update portfolio/homepage project selection and case studies using only supported facts; optimize performance; final QA; Vercel preview and real SMTP verification when configured. Current production domain remains unchanged.
+
+## New portfolio checkpoint
+11 recent projects integrated with full galleries and six featured homepage case studies. Default portfolio is recent work; archive remains accessible. Routes now total 83. Source and live-link evidence in RECENT_PORTFOLIO_SOURCES.md.

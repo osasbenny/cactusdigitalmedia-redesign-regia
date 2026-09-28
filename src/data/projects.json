@@ -1,5 +1,330 @@
 [
   {
+    "slug": "gofuel",
+    "title": "GoFuel",
+    "category": "Mobile Applications",
+    "description": "A mobile fuel-access experience bringing savings, Fuel Assist, and station discovery together.",
+    "context": "A connected mobile experience for planning fuel spending, finding partner stations, and managing fuel requests.",
+    "features": [
+      "Wallet and fuel savings",
+      "Fuel Assist interface",
+      "Nearby station discovery",
+      "Transaction history"
+    ],
+    "image": "/images/projects/gofuel-app-mockup.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/gofuel-history-screen.webp",
+        "alt": "GoFuel history screen",
+        "width": 576,
+        "height": 1280
+      },
+      {
+        "src": "/images/projects/gofuel-wallet-screen.webp",
+        "alt": "GoFuel wallet screen",
+        "width": 720,
+        "height": 1600
+      },
+      {
+        "src": "/images/projects/gofuel-fuel-assist-screenshot.webp",
+        "alt": "GoFuel fuel assist screenshot",
+        "width": 720,
+        "height": 1600
+      },
+      {
+        "src": "/images/projects/gofuel-fuel-stations-screen.webp",
+        "alt": "GoFuel fuel stations screen",
+        "width": 576,
+        "height": 1280
+      },
+      {
+        "src": "/images/projects/gofuel-login-screen.webp",
+        "alt": "GoFuel login screen",
+        "width": 720,
+        "height": 1517
+      }
+    ],
+    "sourceUrl": "https://gofuel.ng/",
+    "liveUrl": "https://gofuel.ng/",
+    "featured": true,
+    "status": "Recent work",
+    "technologies": [],
+    "credit": "Developed by JCobiq Energy Solutions in partnership with Cactus Digital Media.",
+    "sourceFile": "https://gofuel.ng/"
+  },
+  {
+    "slug": "aurareach",
+    "title": "AuraReach",
+    "category": "SaaS / Products",
+    "description": "A client-acquisition product for independent professionals.",
+    "context": "A clear path from finding potential clients to starting a business conversation.",
+    "features": [
+      "Client discovery",
+      "Outreach-focused product positioning",
+      "Freelancer onboarding"
+    ],
+    "image": "/images/projects/aurareach-1000.webp",
+    "imageSmall": "/images/projects/aurareach-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/aurareach-full.webp",
+        "alt": "AuraReach complete website design",
+        "width": 1280,
+        "height": 1744
+      }
+    ],
+    "sourceUrl": "https://aurareach-one.vercel.app/",
+    "liveUrl": "https://aurareach-one.vercel.app/",
+    "featured": true,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-aurareach-one-vercel-app-2026-09-22-22_55_42.png"
+  },
+  {
+    "slug": "eecki",
+    "title": "Eecki",
+    "category": "E-commerce",
+    "description": "A local marketplace built around nearby products and sellers.",
+    "context": "A shopping experience that makes local product discovery feel immediate and approachable.",
+    "features": [
+      "Product browsing",
+      "Local marketplace discovery",
+      "Seller and customer entry points"
+    ],
+    "image": "/images/projects/eecki-1000.webp",
+    "imageSmall": "/images/projects/eecki-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/eecki-full.webp",
+        "alt": "Eecki complete website design",
+        "width": 1280,
+        "height": 3571
+      }
+    ],
+    "sourceUrl": "https://eecki-bd2d8.firebaseapp.com/",
+    "liveUrl": null,
+    "featured": true,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-eecki-bd2d8-firebaseapp-2026-09-22-22_53_56.png"
+  },
+  {
+    "slug": "ecoroute",
+    "title": "EcoRoute",
+    "category": "Websites",
+    "description": "A logistics and courier website with service, shipping, and tracking entry points.",
+    "context": "A clear digital front door for people who need to move goods and explore delivery services.",
+    "features": [
+      "Delivery service presentation",
+      "Shipment-tracking entry point",
+      "Quote-request journey"
+    ],
+    "image": "/images/projects/ecoroute-1000.webp",
+    "imageSmall": "/images/projects/ecoroute-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/ecoroute-full.webp",
+        "alt": "EcoRoute complete website design",
+        "width": 1280,
+        "height": 7954
+      }
+    ],
+    "sourceUrl": "https://ecoroute-a918d.firebaseapp.com/",
+    "liveUrl": "https://ecoroute-a918d.firebaseapp.com/",
+    "featured": true,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-ecoroute-a918d-firebaseapp-2026-09-22-22_55_59.png"
+  },
+  {
+    "slug": "aura-hire",
+    "title": "AuraHire",
+    "category": "Web Applications",
+    "description": "A job-discovery platform presenting roles and job-market context.",
+    "context": "An editorial approach to discovering opportunities and comparing available roles.",
+    "features": ["Job discovery", "Role listings", "Job-market insights"],
+    "image": "/images/projects/aura-hire-1000.webp",
+    "imageSmall": "/images/projects/aura-hire-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/aura-hire-full.webp",
+        "alt": "AuraHire complete website design",
+        "width": 1280,
+        "height": 2068
+      }
+    ],
+    "sourceUrl": "https://aura-hire-44d7chpua-osasbennys-projects.vercel.app/",
+    "liveUrl": null,
+    "featured": true,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-aura-hire-44d7chpua-osasbennys-projects-vercel-app-2026-09-22-22_55_21.png"
+  },
+  {
+    "slug": "beyond-the-machine",
+    "title": "Beyond The Machine",
+    "category": "Websites",
+    "description": "A book storefront exploring humanity in the age of technology.",
+    "context": "An editorial website that connects the book\u2019s themes, chapters, and purchase journey.",
+    "features": [
+      "Book presentation",
+      "Chapter previews",
+      "Author-led storytelling"
+    ],
+    "image": "/images/projects/beyond-the-machine-1000.webp",
+    "imageSmall": "/images/projects/beyond-the-machine-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/beyond-the-machine-full.webp",
+        "alt": "Beyond The Machine complete website design",
+        "width": 1280,
+        "height": 4248
+      }
+    ],
+    "sourceUrl": "https://beyond-the-machine-book.vercel.app/",
+    "liveUrl": "https://beyond-the-machine-book.vercel.app/",
+    "featured": true,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-beyond-the-machine-book-vercel-app-2026-09-22-22_55_34.png"
+  },
+  {
+    "slug": "elijah-ogunsanya-associates",
+    "title": "Elijah Ogunsanya Associates",
+    "category": "Websites",
+    "description": "A real-estate website for property discovery and professional inquiries.",
+    "context": "A structured way to explore property listings and contact a real-estate practice.",
+    "features": ["Property search", "Featured listings", "Inquiry pathways"],
+    "image": "/images/projects/elijah-ogunsanya-associates-1000.webp",
+    "imageSmall": "/images/projects/elijah-ogunsanya-associates-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/elijah-ogunsanya-associates-full.webp",
+        "alt": "Elijah Ogunsanya Associates complete website design",
+        "width": 1280,
+        "height": 5480
+      }
+    ],
+    "sourceUrl": "https://elijahogunsanyaassociates.com/",
+    "liveUrl": "https://elijahogunsanyaassociates.com/",
+    "featured": false,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-elijahogunsanyaassociates-2026-09-22-22_55_11.png"
+  },
+  {
+    "slug": "elsmith-consulting",
+    "title": "Elsmith Consulting",
+    "category": "Websites",
+    "description": "A corporate website for business advisory and leadership services.",
+    "context": "A service-led experience that makes the firm\u2019s expertise easier to explore.",
+    "features": [
+      "Business advisory services",
+      "Leadership development",
+      "Consultation entry points"
+    ],
+    "image": "/images/projects/elsmith-consulting-1000.webp",
+    "imageSmall": "/images/projects/elsmith-consulting-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/elsmith-consulting-full.webp",
+        "alt": "Elsmith Consulting complete website design",
+        "width": 1280,
+        "height": 3061
+      }
+    ],
+    "sourceUrl": "https://elsmithconsulting.com/",
+    "liveUrl": "https://www.elsmithconsulting.com/",
+    "featured": false,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-elsmithconsulting-2026-09-22-22_54_39.png"
+  },
+  {
+    "slug": "lignel-healthcare",
+    "title": "Lignel Healthcare",
+    "category": "Websites",
+    "description": "A healthcare organisation\u2019s website for services, products, and community initiatives.",
+    "context": "A clear public-facing home for healthcare information and organisational work.",
+    "features": [
+      "Service information",
+      "Public-health programmes",
+      "Products and research content"
+    ],
+    "image": "/images/projects/lignel-healthcare-1000.webp",
+    "imageSmall": "/images/projects/lignel-healthcare-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/lignel-healthcare-full.webp",
+        "alt": "Lignel Healthcare complete website design",
+        "width": 1280,
+        "height": 2939
+      }
+    ],
+    "sourceUrl": null,
+    "liveUrl": null,
+    "featured": false,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-lignelhealthcareltd-2026-09-22-22_56_14.png"
+  },
+  {
+    "slug": "renowncrown",
+    "title": "RenownCrown",
+    "category": "Websites",
+    "description": "An agricultural commodity trading and supply website.",
+    "context": "A catalogue-led experience introducing agricultural products and supply capabilities.",
+    "features": [
+      "Commodity categories",
+      "Supply information",
+      "Product inquiries"
+    ],
+    "image": "/images/projects/renowncrown-1000.webp",
+    "imageSmall": "/images/projects/renowncrown-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/renowncrown-full.webp",
+        "alt": "RenownCrown complete website design",
+        "width": 1280,
+        "height": 4257
+      }
+    ],
+    "sourceUrl": null,
+    "liveUrl": null,
+    "featured": false,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-renowncrown-2026-09-22-22_53_17.png"
+  },
+  {
+    "slug": "echobroad",
+    "title": "EchoBroad",
+    "category": "Websites",
+    "description": "A digital-marketing website presenting services and digital resources.",
+    "context": "A focused business website connecting marketing services with a clear inquiry path.",
+    "features": [
+      "Service presentation",
+      "Digital resources",
+      "Project inquiry journey"
+    ],
+    "image": "/images/projects/echobroad-1000.webp",
+    "imageSmall": "/images/projects/echobroad-640.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/echobroad-full.webp",
+        "alt": "EchoBroad complete website design",
+        "width": 1280,
+        "height": 5257
+      }
+    ],
+    "sourceUrl": null,
+    "liveUrl": null,
+    "featured": false,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "screencapture-echobroad-2026-09-22-22_53_04.png"
+  },
+  {
     "slug": "beautystar-xra-ventures",
     "title": "BeautyStar XRA Ventures",
     "category": "Websites",
@@ -79,7 +404,7 @@
     "image": "/images/projects/ng-content-concepts.jpg",
     "sourceUrl": "https://ngcontentconcepts.com/",
     "liveUrl": "https://ngcontentconcepts.com/",
-    "featured": true,
+    "featured": false,
     "status": "Archived work",
     "technologies": []
   },
@@ -91,7 +416,7 @@
     "image": "/images/projects/golden-fm-yenagoa.jpg",
     "sourceUrl": "https://goldenfmyenagoa.com/",
     "liveUrl": "https://goldenfmyenagoa.com/",
-    "featured": true,
+    "featured": false,
     "status": "Archived work",
     "technologies": []
   },
@@ -247,7 +572,7 @@
     "image": "/images/projects/aim-glow-cosmetics.jpg",
     "sourceUrl": "https://aimglowcosmetics.com/",
     "liveUrl": "https://aimglowcosmetics.com/",
-    "featured": true,
+    "featured": false,
     "status": "Archived work",
     "technologies": []
   },
@@ -259,7 +584,7 @@
     "image": "/images/projects/anait.jpg",
     "sourceUrl": "https://anait.com.ng/",
     "liveUrl": "https://anait.com.ng/",
-    "featured": true,
+    "featured": false,
     "status": "Archived work",
     "technologies": []
   },

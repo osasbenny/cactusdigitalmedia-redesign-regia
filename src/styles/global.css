@@ -1737,3 +1737,142 @@ footer p {
 .contact-grid > * {
   min-width: 0;
 }
+
+.filter-bar {
+  align-items: flex-start;
+}
+.filter-bar > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.filter {
+  margin: 0;
+}
+.filter-bar .search {
+  flex-shrink: 0;
+}
+.mobile-project {
+  background: #edf3ff !important;
+  padding: 20px;
+}
+.mobile-project img {
+  object-fit: contain;
+  box-shadow: none;
+  border-radius: 0;
+}
+.case-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 70px;
+  max-width: none;
+  margin-top: 0;
+  margin-bottom: 45px;
+}
+.case-intro h2 {
+  font-size: clamp(1.8rem, 2.7vw, 2.6rem);
+  line-height: 1.2;
+}
+.case-features {
+  list-style: none;
+  margin: 0 0 26px;
+  padding: 0;
+}
+.case-features li {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.case-cover {
+  background: var(--soft);
+  padding: 35px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+.case-cover img {
+  width: 100%;
+  height: auto;
+  max-height: 750px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px;
+}
+.mobile-cover img {
+  object-fit: contain;
+  max-height: 550px;
+}
+.case-gallery {
+  margin-block: 40px;
+}
+.case-gallery figure {
+  margin: 0 0 35px;
+}
+.case-gallery img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.case-gallery figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 15px;
+}
+.app-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.app-gallery img {
+  height: 500px;
+  object-fit: contain;
+  background: #f6f6fa;
+  padding: 14px;
+}
+.service-top span,
+.step,
+.row-number {
+  color: #746581;
+}
+@media (max-width: 850px) {
+  .filter-bar {
+    flex-direction: column;
+  }
+  .filter-bar .search {
+    width: 100%;
+  }
+  .filter-bar .search input {
+    width: 100%;
+  }
+  .case-intro {
+    gap: 30px;
+  }
+  .app-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .filter-bar > div {
+    gap: 8px;
+  }
+  .filter {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+  .case-intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .case-cover {
+    padding: 15px;
+  }
+  .app-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+  .app-gallery img {
+    height: 300px;
+    padding: 7px;
+  }
+}
