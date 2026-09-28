@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { services, brand } from "../data/site";
+import { smsConsents } from "../data/sms-consent";
 import { Arrow } from "./Shared";
 export default function InquiryForm({
   project = false,
@@ -10,11 +11,19 @@ export default function InquiryForm({
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">(
     "idle",
   );
+  const [smsSelected, setSmsSelected] = useState(false);
   const [message, setMessage] = useState("");
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
+    const data = {
+      ...Object.fromEntries(new FormData(form)),
+      formSource: project
+        ? form.closest("[role=dialog]")
+          ? "project-modal"
+          : "project-page"
+        : "contact-page",
+    };
     setState("sending");
     try {
       const response = await fetch(project ? "/api/project" : "/api/contact", {
@@ -33,6 +42,7 @@ export default function InquiryForm({
       );
       setState("success");
       form.reset();
+      setSmsSelected(false);
     } catch (error) {
       setState("error");
       setMessage(
@@ -70,8 +80,17 @@ export default function InquiryForm({
           <input name="company" autoComplete="organization" maxLength={150} />
         </label>
         <label>
-          Phone number
-          <input name="phone" type="tel" autoComplete="tel" maxLength={40} />
+          Mobile number
+          <input
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            maxLength={40}
+            placeholder="+234… or +1…"
+            required={smsSelected}
+            pattern={smsSelected ? "\\+[1-9][0-9]{6,14}" : undefined}
+            title="Include the country code, for example +2349032353823"
+          />
         </label>
         <label className="full">
           What can we help with? <span>*</span>
@@ -146,6 +165,34 @@ export default function InquiryForm({
           />
         </label>
       </div>
+      <fieldset
+        className="sms-consents"
+        onChange={(e) =>
+          setSmsSelected(!!e.currentTarget.querySelector("input:checked"))
+        }
+      >
+        <legend>
+          SMS preferences <span>(optional)</span>
+        </legend>
+        {smsConsents.map(({ name, label, text }) => (
+          <label className="consent" key={name}>
+            <input type="checkbox" name={name} value="yes" />
+            <span>
+              <strong>{label}</strong>
+              {text}
+            </span>
+          </label>
+        ))}
+        <p className="sms-policy-links">
+          <Link to="/privacy" target="_blank" rel="noopener noreferrer">
+            Privacy Policy
+          </Link>
+          <span aria-hidden="true"> | </span>
+          <Link to="/terms" target="_blank" rel="noopener noreferrer">
+            Terms of Service
+          </Link>
+        </p>
+      </fieldset>
       <div className="honey" aria-hidden="true">
         <label>
           Leave this field empty
@@ -156,7 +203,8 @@ export default function InquiryForm({
         <input type="checkbox" name="consent" value="yes" required />{" "}
         <span>
           I agree to the <Link to="/privacy">privacy policy</Link> and to being
-          contacted about this inquiry.
+          contacted by email about this inquiry. This does not provide SMS
+          consent.
         </span>
       </label>
       <button

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { brand } from "../data/site";
 import InquiryForm from "./InquiryForm";
+import WhatsAppChat from "./WhatsAppChat";
 import { Arrow } from "./Shared";
 const nav = [
+  ["Home", "/"],
   ["About", "/about"],
   ["Services", "/services"],
   ["Portfolio", "/portfolio"],
   ["Insights", "/blog"],
+  ["Contact us", "/contact"],
 ];
 export default function Layout() {
   const [menu, setMenu] = useState(false);
@@ -38,7 +41,7 @@ export default function Layout() {
           </Link>
           <nav aria-label="Main navigation" className="desktop-nav">
             {nav.map(([label, url]) => (
-              <NavLink key={url} to={url}>
+              <NavLink key={url} to={url} end={url === "/"}>
                 {label}
               </NavLink>
             ))}
@@ -82,16 +85,14 @@ export default function Layout() {
             className="mobile-nav"
             aria-label="Mobile navigation"
           >
-            {[
-              ...nav,
-              ["Contact", "/contact"],
-              ["Start a project", "/start-project"],
-            ].map(([label, url]) => (
-              <NavLink key={url} to={url}>
-                {label}
-                <Arrow diagonal />
-              </NavLink>
-            ))}
+            {[...nav, ["Start a project", "/start-project"]].map(
+              ([label, url]) => (
+                <NavLink key={url} to={url} end={url === "/"}>
+                  {label}
+                  <Arrow diagonal />
+                </NavLink>
+              ),
+            )}
           </nav>
         )}
       </header>
@@ -131,7 +132,6 @@ export default function Layout() {
                 {label}
               </Link>
             ))}
-            <Link to="/contact">Contact</Link>
           </div>
           <div>
             <h2>Let’s make it happen</h2>
@@ -147,23 +147,20 @@ export default function Layout() {
           </div>
         </div>
         <div className="wrap footer-bottom">
-          <span>© {new Date().getFullYear()} Cactus Digital Media</span>
+          <span>
+            © {new Date().getFullYear()} Cactus Digital Media. All rights
+            reserved.
+          </span>
           <div>
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
-            <span>Built with purpose.</span>
+            <span>
+              Designed and Developed By The Cactus Digital Media Team.
+            </span>
           </div>
         </div>
       </footer>
-      <a
-        className="whatsapp"
-        href={brand.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat with Cactus Digital Media on WhatsApp"
-      >
-        <MessageCircle size={23} />
-      </a>
+      <WhatsAppChat />
     </>
   );
 }

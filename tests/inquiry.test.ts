@@ -168,3 +168,76 @@ describe("Delivery and abuse protection", () => {
     expect(sendMail.mock.calls[0][0].replyTo).toBe(valid.email);
   });
 });
+
+describe("Deployment origins and explicit SMS consent", () => {
+  it("accepts the published site and exact Vercel-owned deployment hosts", () => {
+    expect(allowedOrigin("https://cactusdigitalmedia.vercel.app", {})).toBe(
+      true,
+    );
+    expect(
+      allowedOrigin("https://cactusdigitalmedia.ng", {
+        ALLOWED_ORIGINS: "https://other-approved.example",
+      }),
+    ).toBe(true);
+    expect(
+      allowedOrigin("https://build-example.vercel.app", {
+        VERCEL_URL: "build-example.vercel.app",
+      }),
+    ).toBe(true);
+    expect(allowedOrigin("https://other-project.vercel.app", {})).toBe(false);
+    expect(
+      allowedOrigin("https://cactusdigitalmedia.ng.evil.example", {}),
+    ).toBe(false);
+  });
+  it("defaults both SMS preferences to no without inferring consent from a phone", () => {
+    const data = inquirySchema.parse({ ...valid, phone: "+2349032353823" });
+    expect(data.smsInquiryConsent).toBe("no");
+    expect(data.smsMarketingConsent).toBe("no");
+  });
+  it.each(["smsInquiryConsent", "smsMarketingConsent"])(
+    "requires a valid international mobile for %s",
+    async (key) => {
+      const res = response();
+      await createHandler()(
+        request({ ...valid, [key]: "yes", phone: "123" }),
+        res as unknown as VercelResponse,
+      );
+      expect(res.status).toHaveBeenCalledWith(400);
+      expect(sendMail).not.toHaveBeenCalled();
+    },
+  );
+  it("records independent preferences, disclosure, source, and server timestamp in the delivered email", async () => {
+    configure();
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValue({ ok: true, json: async () => ({ result: 1 }) }),
+    );
+    sendMail.mockResolvedValue({ accepted: ["inbox@example.com"] });
+    const res = response();
+    await createHandler()(
+      request({
+        ...valid,
+        phone: "+2349032353823",
+        smsInquiryConsent: "yes",
+        smsMarketingConsent: "no",
+        formSource: "contact-page",
+      }),
+      res as unknown as VercelResponse,
+    );
+    expect(res.status).toHaveBeenCalledWith(200);
+    const record = JSON.parse(
+      sendMail.mock.calls[0][0].text.split("SMS consent record\n")[1],
+    );
+    expect(record).toMatchObject({
+      inquirySms: true,
+      marketingSms: false,
+      source: "contact-page",
+      disclosureVersion: "2026-09-28",
+      origin: "https://cactusdigitalmedia.ng",
+    });
+    expect(Date.parse(record.receivedAt)).not.toBeNaN();
+    expect(record.disclosures).toHaveLength(2);
+  });
+});

@@ -60,3 +60,5 @@ Source ZIP unchanged. Files below are archive-relative; legacy names are intenti
 | wp-content/uploads/2026/08/regia-portfolio-26-1787972225-1024x1024.jpg | 117485 |
 | wp-content/uploads/2026/08/regia-portfolio-27-1787841986-1024x1024.jpg | 121699 |
 | wp-content/uploads/2026/08/regia-portfolio-46-1788058664-1024x1024.jpg | 158188 |
+## Owner-supplied motion clips — 2026-09-28
+hero-business.mp4, creative-team.mp4, app-motion.mp4, ecommerce-motion.mp4 were supplied by the owner for the homepage. Local copies in public/video remove audio and use fast-start MP4 metadata; corresponding WebP poster frames are extracted from each actual clip. All four appear immediately after the homepage hero.

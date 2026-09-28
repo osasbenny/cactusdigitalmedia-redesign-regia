@@ -181,3 +181,85 @@ test("recent work galleries and article navigation load real content", async ({
     "Loading article",
   );
 });
+
+test("WhatsApp card matches the contact flow and restores keyboard focus", async ({
+  page,
+}) => {
+  for (const width of [320, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    const trigger = page.getByRole("button", {
+      name: "Chat with Cactus Digital Media on WhatsApp",
+    });
+    await trigger.click();
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Start WhatsApp Chat" }),
+    ).toHaveAttribute("href", "https://wa.me/message/GHSJFUNL4CLDM1");
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("dialog")).not.toBeVisible();
+    await expect(trigger).toBeFocused();
+  }
+});
+
+test("all form surfaces show independent optional SMS choices", async ({
+  page,
+}) => {
+  for (const route of ["/contact", "/start-project", "/"]) {
+    await page.goto(route);
+    if (route === "/")
+      await page.getByRole("button", { name: "Start a project" }).click();
+    const inquiry = page.locator('input[name="smsInquiryConsent"]');
+    const marketing = page.locator('input[name="smsMarketingConsent"]');
+    await expect(inquiry).not.toBeChecked();
+    await expect(marketing).not.toBeChecked();
+    await expect(inquiry).not.toHaveAttribute("required", "");
+    await expect(marketing).not.toHaveAttribute("required", "");
+    await inquiry.check();
+    await expect(marketing).not.toBeChecked();
+    await expect(page.locator('input[name="phone"]')).toHaveAttribute(
+      "required",
+      "",
+    );
+    await inquiry.uncheck();
+    await expect(page.locator('input[name="phone"]')).not.toHaveAttribute(
+      "required",
+      "",
+    );
+    await expect(page.locator(".sms-policy-links a")).toHaveCount(2);
+  }
+});
+
+test("four responsive videos have real sources, posters, and reduced-motion controls", async ({
+  page,
+  request,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+  await expect(page.locator(".motion-grid video")).toHaveCount(4);
+  for (const video of await page.locator(".motion-grid video").all()) {
+    const poster = await video.getAttribute("poster");
+    expect((await request.get(poster!)).ok()).toBe(true);
+    expect((await request.get(poster!.replace(".webp", ".mp4"))).ok()).toBe(
+      true,
+    );
+    expect(await video.evaluate((el: HTMLVideoElement) => el.paused)).toBe(
+      true,
+    );
+  }
+  await expect(
+    page
+      .getByRole("navigation", { name: "Main navigation", exact: true })
+      .getByRole("link", { name: "Home", exact: true }),
+  ).toBeVisible();
+  await expect(
+    page
+      .getByRole("navigation", { name: "Main navigation", exact: true })
+      .getByRole("link", { name: "Contact us", exact: true }),
+  ).toBeVisible();
+});

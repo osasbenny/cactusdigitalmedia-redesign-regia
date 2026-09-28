@@ -13,3 +13,11 @@
 - [ ] Import repository into Vercel and add environment variables.
 - [ ] Verify real email delivery, API and routing on Vercel preview.
 - [ ] Owner approves production domain cutover.
+
+## Post-deployment update
+- [x] WhatsApp chat panel; Home and Contact us navigation; automatic year and team credits.
+- [x] Four responsive homepage videos with motion preferences and playback controls.
+- [x] Separate optional SMS consent and server-side consent evidence; production origin fix.
+- [ ] Configure SMTP and verify provider authentication/delivery in Vercel.
+- [ ] Verify Redis credentials for form rate limiting.
+- [ ] Verify new deployment and reassign cactusdigitalmedia.ng, preserving old project.

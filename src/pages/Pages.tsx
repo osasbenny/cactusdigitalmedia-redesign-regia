@@ -524,6 +524,22 @@ export function Legal({ terms = false }: { terms?: boolean }) {
               may change after delivery and are controlled by their respective
               operators. Their content and policies may differ from ours.
             </p>
+            <h2>SMS messaging terms</h2>
+            <p>
+              By selecting an optional SMS checkbox, you agree to receive only
+              the selected category of text messages from Cactus Digital Media
+              at the mobile number you supply. Inquiry and project messages may
+              include consultations, appointments, support, and service updates.
+              Marketing messages may include service offers and promotions and
+              require a separate opt-in. Consent is not a condition of
+              purchasing services.
+            </p>
+            <p>
+              Message frequency varies. Message and data rates may apply. Reply
+              STOP to opt out or HELP for assistance, or email {brand.email}.
+              Carriers are not liable for delayed or undelivered messages. You
+              can submit an inquiry without opting into either SMS category.
+            </p>
             <h2>Content and acceptable use</h2>
             <p>
               Do not misuse the inquiry tools, attempt unauthorized access, or
@@ -548,6 +564,27 @@ export function Legal({ terms = false }: { terms?: boolean }) {
               hashed network identifier may be retained for up to one hour to
               limit form abuse. Please do not submit passwords, payment details,
               or sensitive records through these forms.
+            </p>
+            <h2>Mobile information and SMS consent</h2>
+            <p>
+              SMS preferences are optional, separate, and unchecked by default.
+              Providing a phone number or accepting this privacy policy does not
+              subscribe you to SMS. When you submit a form, your selected
+              preferences, phone number, disclosure version and wording, source
+              form, and submission time are included in the inquiry email as a
+              consent record.
+            </p>
+            <p>
+              We do not sell or share mobile information with third parties or
+              affiliates for marketing or promotional purposes. SMS opt-in data
+              and consent are not shared with third parties for their marketing.
+              Service providers may process this information only as necessary
+              to deliver our communications and support the service.
+            </p>
+            <p>
+              Reply STOP to opt out of SMS or HELP for assistance. You may also
+              contact us using the email below. Choosing not to receive SMS does
+              not affect your ability to purchase services.
             </p>
             <h2>Retention and your choices</h2>
             <p>

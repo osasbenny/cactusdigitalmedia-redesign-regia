@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { services, projects, posts, process } from "../data/site";
 import { Arrow, CTA, SectionTitle, Cinematic } from "../components/Shared";
+import MotionShowcase from "../components/MotionShowcase";
 import ProjectCard from "../components/ProjectCard";
 const icons = [Code2, Smartphone, Layers, Workflow, ShoppingBag, PencilRuler];
 export default function Home() {
@@ -90,6 +91,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <MotionShowcase />
       <div className="service-ribbon">
         <div className="wrap">
           <span>Websites</span>

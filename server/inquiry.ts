@@ -2,6 +2,7 @@ import { createHmac } from "node:crypto";
 import nodemailer from "nodemailer";
 import { z } from "zod";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { smsConsents, smsConsentVersion } from "../src/data/sms-consent.js";
 import serviceData from "../src/data/services.json" with { type: "json" };
 // Reject control bytes in untrusted form input.
 const text = (max: number) =>
@@ -27,6 +28,11 @@ export const inquirySchema = z
       .refine((v) => v === "not-sure" || serviceData.some((s) => s.slug === v)),
     message: text(5000).min(20),
     consent: z.literal("yes"),
+    smsInquiryConsent: z.enum(["yes", "no"]).optional().default("no"),
+    smsMarketingConsent: z.enum(["yes", "no"]).optional().default("no"),
+    formSource: z
+      .enum(["contact-page", "project-page", "project-modal"])
+      .optional(),
     fax: text(200).optional().default(""),
     budget: text(80).optional(),
     timeline: text(80).optional(),
@@ -58,12 +64,19 @@ export function allowedOrigin(
   origin: string | undefined,
   env: NodeJS.ProcessEnv,
 ) {
-  const origins = (
-    env.ALLOWED_ORIGINS ||
-    "https://cactusdigitalmedia.ng,https://www.cactusdigitalmedia.ng"
-  )
-    .split(",")
-    .map((s) => s.trim());
+  const origins = [
+    "https://cactusdigitalmedia.ng",
+    "https://www.cactusdigitalmedia.ng",
+    "https://cactusdigitalmedia.vercel.app",
+    ...(env.ALLOWED_ORIGINS || "").split(","),
+    ...[
+      env.VERCEL_URL,
+      env.VERCEL_BRANCH_URL,
+      env.VERCEL_PROJECT_PRODUCTION_URL,
+    ]
+      .filter((host): host is string => !!host)
+      .map((host) => `https://${host}`),
+  ].map((value) => value.trim().replace(/\/$/, ""));
   return !!origin && origins.includes(origin);
 }
 async function rateLimit(req: VercelRequest) {
@@ -130,6 +143,17 @@ export function createHandler(project = false) {
         error:
           "Please check the required fields, email address, and message length.",
       });
+    if (
+      (parsed.data.smsInquiryConsent === "yes" ||
+        parsed.data.smsMarketingConsent === "yes") &&
+      !/^\+[1-9]\d{6,14}$/.test(parsed.data.phone)
+    )
+      return res
+        .status(400)
+        .json({
+          error:
+            "Please enter your mobile number with country code to opt into SMS (for example +2349032353823).",
+        });
     if (parsed.data.fax)
       return res.status(400).json({ error: "Submission rejected." });
     const env = process.env;
@@ -174,10 +198,26 @@ export function createHandler(project = false) {
         to: env.CONTACT_TO,
         replyTo: d.email,
         subject: `Cactus ${project ? "project brief" : "website inquiry"}: ${d.service}`,
-        text: Object.entries(d)
-          .filter(([k]) => !["fax", "consent"].includes(k))
-          .map(([k, v]) => `${k}: ${v || "Not supplied"}`)
-          .join("\n\n"),
+        text:
+          Object.entries(d)
+            .filter(([k]) => !["fax", "consent"].includes(k))
+            .map(([k, v]) => `${k}: ${v || "Not supplied"}`)
+            .join("\n\n") +
+          "\n\nSMS consent record\n" +
+          JSON.stringify(
+            {
+              receivedAt: new Date().toISOString(),
+              origin: req.headers.origin,
+              source: d.formSource || (project ? "project" : "contact"),
+              disclosureVersion: smsConsentVersion,
+              mobile: d.phone,
+              inquirySms: d.smsInquiryConsent === "yes",
+              marketingSms: d.smsMarketingConsent === "yes",
+              disclosures: smsConsents,
+            },
+            null,
+            2,
+          ),
       });
       if (!result.accepted?.length) throw new Error("not_accepted");
       return res.status(200).json({ ok: true });
