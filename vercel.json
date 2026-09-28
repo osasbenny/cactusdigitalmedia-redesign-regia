@@ -1,0 +1,496 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+      },
+      "continue": true
+    },
+    {
+      "src": "/work/?",
+      "status": 308,
+      "headers": {
+        "Location": "/portfolio"
+      }
+    },
+    {
+      "src": "/insights/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog"
+      }
+    },
+    {
+      "src": "/start-a-project/?",
+      "status": 308,
+      "headers": {
+        "Location": "/start-project"
+      }
+    },
+    {
+      "src": "/privacy-policy/?",
+      "status": 308,
+      "headers": {
+        "Location": "/privacy"
+      }
+    },
+    {
+      "src": "/terms-of-service/?",
+      "status": 308,
+      "headers": {
+        "Location": "/terms"
+      }
+    },
+    {
+      "src": "/services/website-design-development/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/web-design"
+      }
+    },
+    {
+      "src": "/services/ai-automation-services/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/ai-automation"
+      }
+    },
+    {
+      "src": "/services/e-commerce-solutions/?",
+      "status": 308,
+      "headers": {
+        "Location": "/services/ecommerce"
+      }
+    },
+    {
+      "src": "/2026/08/25/ai-automation-in-nigeria-10-business-processes-worth-automating/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/ai-automation-in-nigeria-10-business-processes-worth-automating"
+      }
+    },
+    {
+      "src": "/2026/08/25/best-website-features-for-small-businesses-in-lagos/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/best-website-features-for-small-businesses-in-lagos"
+      }
+    },
+    {
+      "src": "/2026/08/25/digital-transformation-for-nigerian-smes-where-to-start/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/digital-transformation-for-nigerian-smes-where-to-start"
+      }
+    },
+    {
+      "src": "/2026/08/25/e-commerce-solutions-for-nigerian-smes-a-practical-growth-guide/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/e-commerce-solutions-for-nigerian-smes-a-practical-growth-guide"
+      }
+    },
+    {
+      "src": "/2026/08/25/e-commerce-website-development-in-nigeria-what-you-need-to-launch/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/e-commerce-website-development-in-nigeria-what-you-need-to-launch"
+      }
+    },
+    {
+      "src": "/2026/08/25/how-ai-automation-can-improve-lead-follow-up-and-sales-response/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/how-ai-automation-can-improve-lead-follow-up-and-sales-response"
+      }
+    },
+    {
+      "src": "/2026/08/25/how-much-does-a-business-website-cost-in-nigeria-in-2026/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/how-much-does-a-business-website-cost-in-nigeria-in-2026"
+      }
+    },
+    {
+      "src": "/2026/08/25/how-to-make-your-business-website-convert-more-visitors/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/how-to-make-your-business-website-convert-more-visitors"
+      }
+    },
+    {
+      "src": "/2026/08/25/mobile-app-development-company-in-nigeria-from-idea-to-launch/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/mobile-app-development-company-in-nigeria-from-idea-to-launch"
+      }
+    },
+    {
+      "src": "/2026/08/25/seo-friendly-website-design-in-nigeria-what-it-actually-means/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/seo-friendly-website-design-in-nigeria-what-it-actually-means"
+      }
+    },
+    {
+      "src": "/2026/08/25/website-design-company-in-lagos-how-to-choose-the-right-partner-in-2026/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/website-design-company-in-lagos-how-to-choose-the-right-partner-in-2026"
+      }
+    },
+    {
+      "src": "/2026/08/25/website-design-in-nigeria-the-2026-guide-for-growing-businesses/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/website-design-in-nigeria-the-2026-guide-for-growing-businesses"
+      }
+    },
+    {
+      "src": "/2026/08/25/website-or-mobile-app-how-to-choose-the-right-first-product/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/website-or-mobile-app-how-to-choose-the-right-first-product"
+      }
+    },
+    {
+      "src": "/2026/08/25/whatsapp-ai-automation-for-nigerian-businesses/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/whatsapp-ai-automation-for-nigerian-businesses"
+      }
+    },
+    {
+      "src": "/2026/08/25/why-mobile-first-website-design-matters-in-nigeria/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/why-mobile-first-website-design-matters-in-nigeria"
+      }
+    },
+    {
+      "src": "/2026/08/25/wordpress-website-design-in-lagos-when-wordpress-is-the-right-choice/?",
+      "status": 308,
+      "headers": {
+        "Location": "/blog/wordpress-website-design-in-lagos-when-wordpress-is-the-right-choice"
+      }
+    },
+    {
+      "src": "/assets/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      },
+      "continue": true
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/about/?",
+      "dest": "/about/index.html"
+    },
+    {
+      "src": "/services/?",
+      "dest": "/services/index.html"
+    },
+    {
+      "src": "/portfolio/?",
+      "dest": "/portfolio/index.html"
+    },
+    {
+      "src": "/blog/?",
+      "dest": "/blog/index.html"
+    },
+    {
+      "src": "/contact/?",
+      "dest": "/contact/index.html"
+    },
+    {
+      "src": "/start-project/?",
+      "dest": "/start-project/index.html"
+    },
+    {
+      "src": "/products/?",
+      "dest": "/products/index.html"
+    },
+    {
+      "src": "/privacy/?",
+      "dest": "/privacy/index.html"
+    },
+    {
+      "src": "/terms/?",
+      "dest": "/terms/index.html"
+    },
+    {
+      "src": "/services/web-design/?",
+      "dest": "/services/web-design/index.html"
+    },
+    {
+      "src": "/services/web-app-development/?",
+      "dest": "/services/web-app-development/index.html"
+    },
+    {
+      "src": "/services/mobile-app-development/?",
+      "dest": "/services/mobile-app-development/index.html"
+    },
+    {
+      "src": "/services/desktop-software/?",
+      "dest": "/services/desktop-software/index.html"
+    },
+    {
+      "src": "/services/ecommerce/?",
+      "dest": "/services/ecommerce/index.html"
+    },
+    {
+      "src": "/services/saas/?",
+      "dest": "/services/saas/index.html"
+    },
+    {
+      "src": "/services/ai-automation/?",
+      "dest": "/services/ai-automation/index.html"
+    },
+    {
+      "src": "/services/ui-ux/?",
+      "dest": "/services/ui-ux/index.html"
+    },
+    {
+      "src": "/services/seo/?",
+      "dest": "/services/seo/index.html"
+    },
+    {
+      "src": "/services/digital-marketing/?",
+      "dest": "/services/digital-marketing/index.html"
+    },
+    {
+      "src": "/services/maintenance/?",
+      "dest": "/services/maintenance/index.html"
+    },
+    {
+      "src": "/portfolio/beautystar-xra-ventures/?",
+      "dest": "/portfolio/beautystar-xra-ventures/index.html"
+    },
+    {
+      "src": "/portfolio/quantia-qatar/?",
+      "dest": "/portfolio/quantia-qatar/index.html"
+    },
+    {
+      "src": "/portfolio/janda-commercial-cleaning-ltd/?",
+      "dest": "/portfolio/janda-commercial-cleaning-ltd/index.html"
+    },
+    {
+      "src": "/portfolio/oas-technologies/?",
+      "dest": "/portfolio/oas-technologies/index.html"
+    },
+    {
+      "src": "/portfolio/magical-vibes-entertainment/?",
+      "dest": "/portfolio/magical-vibes-entertainment/index.html"
+    },
+    {
+      "src": "/portfolio/elim-bible-school/?",
+      "dest": "/portfolio/elim-bible-school/index.html"
+    },
+    {
+      "src": "/portfolio/ng-content-concepts/?",
+      "dest": "/portfolio/ng-content-concepts/index.html"
+    },
+    {
+      "src": "/portfolio/golden-fm-yenagoa/?",
+      "dest": "/portfolio/golden-fm-yenagoa/index.html"
+    },
+    {
+      "src": "/portfolio/oakis-trend/?",
+      "dest": "/portfolio/oakis-trend/index.html"
+    },
+    {
+      "src": "/portfolio/mate-energy/?",
+      "dest": "/portfolio/mate-energy/index.html"
+    },
+    {
+      "src": "/portfolio/studybond/?",
+      "dest": "/portfolio/studybond/index.html"
+    },
+    {
+      "src": "/portfolio/duwell-global-resources/?",
+      "dest": "/portfolio/duwell-global-resources/index.html"
+    },
+    {
+      "src": "/portfolio/qcs-global-consult/?",
+      "dest": "/portfolio/qcs-global-consult/index.html"
+    },
+    {
+      "src": "/portfolio/united-heart-ltd/?",
+      "dest": "/portfolio/united-heart-ltd/index.html"
+    },
+    {
+      "src": "/portfolio/agrisens/?",
+      "dest": "/portfolio/agrisens/index.html"
+    },
+    {
+      "src": "/portfolio/rockface-hotel-nigeria/?",
+      "dest": "/portfolio/rockface-hotel-nigeria/index.html"
+    },
+    {
+      "src": "/portfolio/ariscom-services/?",
+      "dest": "/portfolio/ariscom-services/index.html"
+    },
+    {
+      "src": "/portfolio/jbts-limited/?",
+      "dest": "/portfolio/jbts-limited/index.html"
+    },
+    {
+      "src": "/portfolio/blossom-novatech/?",
+      "dest": "/portfolio/blossom-novatech/index.html"
+    },
+    {
+      "src": "/portfolio/k-home-tech-solution/?",
+      "dest": "/portfolio/k-home-tech-solution/index.html"
+    },
+    {
+      "src": "/portfolio/aim-glow-cosmetics/?",
+      "dest": "/portfolio/aim-glow-cosmetics/index.html"
+    },
+    {
+      "src": "/portfolio/anait/?",
+      "dest": "/portfolio/anait/index.html"
+    },
+    {
+      "src": "/portfolio/abokee-wings/?",
+      "dest": "/portfolio/abokee-wings/index.html"
+    },
+    {
+      "src": "/portfolio/davyo-s-place/?",
+      "dest": "/portfolio/davyo-s-place/index.html"
+    },
+    {
+      "src": "/portfolio/first-clean/?",
+      "dest": "/portfolio/first-clean/index.html"
+    },
+    {
+      "src": "/portfolio/motpost/?",
+      "dest": "/portfolio/motpost/index.html"
+    },
+    {
+      "src": "/portfolio/covenant-real-estate/?",
+      "dest": "/portfolio/covenant-real-estate/index.html"
+    },
+    {
+      "src": "/portfolio/goldlife-herbal/?",
+      "dest": "/portfolio/goldlife-herbal/index.html"
+    },
+    {
+      "src": "/portfolio/ciecobon/?",
+      "dest": "/portfolio/ciecobon/index.html"
+    },
+    {
+      "src": "/portfolio/global-seamless-logistics-ltd/?",
+      "dest": "/portfolio/global-seamless-logistics-ltd/index.html"
+    },
+    {
+      "src": "/portfolio/unique-machines/?",
+      "dest": "/portfolio/unique-machines/index.html"
+    },
+    {
+      "src": "/portfolio/grace/?",
+      "dest": "/portfolio/grace/index.html"
+    },
+    {
+      "src": "/portfolio/aerial-srv/?",
+      "dest": "/portfolio/aerial-srv/index.html"
+    },
+    {
+      "src": "/portfolio/ktech-stuffs/?",
+      "dest": "/portfolio/ktech-stuffs/index.html"
+    },
+    {
+      "src": "/portfolio/diwuch-construct/?",
+      "dest": "/portfolio/diwuch-construct/index.html"
+    },
+    {
+      "src": "/blog/ai-automation-in-nigeria-10-business-processes-worth-automating/?",
+      "dest": "/blog/ai-automation-in-nigeria-10-business-processes-worth-automating/index.html"
+    },
+    {
+      "src": "/blog/best-website-features-for-small-businesses-in-lagos/?",
+      "dest": "/blog/best-website-features-for-small-businesses-in-lagos/index.html"
+    },
+    {
+      "src": "/blog/digital-transformation-for-nigerian-smes-where-to-start/?",
+      "dest": "/blog/digital-transformation-for-nigerian-smes-where-to-start/index.html"
+    },
+    {
+      "src": "/blog/e-commerce-solutions-for-nigerian-smes-a-practical-growth-guide/?",
+      "dest": "/blog/e-commerce-solutions-for-nigerian-smes-a-practical-growth-guide/index.html"
+    },
+    {
+      "src": "/blog/e-commerce-website-development-in-nigeria-what-you-need-to-launch/?",
+      "dest": "/blog/e-commerce-website-development-in-nigeria-what-you-need-to-launch/index.html"
+    },
+    {
+      "src": "/blog/how-ai-automation-can-improve-lead-follow-up-and-sales-response/?",
+      "dest": "/blog/how-ai-automation-can-improve-lead-follow-up-and-sales-response/index.html"
+    },
+    {
+      "src": "/blog/how-much-does-a-business-website-cost-in-nigeria-in-2026/?",
+      "dest": "/blog/how-much-does-a-business-website-cost-in-nigeria-in-2026/index.html"
+    },
+    {
+      "src": "/blog/how-to-make-your-business-website-convert-more-visitors/?",
+      "dest": "/blog/how-to-make-your-business-website-convert-more-visitors/index.html"
+    },
+    {
+      "src": "/blog/mobile-app-development-company-in-nigeria-from-idea-to-launch/?",
+      "dest": "/blog/mobile-app-development-company-in-nigeria-from-idea-to-launch/index.html"
+    },
+    {
+      "src": "/blog/seo-friendly-website-design-in-nigeria-what-it-actually-means/?",
+      "dest": "/blog/seo-friendly-website-design-in-nigeria-what-it-actually-means/index.html"
+    },
+    {
+      "src": "/blog/website-design-company-in-lagos-how-to-choose-the-right-partner-in-2026/?",
+      "dest": "/blog/website-design-company-in-lagos-how-to-choose-the-right-partner-in-2026/index.html"
+    },
+    {
+      "src": "/blog/website-design-in-nigeria-the-2026-guide-for-growing-businesses/?",
+      "dest": "/blog/website-design-in-nigeria-the-2026-guide-for-growing-businesses/index.html"
+    },
+    {
+      "src": "/blog/website-or-mobile-app-how-to-choose-the-right-first-product/?",
+      "dest": "/blog/website-or-mobile-app-how-to-choose-the-right-first-product/index.html"
+    },
+    {
+      "src": "/blog/whatsapp-ai-automation-for-nigerian-businesses/?",
+      "dest": "/blog/whatsapp-ai-automation-for-nigerian-businesses/index.html"
+    },
+    {
+      "src": "/blog/why-mobile-first-website-design-matters-in-nigeria/?",
+      "dest": "/blog/why-mobile-first-website-design-matters-in-nigeria/index.html"
+    },
+    {
+      "src": "/blog/wordpress-website-design-in-lagos-when-wordpress-is-the-right-choice/?",
+      "dest": "/blog/wordpress-website-design-in-lagos-when-wordpress-is-the-right-choice/index.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/404.html",
+      "status": 404
+    }
+  ]
+}
