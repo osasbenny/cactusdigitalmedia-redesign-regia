@@ -1,0 +1,62 @@
+# Asset inventory
+
+Source ZIP unchanged. Files below are archive-relative; legacy names are intentional audit evidence.
+
+| Path | Bytes |
+|---|---:|
+| wp-includes/css/dashicons.mind833.css | 59016 |
+| wp-includes/js/jquery/jquery-migrate.min5589.js | 13577 |
+| wp-includes/js/jquery/jquery.minf43b.js | 87553 |
+| wp-content/plugins/formlayer/assets/css/frontendce14.css | 11363 |
+| wp-content/plugins/formlayer/assets/js/frontendce14.js | 6943 |
+| wp-content/themes/regia-digitals-cinematic-v228/style7888.css | 54969 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/js/main7888.js | 10822 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/regia-logo.png | 156735 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/3d/ring-green.mp4 | 168903 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/3d/phone-green.mp4 | 73701 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/uk-documents.mp4 | 408083 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/ecommerce-motion.mp4 | 457216 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/data-orb.mp4 | 822538 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/branding-motion.mp4 | 484066 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/glass-ribbon.mp4 | 969389 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/app-human.mp4 | 531566 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/creative-team.mp4 | 1007410 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/app-motion.mp4 | 796794 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/hero-business.mp4 | 731586 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/metallic-laptop.mp4 | 885346 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/video/cinematic/promo-production.mp4 | 951515 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/3d/phone.png | 72383 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/3d/ring.png | 164316 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/developer.webp | 106012 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/business-meeting.webp | 93994 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/project-discussion.webp | 123528 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/video-production.webp | 90432 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/designer-stylus.webp | 108102 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/business-conversation.webp | 109890 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/ecommerce-owner.webp | 172060 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/creative-team.webp | 150810 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/workspace-hands.webp | 62876 |
+| wp-content/themes/regia-digitals-cinematic-v228/assets/img/real/smartphone-woman.webp | 117602 |
+| wp-content/uploads/2026/09/regia-portfolio-45-1789138207-1024x1024.jpg | 148111 |
+| wp-content/uploads/2026/09/regia-portfolio-44-1789570330-1024x1024.jpg | 109283 |
+| wp-content/uploads/2026/09/regia-portfolio-50-1789664836-1024x1024.jpg | 121579 |
+| wp-content/uploads/2026/09/regia-portfolio-33-1789526913-1024x1024.jpg | 124784 |
+| wp-content/uploads/2026/09/regia-portfolio-31-1790218359-1024x1024.jpg | 91682 |
+| wp-content/uploads/2026/09/regia-portfolio-47-1789570331-1024x1024.jpg | 143848 |
+| wp-content/uploads/2026/09/regia-portfolio-48-1788706665-1024x1024.jpg | 50112 |
+| wp-content/uploads/2026/09/regia-portfolio-40-1788749375-1024x1024.jpg | 140647 |
+| wp-content/uploads/2026/09/regia-portfolio-30-1788706664-1024x1024.jpg | 90148 |
+| wp-content/uploads/2026/09/regia-portfolio-21-1789672636-1024x1024.jpg | 117735 |
+| wp-content/uploads/2026/09/regia-portfolio-39-1789052284-1024x1024.jpg | 99289 |
+| wp-content/uploads/2026/09/regia-portfolio-22-1788793036-1024x1024.jpg | 141737 |
+| wp-content/uploads/2026/09/regia-portfolio-20-1788749375-1024x1024.jpg | 120747 |
+| wp-content/uploads/2026/09/regia-portfolio-49-1788230870-1024x1024.jpg | 109385 |
+| wp-content/uploads/2026/09/regia-portfolio-53-1789660148-1024x1024.jpg | 111098 |
+| wp-content/uploads/2026/09/regia-portfolio-41-1789052284-1024x1024.jpg | 127570 |
+| wp-content/uploads/2026/09/regia-portfolio-51-1789664837-1024x1024.jpg | 141117 |
+| wp-content/uploads/2026/09/regia-portfolio-43-1788793036-1024x1024.jpg | 156644 |
+| wp-content/uploads/2026/09/regia-portfolio-35-1789441002-1024x1024.jpg | 135878 |
+| wp-content/uploads/2026/09/regia-portfolio-37-1788619619-1024x1024.jpg | 104074 |
+| wp-content/uploads/2026/08/regia-portfolio-26-1787972225-1024x1024.jpg | 117485 |
+| wp-content/uploads/2026/08/regia-portfolio-27-1787841986-1024x1024.jpg | 121699 |
+| wp-content/uploads/2026/08/regia-portfolio-46-1788058664-1024x1024.jpg | 158188 |
