@@ -8,3 +8,4 @@
 - Test accessibility, mobile interactions and form failures before release.
 - Keep the existing production website live until preview acceptance and explicit owner cutover approval.
 - Update TASKS.md, CHANGELOG.md and docs/MEMORY.md when behavior or deployment status changes.
+- All commits must use author and committer `osasbenny <45604235+osasbenny@users.noreply.github.com>`; keep the personal email private.

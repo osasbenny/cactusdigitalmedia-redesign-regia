@@ -20,3 +20,6 @@ Vercel-ready configuration is present. No Vercel deployment or DNS/domain cutove
 
 ## Remaining launch setup
 Import repository into a new Vercel project. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM, CONTACT_TO, ALLOWED_ORIGINS, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN and RATE_LIMIT_SALT in Vercel. Configure preview origin explicitly. Verify real inbox delivery and preview behavior before requesting production cutover approval. See DEPLOYMENT.md.
+
+## Git identity correction
+At the owner’s request, all seven initial commits were rewritten to use author and committer osasbenny with the account-linked GitHub noreply address 45604235+osasbenny@users.noreply.github.com. Local repository identity is configured to match. Website file trees were preserved during rewriting. Future commits must retain this identity.
