@@ -70,7 +70,7 @@ export default function Home() {
           />
           <img
             className="hero-ring"
-            src="/images/ring.png"
+            src="/images/ring.webp"
             width="500"
             height="500"
             alt=""

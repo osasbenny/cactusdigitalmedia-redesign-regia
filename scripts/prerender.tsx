@@ -1,3 +1,5 @@
+import postContent from "../src/data/posts.json" with { type: "json" };
+import { ArticleContext } from "../src/lib/article";
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
@@ -12,9 +14,12 @@ const escape = (s: string) =>
     .replaceAll(">", "&gt;");
 for (const route of [...allRoutes, "/404"]) {
   const m = metadata(route);
+  const article = postContent.find((p) => route === `/blog/${p.slug}`) || null;
   const markup = renderToString(
     <StaticRouter location={route}>
-      <App />
+      <ArticleContext.Provider value={article}>
+        <App />
+      </ArticleContext.Provider>
     </StaticRouter>,
   );
   let html = template
@@ -38,6 +43,10 @@ for (const route of [...allRoutes, "/404"]) {
       '<script type="application/ld+json" id="structured-data">{}</script>',
       `<script type="application/ld+json" id="structured-data">${JSON.stringify(structuredData(route)).replaceAll("<", "\\u003c")}</script>`,
     );
+  html = html.replace(
+    "</body>",
+    `<script type="application/json" id="article-data">${JSON.stringify(article).replaceAll("<", "\\u003c")}</script></body>`,
+  );
   if (route === "/404")
     html = html.replace('content="index,follow"', 'content="noindex"');
   const dir = route === "/" ? "dist" : `dist${route}`;
@@ -50,3 +59,7 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${allRoutes.map((r) => `<url><loc>https://cactusdigitalmedia.ng${r}</loc></url>`).join("")}</urlset>`,
 );
 console.log(`Prerendered ${allRoutes.length} routes and a 404 page.`);
+
+mkdirSync("dist/content", { recursive: true });
+for (const post of postContent)
+  writeFileSync(`dist/content/${post.slug}.json`, JSON.stringify(post));

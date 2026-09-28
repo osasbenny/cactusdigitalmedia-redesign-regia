@@ -3,11 +3,19 @@ import { allRoutes } from "../../src/lib/metadata";
 test("all pages render, image assets load, and route metadata matches", async ({
   page,
 }) => {
+  test.setTimeout(90000);
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   for (const route of allRoutes) {
     await page.goto(route);
     await expect(page.locator("h1")).toBeVisible();
+    await page.locator("img").evaluateAll(async (nodes) => {
+      const images = nodes.filter(
+        (el): el is HTMLImageElement => el instanceof HTMLImageElement,
+      );
+      images.forEach((img) => (img.loading = "eager"));
+      await Promise.all(images.map((img) => img.decode()));
+    });
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",
       `https://cactusdigitalmedia.ng${route}`,
@@ -156,4 +164,20 @@ test("unknown routes display a noindex 404 and reduced motion disables decorativ
       .locator(".hero-ring")
       .evaluate((el) => getComputedStyle(el).animationName),
   ).toBe("none");
+});
+
+test("recent work galleries and article navigation load real content", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(page.locator(".project-card")).toHaveCount(6);
+  await page.locator(".project-picture").first().click();
+  await expect(page.locator("h1")).toHaveText("GoFuel");
+  await expect(page.locator(".app-gallery img")).toHaveCount(5);
+  await page.goto("/blog");
+  await page.locator(".article-list a").first().click();
+  await expect(page.locator(".article-body h2").first()).toBeVisible();
+  await expect(page.locator(".article-body")).not.toContainText(
+    "Loading article",
+  );
 });

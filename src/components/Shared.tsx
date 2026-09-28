@@ -1,31 +1,11 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight, Pause, Play } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return diagonal ? (
     <ArrowUpRight size={19} aria-hidden="true" />
   ) : (
     <ArrowRight size={19} aria-hidden="true" />
-  );
-}
-export function Reveal({
-  children,
-  className = "",
-}: {
-  children: ReactNode;
-  className?: string;
-}) {
-  const reduced = useReducedMotion();
-  return (
-    <motion.div
-      className={className}
-      initial={false}
-      whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-    >
-      {children}
-    </motion.div>
   );
 }
 export function SectionTitle({
@@ -87,22 +67,6 @@ export function Cinematic({
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [active, setActive] = useState(false);
-  const reduced = useReducedMotion();
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || reduced) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.src = src;
-          io.disconnect();
-        }
-      },
-      { rootMargin: "100px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [src, reduced]);
   return (
     <div className={`cinematic ${className}`}>
       <video

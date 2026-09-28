@@ -13,7 +13,25 @@ export default function ProjectCard({
         className={`project-picture ${project.category === "Mobile Applications" ? "mobile-project" : ""}`}
         aria-label={`View ${project.title}`}
       >
-        {project.image ? (
+        {project.category === "Mobile Applications" && project.gallery ? (
+          <div className="mobile-preview">
+            {["wallet-screen", "fuel-stations-screen", "history-screen"].map(
+              (name) => {
+                const img = project.gallery?.find((i) => i.src.includes(name));
+                return img ? (
+                  <img
+                    key={name}
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    width={img.width}
+                    height={img.height}
+                  />
+                ) : null;
+              },
+            )}
+          </div>
+        ) : project.image ? (
           <img
             src={project.image}
             alt={`${project.title} project design`}

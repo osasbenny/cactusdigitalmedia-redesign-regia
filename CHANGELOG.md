@@ -7,3 +7,8 @@
 - Verified initial browser journeys; fixed preview route hydration and small-screen title overflow.
 - Updated SMTP dependency; production audit reports zero known vulnerabilities.
 - New portfolio archive and GoFuel media integration queued per owner instruction.
+
+## Recent portfolio integration
+- Added 10 owner-supplied project screenshots and GoFuel app screenshots from the official product site.
+- Built recent-project categories, full design galleries and six featured homepage case studies.
+- Retained legacy projects under archive/all-work filters.

@@ -1,6 +1,6 @@
 import serviceData from "./services.json" with { type: "json" };
 import projectData from "./projects.json" with { type: "json" };
-import postData from "./posts.json" with { type: "json" };
+import postData from "./posts-summary.json" with { type: "json" };
 export const services = serviceData;
 export interface Project {
   slug: string;

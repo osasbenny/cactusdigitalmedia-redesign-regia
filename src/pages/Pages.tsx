@@ -1,3 +1,4 @@
+import { useArticle } from "../lib/article";
 import { useState } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { services, projects, posts, process, brand } from "../data/site";
@@ -369,6 +370,7 @@ export function Blog() {
 }
 export function BlogPost() {
   const { slug } = useParams();
+  const { article, failed } = useArticle(slug);
   const p = posts.find((x) => x.slug === slug);
   if (!p) return <NotFound />;
   return (
@@ -383,7 +385,14 @@ export function BlogPost() {
           Cactus Digital Media · <time dateTime={p.date}>25 August 2026</time> ·
           Updated for Cactus, September 2026
         </p>
-        {p.blocks.map((b, i) =>
+        {!article && (
+          <p role="status">
+            {failed
+              ? "This article could not be loaded. Please refresh the page."
+              : "Loading article…"}
+          </p>
+        )}
+        {article?.blocks.map((b, i) =>
           b.type === "h2" ? (
             <h2 key={i}>{b.text}</h2>
           ) : b.type === "h3" ? (

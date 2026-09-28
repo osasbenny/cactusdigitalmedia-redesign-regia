@@ -1876,3 +1876,39 @@ footer p {
     padding: 7px;
   }
 }
+
+.mobile-preview {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  align-items: center;
+}
+.mobile-preview img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 1px solid #dddce8;
+  box-shadow: 0 12px 30px #21114812;
+}
+.mobile-preview img:nth-child(2) {
+  transform: translateY(-6px);
+}
+.mobile-project:hover .mobile-preview img {
+  transform: none;
+}
+.mobile-project {
+  padding: 25px;
+  background: #e8eff8 !important;
+}
+@media (max-width: 600px) {
+  .mobile-preview {
+    gap: 10px;
+  }
+  .mobile-project {
+    padding: 20px;
+  }
+}

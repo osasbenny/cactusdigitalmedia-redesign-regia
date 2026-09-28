@@ -1,3 +1,4 @@
+import { gzipSync } from "node:zlib";
 import http from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { resolve, extname } from "node:path";
@@ -65,10 +66,18 @@ http
         file = resolve(root, "404.html");
         status = 404;
       }
+      const raw = await readFile(file);
+      const compress =
+        /\.(html|js|css|json|svg|xml|txt)$/.test(file) &&
+        String(req.headers["accept-encoding"]).includes("gzip");
+      if (compress) {
+        res.setHeader("Content-Encoding", "gzip");
+        res.setHeader("Vary", "Accept-Encoding");
+      }
       res.writeHead(status, {
         "Content-Type": types[extname(file)] || "application/octet-stream",
       });
-      res.end(await readFile(file));
+      res.end(compress ? gzipSync(raw) : raw);
     } catch {
       res.writeHead(500);
       res.end("Preview error");

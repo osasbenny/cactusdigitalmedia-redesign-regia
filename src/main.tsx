@@ -1,10 +1,16 @@
+import { ArticleContext } from "./lib/article";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./styles/global.css";
+const initialArticle = JSON.parse(
+  document.getElementById("article-data")?.textContent || "null",
+);
 const element = (
   <BrowserRouter>
-    <App />
+    <ArticleContext.Provider value={initialArticle}>
+      <App />
+    </ArticleContext.Provider>
   </BrowserRouter>
 );
 const root = document.getElementById("root")!;
