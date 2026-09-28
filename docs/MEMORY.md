@@ -1,12 +1,22 @@
-# Project handoff — checkpoint 2026-09-28
+# Project handoff — 2026-09-28
 
-React/Vite/TypeScript/Tailwind rebuild with current Cactus branding, 11 service definitions, 35 archived website entries, 16 cleaned articles, 72 prerendered routes, accessible project modal, secure SMTP endpoints and durable Redis abuse limits. See README, EMAIL and DEPLOYMENT.
+## Delivered
+React/Vite/TypeScript/Tailwind website using current Cactus logo, purple branding, 11 verified service definitions and current public email/WhatsApp details. Cinematic homepage, About, Services, Portfolio, Blog, Contact, Start a Project, Products, Privacy, Terms and a real 404. Build generates 83 prerendered routes with per-page SEO and structured data.
 
-Verified before this checkpoint: production build passes; 17 API unit tests pass; 8 browser acceptance scenarios pass including all 72 routes and responsive checks 320–1920px. Desktop/mobile screenshots reviewed. Subsequent formatting and input-validation refactor need final rerun. Local Lighthouse mobile: performance 73, accessibility 95, best practices 100, SEO 100. Performance optimization remains active; no production deployment or live email delivery has occurred.
+## Portfolio
+Owner approved Portfolio-Mockups-screencapture(1).zip and GoFuel screenshots from https://gofuel.ng/. 11 recent projects now lead the portfolio: GoFuel, AuraReach, Eecki, EcoRoute, AuraHire, Beyond The Machine, Elijah Ogunsanya Associates, Elsmith Consulting, Lignel Healthcare, RenownCrown, EchoBroad. Six homepage feature cards use the recent work. Full screenshots and GoFuel galleries are local, optimized assets. 35 older entries remain under archive/all-work filtering. No invented metrics, tech stacks or business outcomes. See RECENT_PORTFOLIO_SOURCES.md.
 
-New owner instruction: use Portfolio-Mockups-screencapture(1).zip as the NEW portfolio/recent project source and retrieve GoFuel screenshots from https://gofuel.ng. Integrate these after this immediate push. Commit and push at every completed checkpoint.
+## Content and architecture
+16 legacy articles migrated with repeated paragraphs and old branding/service promotions removed. Summaries load with the app; full article bodies are prerendered and served individually for client navigation. All images are local. Video loads only when played. API handlers in api/ delegate to server/inquiry.ts; see EMAIL.md for credentials and behavior. Validation, consent, origin restrictions, honeypot and atomic Redis rate limiting precede SMTP. API never simulates delivery.
 
-Remaining: inspect new archive; replace/update portfolio/homepage project selection and case studies using only supported facts; optimize performance; final QA; Vercel preview and real SMTP verification when configured. Current production domain remains unchanged.
+## Verification
+Lint/typecheck/build pass. 17 API tests + 10 browser checks pass. All 83 routes and image decoding checked. Responsive widths 320–1920px pass. Desktop/mobile screenshots reviewed. Local mobile Lighthouse: 95 performance, 100 accessibility, 100 best practices, 100 SEO. Production dependency audit: zero known vulnerabilities. See TEST_PLAN.md for precise limitations and reproduction.
 
-## New portfolio checkpoint
-11 recent projects integrated with full galleries and six featured homepage case studies. Default portfolio is recent work; archive remains accessible. Routes now total 83. Source and live-link evidence in RECENT_PORTFOLIO_SOURCES.md.
+## Git and deployment
+Repository: https://github.com/osasbenny/cactusdigitalmedia-redesign-regia.git
+Branch: main. Owner explicitly requests commit and push at each completed savepoint. Source, assets, tests and docs are committed; token was used only transiently for authenticated Git operations, never saved in repository files or remote URL.
+
+Vercel-ready configuration is present. No Vercel deployment or DNS/domain cutover has been performed. Existing production site remains untouched.
+
+## Remaining launch setup
+Import repository into a new Vercel project. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM, CONTACT_TO, ALLOWED_ORIGINS, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN and RATE_LIMIT_SALT in Vercel. Configure preview origin explicitly. Verify real inbox delivery and preview behavior before requesting production cutover approval. See DEPLOYMENT.md.
