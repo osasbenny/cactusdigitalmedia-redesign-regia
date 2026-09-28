@@ -32,12 +32,7 @@
       "Dashboards & portals",
       "API integration"
     ],
-    "technologies": [
-      "React",
-      "Node.js",
-      "PostgreSQL",
-      "REST & tRPC"
-    ]
+    "technologies": ["React", "Node.js", "PostgreSQL", "REST & tRPC"]
   },
   {
     "slug": "mobile-app-development",
@@ -92,12 +87,7 @@
       "Catalogues & inventory",
       "Commerce operations"
     ],
-    "technologies": [
-      "Headless commerce",
-      "Payments",
-      "Analytics",
-      "SEO"
-    ]
+    "technologies": ["Headless commerce", "Payments", "Analytics", "SEO"]
   },
   {
     "slug": "saas",
@@ -112,12 +102,7 @@
       "Multi-tenant architecture",
       "Product analytics"
     ],
-    "technologies": [
-      "React",
-      "Cloud services",
-      "Billing systems",
-      "APIs"
-    ]
+    "technologies": ["React", "Cloud services", "Billing systems", "APIs"]
   },
   {
     "slug": "ai-automation",

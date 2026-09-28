@@ -9,18 +9,19 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build && node --import tsx scripts/prerender.tsx",
-    "preview": "vite preview --host 0.0.0.0",
+    "preview": "node scripts/preview.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
     "@tailwindcss/vite": "^4.1.14",
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.468.0",
-    "nodemailer": "^7.0.0",
+    "nodemailer": "10.0.12",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-router-dom": "^7.9.0",
@@ -38,6 +39,7 @@
     "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.39.0",
     "globals": "^16.5.0",
+    "prettier": "3.6.2",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0",
     "typescript-eslint": "^8.46.0",

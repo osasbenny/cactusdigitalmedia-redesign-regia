@@ -1,0 +1,3 @@
+# Security
+
+Secrets are environment-only and ignored by Git. Both APIs enforce exact origin allowlist, JSON content type, 16 KiB body size, strict field schema and consent. Honeypot rejects bots. Redis Lua increment/expiry is atomic and fails closed; network identifiers are HMAC hashed and expire in one hour. Rate limiting shares one namespace across both endpoints. SMTP uses TLS, fixed From/To, plain text and validated Reply-To. No sensitive content is logged. Security headers include CSP, frame denial, nosniff and referrer policy. Outbound links use noopener/noreferrer. No analytics scripts were migrated. Provider credentials must be configured by the owner before launch.
