@@ -42,7 +42,10 @@ Local container used Node 24; package/Vercel target and GitHub CI use Node 22.x.
 - [ ] Review newest portfolio screenshots and public link choices with owner.
 - [ ] Confirm www-to-bare canonical redirect, retain email DNS records, and obtain explicit production cutover approval.
 
-No production cutover or real outbound email occurred during this task.
+The domain cutover occurred on 2026-09-29. Real outbound email has not yet been verified.
 
 ## Post-deployment update verification — 2026-09-28
 Lint, typecheck, and production build pass (83 routes). All 22 API tests and 13 browser tests pass. New checks cover published/exact deployment origins, optional independent SMS choices and phone validation, consent evidence in email, WhatsApp open/close/link/focus, four real MP4s/posters, reduced-motion behavior, and all form surfaces. Existing 320–1920px overflow and route/image checks still pass. Updated desktop/mobile visual evidence is in docs/screenshots. SMTP could not be authenticated from this workspace because direct SMTP connectivity is unavailable; live provider acceptance and inbox receipt are still unverified.
+
+## Production smoke check — 2026-09-29
+Vercel shows ready deployment `9XUWB2iKQ6saAE6vExPgVXzRXsCC` and valid domain configuration for the apex and www. Browser opening of the apex shows the new homepage; opening www lands on the apex. A controlled API inquiry from the Vercel alias received HTTP 503 with the temporary-unavailable message, confirming form delivery is not yet operational. No email was sent. The blocker is missing working Upstash Redis rate-limit credentials; provider terms acceptance is pending, after which both forms and actual SMTP receipt need retesting.

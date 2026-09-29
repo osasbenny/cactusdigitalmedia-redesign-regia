@@ -10,14 +10,15 @@
 - [x] Pass lint, typecheck, 17 backend tests, build and 10 browser checks.
 - [x] Review mobile/desktop screenshots and Lighthouse (95/100/100/100).
 - [x] Commit and push completed checkpoints to main.
-- [ ] Import repository into Vercel and add environment variables.
+- [x] Import repository into Vercel and add SMTP/origin environment variables.
 - [ ] Verify real email delivery, API and routing on Vercel preview.
-- [ ] Owner approves production domain cutover.
+- [x] Owner approves production domain cutover and both domains move to the new project.
 
 ## Post-deployment update
 - [x] WhatsApp chat panel; Home and Contact us navigation; automatic year and team credits.
 - [x] Four responsive homepage videos with motion preferences and playback controls.
 - [x] Separate optional SMS consent and server-side consent evidence; production origin fix.
-- [ ] Configure SMTP and verify provider authentication/delivery in Vercel.
+- [x] Configure SMTP values in Vercel and redeploy.
+- [ ] Verify provider authentication and inbox delivery in Vercel.
 - [ ] Verify Redis credentials for form rate limiting.
-- [ ] Verify new deployment and reassign cactusdigitalmedia.ng, preserving old project.
+- [x] Verify new deployment and reassign cactusdigitalmedia.ng, preserving old project; www redirects to apex.

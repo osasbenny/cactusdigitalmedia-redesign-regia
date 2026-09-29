@@ -27,4 +27,9 @@
 - Added four owner-supplied, responsive videos immediately after the homepage hero, with viewport playback, pause controls, posters, and reduced-motion support.
 - Fixed form origin handling for the published Vercel alias and exact deployment URLs.
 - Added separate, unchecked, optional inquiry and marketing SMS preferences to contact, project page, and modal. Email delivery includes a versioned consent record. Updated privacy and terms disclosures.
-- SMTP environment configuration and custom-domain reassignment remain pending authenticated Vercel access.
+- SMTP and exact-origin environment variables were configured in Vercel and the updated deployment became ready.
+
+## 2026-09-29 — Domain migration and live verification
+- Moved the apex and www domains from the previous Vercel project to `cactusdigitalmedia`; retained the previous project.
+- Attached the apex to Production and configured a permanent 308 redirect from www to the apex. Both show valid configuration and the live site loads at the canonical domain.
+- A controlled live form request reached the server but returned 503 because no working Redis rate limiter is connected. Upstash integration creation requires acceptance of marketplace/provider terms before Redis credentials and live SMTP delivery can be verified.
