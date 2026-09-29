@@ -670,12 +670,10 @@ export function Legal({ terms = false }: { terms?: boolean }) {
             </p>
             <h2>Cookies and external services</h2>
             <p>
-              Optional cookies are off by default. When Google Analytics is
-              connected, it loads only after you select “Accept optional
-              cookies”. Rejecting optional cookies keeps Analytics off and does
-              not prevent you from browsing or submitting an inquiry. Until our
-              Analytics property is connected, no Analytics tracking runs, even
-              if you accept.
+              Optional cookies are off by default. Google Analytics loads only
+              after you select “Accept optional cookies”. Rejecting optional
+              cookies keeps Analytics off and does not prevent you from browsing
+              or submitting an inquiry.
             </p>
             <p>
               Google Analytics helps us understand page visits and how visitors

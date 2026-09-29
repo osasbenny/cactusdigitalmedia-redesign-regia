@@ -1,8 +1,11 @@
 // Basic consent: no Google script or requests until an explicit opt-in.
-export const measurementId = import.meta.env?.VITE_GA_MEASUREMENT_ID || "";
+// Public website identifier supplied by the owner; never an API secret.
+// An explicit empty build override disables Analytics.
+export const measurementId =
+  import.meta.env?.VITE_GA_MEASUREMENT_ID ?? "G-LFWWQPX923";
 const configured = /^G-[A-Z0-9]+$/.test(measurementId);
 type AnalyticsWindow = Window & {
-  dataLayer?: unknown[][];
+  dataLayer?: IArguments[];
   gtag?: (...args: unknown[]) => void;
   [key: `ga-disable-${string}`]: boolean;
 };
@@ -23,7 +26,11 @@ export function updateAnalytics(accepted: boolean, pathname: string) {
   }
   if (!started) {
     analytics.dataLayer = [];
-    analytics.gtag = (...args) => analytics.dataLayer!.push(args);
+    analytics.gtag = function () {
+      // Google gtag's documented queue uses an Arguments object.
+      // eslint-disable-next-line prefer-rest-params
+      analytics.dataLayer!.push(arguments);
+    };
     analytics.gtag("consent", "default", {
       analytics_storage: "granted",
       ad_storage: "denied",
