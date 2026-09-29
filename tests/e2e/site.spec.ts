@@ -85,7 +85,7 @@ test("portfolio filters and search work", async ({ page }) => {
   await page.getByRole("searchbox", { name: "Search projects" }).fill("GoFuel");
   await expect(page.locator(".project-card")).toHaveCount(1);
   await page.locator(".project-picture").click();
-  await expect(page.locator("h1")).toHaveText("GoFuel");
+  await expect(page.locator("h1")).toHaveText("GoFuel App");
 });
 test("project modal traps focus, closes with Escape, and restores focus", async ({
   page,
@@ -183,7 +183,7 @@ test("recent work galleries and article navigation load real content", async ({
   await page.goto("/");
   await expect(page.locator(".project-card")).toHaveCount(6);
   await page.locator(".project-picture").first().click();
-  await expect(page.locator("h1")).toHaveText("GoFuel");
+  await expect(page.locator("h1")).toHaveText("GoFuel App");
   await expect(page.locator(".app-gallery img")).toHaveCount(5);
   await page.goto("/blog");
   await page.locator(".article-list a").first().click();

@@ -29,3 +29,5 @@ At the owner’s request, all seven initial commits were rewritten to use author
 ## Owner-requested post-deployment update
 Owner reports the site deployed at https://cactusdigitalmedia.vercel.app. Added WhatsApp card, navigation items, footer credits, and four supplied homepage videos. Both forms and the project modal now collect optional, separate SMS consent. Server records choices, source, timestamp, and disclosure wording in the inquiry email; no SMS sending or CAP enrollment is implemented. Exact production and Vercel deployment origins are accepted.
 Owner explicitly authorized moving cactusdigitalmedia.ng from the old Vercel project to this project, preserving the old project. This is completed. Never commit the supplied SMTP password. SMTP authentication could not be verified from this workspace: public DNS resolves mail.cactusdigitalmedia.ng, but direct SMTP connectivity is unavailable here. Redis rate-limiter credentials are still required; do not disable the fail-closed protection.
+
+The owner requested the display name GoFuel App on 2026-09-29; retain /portfolio/gofuel as the stable URL.

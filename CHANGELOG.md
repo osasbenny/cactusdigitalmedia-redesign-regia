@@ -41,3 +41,5 @@
 - After owner confirmation, provisioned a free Upstash Redis database, connected it to Production and Preview, and set a random 32-byte rate-limit salt in Vercel. Updated the API to prefer Vercel's generated REST credentials, preserving manual configuration support.
 - Production contact and project-brief submissions using the Cactus mailbox both returned the success state after SMTP accepted the messages. The owner confirmed both arrived in the mailbox with an inbox screenshot.
 - Added the owner's January 2020 founding history, founder/CEO and lead engineering role, service-to-product evolution, specialist collaboration, and long-term direction to About, with a concise homepage introduction.
+
+- Renamed the GoFuel portfolio display title to GoFuel App at the owner’s request; the existing URL remains /portfolio/gofuel.
