@@ -57,7 +57,7 @@ export default function Home() {
           <div className="art-label">IDEAS → EXPERIENCES</div>
           <img
             className="hero-meeting"
-            src="/images/business-meeting.webp"
+            src="/images/cactus-digital-media-business-meeting.webp"
             width="768"
             height="768"
             alt="People discussing ideas around a meeting table"
@@ -65,14 +65,14 @@ export default function Home() {
           />
           <img
             className="hero-developer"
-            src="/images/developer.webp"
+            src="/images/cactus-digital-media-developer.webp"
             width="768"
             height="768"
             alt="A developer working on a digital interface"
           />
           <img
             className="hero-ring"
-            src="/images/ring.webp"
+            src="/images/cactus-digital-media-ring.webp"
             width="500"
             height="500"
             alt=""
@@ -159,8 +159,8 @@ export default function Home() {
           </div>
           <div className="ecosystem-art">
             <Cinematic
-              src="/video/glass-ribbon.mp4"
-              poster="/images/workspace-hands.webp"
+              src="/video/cactus-digital-media-digital-solutions-glass-animation.mp4"
+              poster="/images/cactus-digital-media-workspace-hands.webp"
               label="Abstract glass ribbon in motion"
             />
             <div className="ecosystem-label">
@@ -194,7 +194,7 @@ export default function Home() {
       <section className="human-section wrap">
         <div className="human-image">
           <img
-            src="/images/project-discussion.webp"
+            src="/images/cactus-digital-media-project-discussion.webp"
             loading="lazy"
             width="768"
             height="768"
@@ -260,9 +260,9 @@ export default function Home() {
                   <img
                     src={
                       [
-                        "/images/smartphone-woman.webp",
-                        "/images/ecommerce-owner.webp",
-                        "/images/workspace-hands.webp",
+                        "/images/cactus-digital-media-smartphone-woman.webp",
+                        "/images/cactus-digital-media-ecommerce-owner.webp",
+                        "/images/cactus-digital-media-workspace-hands.webp",
                       ][i]
                     }
                     alt=""

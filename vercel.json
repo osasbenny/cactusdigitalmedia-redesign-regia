@@ -22,6 +22,664 @@
       "continue": true
     },
     {
+      "src": "/apple-touch-icon\\.png",
+      "status": 308,
+      "headers": {
+        "Location": "/cactus-digital-media-apple-touch-icon.png"
+      }
+    },
+    {
+      "src": "/favicon\\.png",
+      "status": 308,
+      "headers": {
+        "Location": "/cactus-digital-media-favicon.png"
+      }
+    },
+    {
+      "src": "/images/business-conversation\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-business-conversation.webp"
+      }
+    },
+    {
+      "src": "/images/business-meeting\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-business-meeting.webp"
+      }
+    },
+    {
+      "src": "/images/cactus-logo-white\\.svg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-cactus-logo-white.svg"
+      }
+    },
+    {
+      "src": "/images/cactus-logo\\.svg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-cactus-logo.svg"
+      }
+    },
+    {
+      "src": "/images/creative-team\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-creative-team.webp"
+      }
+    },
+    {
+      "src": "/images/designer-stylus\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-designer-stylus.webp"
+      }
+    },
+    {
+      "src": "/images/developer\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-developer.webp"
+      }
+    },
+    {
+      "src": "/images/ecommerce-owner\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-ecommerce-owner.webp"
+      }
+    },
+    {
+      "src": "/images/phone\\.png",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-phone.png"
+      }
+    },
+    {
+      "src": "/images/project-discussion\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-project-discussion.webp"
+      }
+    },
+    {
+      "src": "/images/projects/adfidia\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-adfidia-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/aim-glow-cosmetics\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-aim-glow-cosmetics-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/anait\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-anait-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/aura-hire-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-aura-hire-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/aura-hire-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-aura-hire-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/aura-hire-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-aura-hire-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/aurareach-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-aurareach-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/aurareach-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-aurareach-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/aurareach-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-aurareach-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/beautystar-xra-ventures\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-beautystar-xra-ventures-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/beyond-the-machine-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-beyond-the-machine-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/beyond-the-machine-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-beyond-the-machine-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/beyond-the-machine-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-beyond-the-machine-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/ciecobon\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-ciecobon-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/covenant-real-estate\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-covenant-real-estate-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/davyo-s-place\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-davyo-s-place-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/devdan\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-devdan-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/duwell-global-resources\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-duwell-global-resources-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/echobroad-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-echobroad-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/echobroad-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-echobroad-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/echobroad-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-echobroad-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/ecoroute-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-ecoroute-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/ecoroute-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-ecoroute-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/ecoroute-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-ecoroute-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/eecki-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-eecki-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/eecki-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-eecki-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/eecki-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-eecki-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/elijah-ogunsanya-associates-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-elijah-ogunsanya-associates-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/elijah-ogunsanya-associates-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-elijah-ogunsanya-associates-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/elijah-ogunsanya-associates-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-elijah-ogunsanya-associates-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/elsmith-consulting-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-elsmith-consulting-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/elsmith-consulting-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-elsmith-consulting-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/elsmith-consulting-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-elsmith-consulting-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/first-clean\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-first-clean-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/global-seamless-logistics-ltd\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-global-seamless-logistics-ltd-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/gofuel-app-mockup\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-gofuel-app-mockup-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/gofuel-fuel-assist-screenshot\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-gofuel-fuel-assist-screenshot-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/gofuel-fuel-stations-screen\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-gofuel-fuel-stations-screen-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/gofuel-history-screen\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-gofuel-history-screen-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/gofuel-login-screen\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-gofuel-login-screen-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/gofuel-wallet-screen\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-gofuel-wallet-screen-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/golden-fm-yenagoa\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-golden-fm-yenagoa-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/goldlife-herbal\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-goldlife-herbal-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/grace\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-grace-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/habitmind-insights\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-habitmind-insights-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/habitmind-new-habit\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-habitmind-new-habit-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/habitmind-progress\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-habitmind-progress-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/habitmind-welcome\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-habitmind-welcome-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/janda-commercial-cleaning-ltd\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-janda-commercial-cleaning-ltd-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/jbts-limited\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-jbts-limited-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/k-home-tech-solution\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-k-home-tech-solution-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/ktech-stuffs\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-ktech-stuffs-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/lignel-healthcare-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-lignel-healthcare-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/lignel-healthcare-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-lignel-healthcare-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/lignel-healthcare-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-lignel-healthcare-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/logistica\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-logistica-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/motpost\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-motpost-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/ng-content-concepts\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-ng-content-concepts-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/quantia-qatar\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-quantia-qatar-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/renowncrown-1000\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-renowncrown-1000-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/renowncrown-640\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-renowncrown-640-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/renowncrown-full\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-renowncrown-full-portfolio.webp"
+      }
+    },
+    {
+      "src": "/images/projects/rockface-hotel-nigeria\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-rockface-hotel-nigeria-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/studybond\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-studybond-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/unique-machines\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-unique-machines-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/projects/united-heart-ltd\\.jpg",
+      "status": 308,
+      "headers": {
+        "Location": "/images/projects/cactus-digital-media-united-heart-ltd-portfolio.jpg"
+      }
+    },
+    {
+      "src": "/images/ring\\.png",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-ring.png"
+      }
+    },
+    {
+      "src": "/images/ring\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-ring.webp"
+      }
+    },
+    {
+      "src": "/images/smartphone-woman\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-smartphone-woman.webp"
+      }
+    },
+    {
+      "src": "/images/video-production\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-video-production.webp"
+      }
+    },
+    {
+      "src": "/images/workspace-hands\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/images/cactus-digital-media-workspace-hands.webp"
+      }
+    },
+    {
+      "src": "/video/app-human\\.mp4",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-mobile-app-experience-video.mp4"
+      }
+    },
+    {
+      "src": "/video/app-motion\\.mp4",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-mobile-app-development-video.mp4"
+      }
+    },
+    {
+      "src": "/video/app-motion\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-mobile-app-development-video.webp"
+      }
+    },
+    {
+      "src": "/video/creative-team\\.mp4",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-creative-collaboration-video.mp4"
+      }
+    },
+    {
+      "src": "/video/creative-team\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-creative-collaboration-video.webp"
+      }
+    },
+    {
+      "src": "/video/ecommerce-motion\\.mp4",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-ecommerce-development-video.mp4"
+      }
+    },
+    {
+      "src": "/video/ecommerce-motion\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-ecommerce-development-video.webp"
+      }
+    },
+    {
+      "src": "/video/glass-ribbon\\.mp4",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-digital-solutions-glass-animation.mp4"
+      }
+    },
+    {
+      "src": "/video/hero-business\\.mp4",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-web-development-services-video.mp4"
+      }
+    },
+    {
+      "src": "/video/hero-business\\.webp",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-web-development-services-video.webp"
+      }
+    },
+    {
+      "src": "/video/metallic-laptop\\.mp4",
+      "status": 308,
+      "headers": {
+        "Location": "/video/cactus-digital-media-web-development-laptop-animation.mp4"
+      }
+    },
+    {
       "src": "/work/?",
       "status": 308,
       "headers": {

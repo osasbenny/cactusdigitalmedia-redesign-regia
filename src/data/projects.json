@@ -11,34 +11,34 @@
       "Nearby station discovery",
       "Transaction history"
     ],
-    "image": "/images/projects/gofuel-wallet-screen.webp",
+    "image": "/images/projects/cactus-digital-media-gofuel-wallet-screen-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/gofuel-wallet-screen.webp",
+        "src": "/images/projects/cactus-digital-media-gofuel-wallet-screen-portfolio.webp",
         "alt": "GoFuel wallet screen",
         "width": 720,
         "height": 1600
       },
       {
-        "src": "/images/projects/gofuel-fuel-stations-screen.webp",
+        "src": "/images/projects/cactus-digital-media-gofuel-fuel-stations-screen-portfolio.webp",
         "alt": "GoFuel fuel stations screen",
         "width": 576,
         "height": 1280
       },
       {
-        "src": "/images/projects/gofuel-history-screen.webp",
+        "src": "/images/projects/cactus-digital-media-gofuel-history-screen-portfolio.webp",
         "alt": "GoFuel history screen",
         "width": 576,
         "height": 1280
       },
       {
-        "src": "/images/projects/gofuel-fuel-assist-screenshot.webp",
+        "src": "/images/projects/cactus-digital-media-gofuel-fuel-assist-screenshot-portfolio.webp",
         "alt": "GoFuel fuel assist screenshot",
         "width": 720,
         "height": 1600
       },
       {
-        "src": "/images/projects/gofuel-login-screen.webp",
+        "src": "/images/projects/cactus-digital-media-gofuel-login-screen-portfolio.webp",
         "alt": "GoFuel login screen",
         "width": 720,
         "height": 1517
@@ -65,28 +65,28 @@
       "Light and dark themes",
       "Offline use"
     ],
-    "image": "/images/projects/habitmind-progress.webp",
+    "image": "/images/projects/cactus-digital-media-habitmind-progress-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/habitmind-new-habit.webp",
+        "src": "/images/projects/cactus-digital-media-habitmind-new-habit-portfolio.webp",
         "alt": "HabitMind new habit screen with category and frequency settings",
         "width": 720,
         "height": 1600
       },
       {
-        "src": "/images/projects/habitmind-progress.webp",
+        "src": "/images/projects/cactus-digital-media-habitmind-progress-portfolio.webp",
         "alt": "HabitMind progress screen with completion and streak summaries",
         "width": 720,
         "height": 1600
       },
       {
-        "src": "/images/projects/habitmind-insights.webp",
+        "src": "/images/projects/cactus-digital-media-habitmind-insights-portfolio.webp",
         "alt": "HabitMind AI suggestions screen with weekly insights and scheduling",
         "width": 720,
         "height": 1600
       },
       {
-        "src": "/images/projects/habitmind-welcome.webp",
+        "src": "/images/projects/cactus-digital-media-habitmind-welcome-portfolio.webp",
         "alt": "HabitMind welcome screen",
         "width": 720,
         "height": 1600
@@ -111,10 +111,10 @@
       "Quote-request form layout",
       "Transport-focused visual design"
     ],
-    "image": "/images/projects/logistica.webp",
+    "image": "/images/projects/cactus-digital-media-logistica-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/logistica.webp",
+        "src": "/images/projects/cactus-digital-media-logistica-portfolio.webp",
         "alt": "Logistica — Logistics Design Concept supplied design preview",
         "width": 800,
         "height": 500
@@ -138,10 +138,10 @@
       "Product-led visual merchandising",
       "Contact and support links"
     ],
-    "image": "/images/projects/devdan.webp",
+    "image": "/images/projects/cactus-digital-media-devdan-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/devdan.webp",
+        "src": "/images/projects/cactus-digital-media-devdan-portfolio.webp",
         "alt": "Devdan supplied design preview",
         "width": 1600,
         "height": 776
@@ -164,10 +164,10 @@
       "Services and careers navigation",
       "Social media links"
     ],
-    "image": "/images/projects/adfidia.webp",
+    "image": "/images/projects/cactus-digital-media-adfidia-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/adfidia.webp",
+        "src": "/images/projects/cactus-digital-media-adfidia-portfolio.webp",
         "alt": "Adfidia supplied design preview",
         "width": 1306,
         "height": 601
@@ -190,11 +190,11 @@
       "Outreach-focused product positioning",
       "Freelancer onboarding"
     ],
-    "image": "/images/projects/aurareach-1000.webp",
-    "imageSmall": "/images/projects/aurareach-640.webp",
+    "image": "/images/projects/cactus-digital-media-aurareach-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-aurareach-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/aurareach-full.webp",
+        "src": "/images/projects/cactus-digital-media-aurareach-full-portfolio.webp",
         "alt": "AuraReach complete website design",
         "width": 1280,
         "height": 1744
@@ -218,11 +218,11 @@
       "Local marketplace discovery",
       "Seller and customer entry points"
     ],
-    "image": "/images/projects/eecki-1000.webp",
-    "imageSmall": "/images/projects/eecki-640.webp",
+    "image": "/images/projects/cactus-digital-media-eecki-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-eecki-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/eecki-full.webp",
+        "src": "/images/projects/cactus-digital-media-eecki-full-portfolio.webp",
         "alt": "Eecki complete website design",
         "width": 1280,
         "height": 3571
@@ -246,11 +246,11 @@
       "Shipment-tracking entry point",
       "Quote-request journey"
     ],
-    "image": "/images/projects/ecoroute-1000.webp",
-    "imageSmall": "/images/projects/ecoroute-640.webp",
+    "image": "/images/projects/cactus-digital-media-ecoroute-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-ecoroute-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/ecoroute-full.webp",
+        "src": "/images/projects/cactus-digital-media-ecoroute-full-portfolio.webp",
         "alt": "EcoRoute complete website design",
         "width": 1280,
         "height": 7954
@@ -270,11 +270,11 @@
     "description": "A job-discovery platform presenting roles and job-market context.",
     "context": "An editorial approach to discovering opportunities and comparing available roles.",
     "features": ["Job discovery", "Role listings", "Job-market insights"],
-    "image": "/images/projects/aura-hire-1000.webp",
-    "imageSmall": "/images/projects/aura-hire-640.webp",
+    "image": "/images/projects/cactus-digital-media-aura-hire-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-aura-hire-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/aura-hire-full.webp",
+        "src": "/images/projects/cactus-digital-media-aura-hire-full-portfolio.webp",
         "alt": "AuraHire complete website design",
         "width": 1280,
         "height": 2068
@@ -298,11 +298,11 @@
       "Chapter previews",
       "Author-led storytelling"
     ],
-    "image": "/images/projects/beyond-the-machine-1000.webp",
-    "imageSmall": "/images/projects/beyond-the-machine-640.webp",
+    "image": "/images/projects/cactus-digital-media-beyond-the-machine-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-beyond-the-machine-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/beyond-the-machine-full.webp",
+        "src": "/images/projects/cactus-digital-media-beyond-the-machine-full-portfolio.webp",
         "alt": "Beyond The Machine complete website design",
         "width": 1280,
         "height": 4248
@@ -322,11 +322,11 @@
     "description": "A real-estate website for property discovery and professional inquiries.",
     "context": "A structured way to explore property listings and contact a real-estate practice.",
     "features": ["Property search", "Featured listings", "Inquiry pathways"],
-    "image": "/images/projects/elijah-ogunsanya-associates-1000.webp",
-    "imageSmall": "/images/projects/elijah-ogunsanya-associates-640.webp",
+    "image": "/images/projects/cactus-digital-media-elijah-ogunsanya-associates-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-elijah-ogunsanya-associates-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/elijah-ogunsanya-associates-full.webp",
+        "src": "/images/projects/cactus-digital-media-elijah-ogunsanya-associates-full-portfolio.webp",
         "alt": "Elijah Ogunsanya Associates complete website design",
         "width": 1280,
         "height": 5480
@@ -350,11 +350,11 @@
       "Leadership development",
       "Consultation entry points"
     ],
-    "image": "/images/projects/elsmith-consulting-1000.webp",
-    "imageSmall": "/images/projects/elsmith-consulting-640.webp",
+    "image": "/images/projects/cactus-digital-media-elsmith-consulting-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-elsmith-consulting-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/elsmith-consulting-full.webp",
+        "src": "/images/projects/cactus-digital-media-elsmith-consulting-full-portfolio.webp",
         "alt": "Elsmith Consulting complete website design",
         "width": 1280,
         "height": 3061
@@ -378,11 +378,11 @@
       "Public-health programmes",
       "Products and research content"
     ],
-    "image": "/images/projects/lignel-healthcare-1000.webp",
-    "imageSmall": "/images/projects/lignel-healthcare-640.webp",
+    "image": "/images/projects/cactus-digital-media-lignel-healthcare-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-lignel-healthcare-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/lignel-healthcare-full.webp",
+        "src": "/images/projects/cactus-digital-media-lignel-healthcare-full-portfolio.webp",
         "alt": "Lignel Healthcare complete website design",
         "width": 1280,
         "height": 2939
@@ -406,11 +406,11 @@
       "Supply information",
       "Product inquiries"
     ],
-    "image": "/images/projects/renowncrown-1000.webp",
-    "imageSmall": "/images/projects/renowncrown-640.webp",
+    "image": "/images/projects/cactus-digital-media-renowncrown-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-renowncrown-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/renowncrown-full.webp",
+        "src": "/images/projects/cactus-digital-media-renowncrown-full-portfolio.webp",
         "alt": "RenownCrown complete website design",
         "width": 1280,
         "height": 4257
@@ -434,11 +434,11 @@
       "Digital resources",
       "Project inquiry journey"
     ],
-    "image": "/images/projects/echobroad-1000.webp",
-    "imageSmall": "/images/projects/echobroad-640.webp",
+    "image": "/images/projects/cactus-digital-media-echobroad-1000-portfolio.webp",
+    "imageSmall": "/images/projects/cactus-digital-media-echobroad-640-portfolio.webp",
     "gallery": [
       {
-        "src": "/images/projects/echobroad-full.webp",
+        "src": "/images/projects/cactus-digital-media-echobroad-full-portfolio.webp",
         "alt": "EchoBroad complete website design",
         "width": 1280,
         "height": 5257
@@ -456,7 +456,7 @@
     "title": "BeautyStar XRA Ventures",
     "category": "Websites",
     "description": "Website design and development for BeautyStar XRA Ventures.",
-    "image": "/images/projects/beautystar-xra-ventures.jpg",
+    "image": "/images/projects/cactus-digital-media-beautystar-xra-ventures-portfolio.jpg",
     "sourceUrl": "https://beautystarxraventuresltd.com/",
     "liveUrl": "https://beautystarxraventuresltd.com/",
     "featured": false,
@@ -468,7 +468,7 @@
     "title": "Quantia Qatar",
     "category": "Websites",
     "description": "Website design and development for Quantia Qatar.",
-    "image": "/images/projects/quantia-qatar.jpg",
+    "image": "/images/projects/cactus-digital-media-quantia-qatar-portfolio.jpg",
     "sourceUrl": "https://quantiaqatar.com/",
     "liveUrl": "https://quantiaqatar.com/",
     "featured": false,
@@ -480,7 +480,7 @@
     "title": "Janda Commercial Cleaning Ltd",
     "category": "Websites",
     "description": "Website design and development for Janda Commercial Cleaning Ltd.",
-    "image": "/images/projects/janda-commercial-cleaning-ltd.jpg",
+    "image": "/images/projects/cactus-digital-media-janda-commercial-cleaning-ltd-portfolio.jpg",
     "sourceUrl": "https://jandacommercialcleaningltd.com/",
     "liveUrl": "https://jandacommercialcleaningltd.com/",
     "featured": false,
@@ -528,7 +528,7 @@
     "title": "NG Content Concepts",
     "category": "Websites",
     "description": "Website design and development for NG Content Concepts.",
-    "image": "/images/projects/ng-content-concepts.jpg",
+    "image": "/images/projects/cactus-digital-media-ng-content-concepts-portfolio.jpg",
     "sourceUrl": "https://ngcontentconcepts.com/",
     "liveUrl": "https://ngcontentconcepts.com/",
     "featured": false,
@@ -540,7 +540,7 @@
     "title": "Golden FM Yenagoa",
     "category": "Websites",
     "description": "Website design and development for Golden FM Yenagoa.",
-    "image": "/images/projects/golden-fm-yenagoa.jpg",
+    "image": "/images/projects/cactus-digital-media-golden-fm-yenagoa-portfolio.jpg",
     "sourceUrl": "https://goldenfmyenagoa.com/",
     "liveUrl": "https://goldenfmyenagoa.com/",
     "featured": false,
@@ -576,7 +576,7 @@
     "title": "StudyBond",
     "category": "Websites",
     "description": "Website design and development for StudyBond.",
-    "image": "/images/projects/studybond.jpg",
+    "image": "/images/projects/cactus-digital-media-studybond-portfolio.jpg",
     "sourceUrl": "https://studybond.co.uk/",
     "liveUrl": "https://www.studybond.co.uk/",
     "featured": false,
@@ -588,7 +588,7 @@
     "title": "Duwell Global Resources",
     "category": "Websites",
     "description": "Website design and development for Duwell Global Resources.",
-    "image": "/images/projects/duwell-global-resources.jpg",
+    "image": "/images/projects/cactus-digital-media-duwell-global-resources-portfolio.jpg",
     "sourceUrl": "https://duwellglobalresources.com.ng/",
     "liveUrl": "https://duwellglobalresources.com.ng/",
     "featured": false,
@@ -612,7 +612,7 @@
     "title": "United Heart Ltd",
     "category": "Websites",
     "description": "Website design and development for United Heart Ltd.",
-    "image": "/images/projects/united-heart-ltd.jpg",
+    "image": "/images/projects/cactus-digital-media-united-heart-ltd-portfolio.jpg",
     "sourceUrl": "https://unitedheartltd.com/",
     "liveUrl": "https://www.unitedheartltd.com/",
     "featured": false,
@@ -636,7 +636,7 @@
     "title": "Rockface Hotel Nigeria",
     "category": "Websites",
     "description": "Website design and development for Rockface Hotel Nigeria.",
-    "image": "/images/projects/rockface-hotel-nigeria.jpg",
+    "image": "/images/projects/cactus-digital-media-rockface-hotel-nigeria-portfolio.jpg",
     "sourceUrl": "https://rockfacehotelnigeria.com.ng/",
     "liveUrl": "https://rockfacehotelnigeria.com.ng/",
     "featured": false,
@@ -660,7 +660,7 @@
     "title": "JBTS Limited",
     "category": "Websites",
     "description": "Website design and development for JBTS Limited.",
-    "image": "/images/projects/jbts-limited.jpg",
+    "image": "/images/projects/cactus-digital-media-jbts-limited-portfolio.jpg",
     "sourceUrl": "https://jbtslimited.com/",
     "liveUrl": "https://jbtslimited.com/",
     "featured": false,
@@ -684,7 +684,7 @@
     "title": "K Home Tech Solution",
     "category": "Websites",
     "description": "Website design and development for K Home Tech Solution.",
-    "image": "/images/projects/k-home-tech-solution.jpg",
+    "image": "/images/projects/cactus-digital-media-k-home-tech-solution-portfolio.jpg",
     "sourceUrl": "https://khometechsolution.com.ng/",
     "liveUrl": null,
     "featured": false,
@@ -696,7 +696,7 @@
     "title": "AIM Glow Cosmetics",
     "category": "Websites",
     "description": "Website design and development for AIM Glow Cosmetics.",
-    "image": "/images/projects/aim-glow-cosmetics.jpg",
+    "image": "/images/projects/cactus-digital-media-aim-glow-cosmetics-portfolio.jpg",
     "sourceUrl": "https://aimglowcosmetics.com/",
     "liveUrl": "https://aimglowcosmetics.com/",
     "featured": false,
@@ -708,7 +708,7 @@
     "title": "ANAIT",
     "category": "Websites",
     "description": "Website design and development for ANAIT.",
-    "image": "/images/projects/anait.jpg",
+    "image": "/images/projects/cactus-digital-media-anait-portfolio.jpg",
     "sourceUrl": "https://anait.com.ng/",
     "liveUrl": "https://anait.com.ng/",
     "featured": false,
@@ -732,7 +732,7 @@
     "title": "Davyo’s Place",
     "category": "Websites",
     "description": "Website design and development for Davyo’s Place.",
-    "image": "/images/projects/davyo-s-place.jpg",
+    "image": "/images/projects/cactus-digital-media-davyo-s-place-portfolio.jpg",
     "sourceUrl": "https://davyosplace.com/",
     "liveUrl": "https://davyosplace.com/",
     "featured": false,
@@ -744,7 +744,7 @@
     "title": "First Clean",
     "category": "Websites",
     "description": "Website design and development for First Clean.",
-    "image": "/images/projects/first-clean.jpg",
+    "image": "/images/projects/cactus-digital-media-first-clean-portfolio.jpg",
     "sourceUrl": "https://firstclean.ca/",
     "liveUrl": "https://firstclean.ca/",
     "featured": false,
@@ -756,7 +756,7 @@
     "title": "MotPost",
     "category": "Websites",
     "description": "Website design and development for MotPost.",
-    "image": "/images/projects/motpost.jpg",
+    "image": "/images/projects/cactus-digital-media-motpost-portfolio.jpg",
     "sourceUrl": "https://motpost.com/",
     "liveUrl": "https://motpost.com/",
     "featured": false,
@@ -768,7 +768,7 @@
     "title": "Covenant Real Estate",
     "category": "Websites",
     "description": "Website design and development for Covenant Real Estate.",
-    "image": "/images/projects/covenant-real-estate.jpg",
+    "image": "/images/projects/cactus-digital-media-covenant-real-estate-portfolio.jpg",
     "sourceUrl": "https://covenantrealestate.com.ng/",
     "liveUrl": "https://covenantrealestate.com.ng/",
     "featured": false,
@@ -780,7 +780,7 @@
     "title": "Goldlife Herbal",
     "category": "Websites",
     "description": "Website design and development for Goldlife Herbal.",
-    "image": "/images/projects/goldlife-herbal.jpg",
+    "image": "/images/projects/cactus-digital-media-goldlife-herbal-portfolio.jpg",
     "sourceUrl": "https://goldlifeherbal.com.ng/",
     "liveUrl": "https://www.goldlifeherbal.com.ng/",
     "featured": false,
@@ -792,7 +792,7 @@
     "title": "CIECOBON",
     "category": "Websites",
     "description": "Website design and development for CIECOBON.",
-    "image": "/images/projects/ciecobon.jpg",
+    "image": "/images/projects/cactus-digital-media-ciecobon-portfolio.jpg",
     "sourceUrl": "https://ciecobon.com.ng/",
     "liveUrl": "https://ciecobon.com.ng/",
     "featured": false,
@@ -804,7 +804,7 @@
     "title": "Global Seamless Logistics Ltd",
     "category": "Websites",
     "description": "Website design and development for Global Seamless Logistics Ltd.",
-    "image": "/images/projects/global-seamless-logistics-ltd.jpg",
+    "image": "/images/projects/cactus-digital-media-global-seamless-logistics-ltd-portfolio.jpg",
     "sourceUrl": "https://globalseamlesslogisticsltd.com.ng/",
     "liveUrl": "https://globalseamlesslogisticsltd.com.ng/",
     "featured": false,
@@ -816,7 +816,7 @@
     "title": "Unique Machines",
     "category": "Websites",
     "description": "Website design and development for Unique Machines.",
-    "image": "/images/projects/unique-machines.jpg",
+    "image": "/images/projects/cactus-digital-media-unique-machines-portfolio.jpg",
     "sourceUrl": "https://uniquemachines.com.ng/",
     "liveUrl": "https://uniquemachines.com.ng/",
     "featured": false,
@@ -828,7 +828,7 @@
     "title": "Grace",
     "category": "Websites",
     "description": "Website design and development for Grace.",
-    "image": "/images/projects/grace.jpg",
+    "image": "/images/projects/cactus-digital-media-grace-portfolio.jpg",
     "sourceUrl": "https://grace.skillser.com.ng/",
     "liveUrl": "https://grace.skillser.com.ng/",
     "featured": false,
@@ -852,7 +852,7 @@
     "title": "KTech Stuffs",
     "category": "Websites",
     "description": "Website design and development for KTech Stuffs.",
-    "image": "/images/projects/ktech-stuffs.jpg",
+    "image": "/images/projects/cactus-digital-media-ktech-stuffs-portfolio.jpg",
     "sourceUrl": "https://ktechstuffs.com/",
     "liveUrl": "https://ktechstuffs.com/",
     "featured": false,

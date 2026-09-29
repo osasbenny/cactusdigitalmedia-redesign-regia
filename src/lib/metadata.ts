@@ -1,4 +1,14 @@
 import { brand, services, projects, posts } from "../data/site";
+export const servedMarkets = [
+  "Nigeria",
+  "Lagos",
+  "Abuja",
+  "Tanzania",
+  "Egypt",
+  "Australia",
+  "USA",
+  "Canada",
+];
 export function metadata(path: string) {
   path = path.split(/[?#]/)[0].replace(/\/$/, "") || "/";
   let title = "Cactus Digital Media | Web & Mobile App Development";
@@ -63,10 +73,18 @@ export function metadata(path: string) {
       : `${title} — Cactus Digital Media`,
     description,
     canonical: brand.origin + path,
+    keywords: [
+      brand.name,
+      "web development",
+      "mobile app development",
+      "Android and iOS apps",
+      "enterprise digital solutions",
+      ...servedMarkets,
+    ].join(", "),
     image:
       brand.origin +
       (projects.find((p) => path === `/portfolio/${p.slug}`)?.image ||
-        "/images/business-meeting.webp"),
+        "/images/cactus-digital-media-business-meeting.webp"),
     type: posts.some((p) => path === `/blog/${p.slug}`) ? "article" : "website",
     found,
   };
@@ -98,8 +116,12 @@ export function structuredData(path: string) {
         name: brand.name,
         url: brand.origin,
         email: brand.email,
-        logo: brand.origin + "/apple-touch-icon.png",
+        logo: brand.origin + "/cactus-digital-media-apple-touch-icon.png",
         description: metadata("/").description,
+        areaServed: servedMarkets.map((name) => ({
+          "@type": ["Lagos", "Abuja"].includes(name) ? "City" : "Country",
+          name: name === "USA" ? "United States" : name,
+        })),
         foundingDate: "2020-01",
         foundingLocation: { "@type": "Place", name: "Lagos, Nigeria" },
         founder: {

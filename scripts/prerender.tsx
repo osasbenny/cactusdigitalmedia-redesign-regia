@@ -44,6 +44,7 @@ for (const route of [...allRoutes, "/404"]) {
       `<script type="application/ld+json" id="structured-data">${JSON.stringify(structuredData(route)).replaceAll("<", "\\u003c")}</script>`,
     );
   for (const [attribute, key, value] of [
+    ["name", "keywords", m.keywords],
     ["property", "og:image", m.image],
     ["property", "og:type", m.type],
     ["name", "twitter:title", m.title],

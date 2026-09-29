@@ -2,22 +2,22 @@ import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 const films = [
   {
-    file: "hero-business",
+    file: "cactus-digital-media-web-development-services-video",
     title: "Ideas into impact",
     description: "Digital experiences for your next chapter.",
   },
   {
-    file: "creative-team",
+    file: "cactus-digital-media-creative-collaboration-video",
     title: "Made together",
     description: "Creative thinking. Shared ambition.",
   },
   {
-    file: "app-motion",
+    file: "cactus-digital-media-mobile-app-development-video",
     title: "A world in your hand",
     description: "Mobile experiences that move with you.",
   },
   {
-    file: "ecommerce-motion",
+    file: "cactus-digital-media-ecommerce-development-video",
     title: "Designed for commerce",
     description: "Make the journey from discovery to checkout effortless.",
   },

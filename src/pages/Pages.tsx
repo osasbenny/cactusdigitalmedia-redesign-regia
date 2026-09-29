@@ -21,7 +21,7 @@ export function About() {
       />
       <section className="wrap about-grid">
         <img
-          src="/images/creative-team.webp"
+          src="/images/cactus-digital-media-creative-team.webp"
           alt="People collaborating in a creative workspace"
           width="768"
           height="768"
@@ -50,7 +50,10 @@ export function About() {
           </Link>
         </div>
       </section>
-      <section className="wrap section about-story" aria-labelledby="our-story-title">
+      <section
+        className="wrap section about-story"
+        aria-labelledby="our-story-title"
+      >
         <div className="about-story-heading">
           <span className="eyebrow">Our story</span>
           <h2 id="our-story-title">
@@ -78,9 +81,9 @@ export function About() {
             <h3>Going beyond agency work.</h3>
             <p>
               Our work expanded into full-stack business software, SaaS
-              platforms, dashboards, portals, fintech and marketplace
-              solutions, cloud integrations, automation systems, and
-              AI-powered applications.
+              platforms, dashboards, portals, fintech and marketplace solutions,
+              cloud integrations, automation systems, and AI-powered
+              applications.
             </p>
           </article>
           <article>
@@ -95,15 +98,25 @@ export function About() {
           </article>
         </div>
         <div className="about-leadership">
+          <span className="eyebrow">Our reach</span>
+          <h3>Based in Lagos. Working across borders.</h3>
+          <p>
+            We have worked with clients in Nigeria, including Lagos and Abuja,
+            and across Tanzania, Egypt, Australia, the USA, and Canada. Our web
+            development, mobile app, and digital solutions services connect
+            local understanding with international project experience.
+          </p>
+        </div>
+        <div className="about-leadership">
           <span className="eyebrow">Leadership & collaboration</span>
           <p>
             Founder and CEO <strong>Osagie Bernard Ebhuomhan</strong> also
-            serves as Lead Product/Software Engineer. Depending on the
-            project, we work with specialists in software development, UI/UX
-            and product design, infrastructure, digital strategy, and related
-            disciplines. Our long-term direction is to keep growing from a
-            traditional digital agency into a technology company that can
-            create, launch, and scale software, SaaS, and AI products.
+            serves as Lead Product/Software Engineer. Depending on the project,
+            we work with specialists in software development, UI/UX and product
+            design, infrastructure, digital strategy, and related disciplines.
+            Our long-term direction is to keep growing from a traditional
+            digital agency into a technology company that can create, launch,
+            and scale software, SaaS, and AI products.
           </p>
         </div>
       </section>
@@ -154,8 +167,8 @@ export function ServiceDetail() {
       <PageHero eyebrow={s.shortLabel} title={s.label} copy={s.description} />
       <section className="wrap detail-split">
         <Cinematic
-          src="/video/metallic-laptop.mp4"
-          poster="/images/developer.webp"
+          src="/video/cactus-digital-media-web-development-laptop-animation.mp4"
+          poster="/images/cactus-digital-media-developer.webp"
           label="Laptop product animation"
         />
         <div>
@@ -535,7 +548,7 @@ export function Products() {
       />
       <section className="wrap detail-split">
         <img
-          src="/images/designer-stylus.webp"
+          src="/images/cactus-digital-media-designer-stylus.webp"
           alt="A designer refining a digital interface"
           width="768"
           height="768"

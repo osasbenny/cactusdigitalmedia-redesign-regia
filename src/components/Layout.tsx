@@ -33,7 +33,7 @@ export default function Layout() {
           <Link to="/" aria-label="Cactus Digital Media home">
             <img
               className="logo"
-              src="/images/cactus-logo.svg"
+              src="/images/cactus-digital-media-cactus-logo.svg"
               width="240"
               height="45"
               alt="Cactus Digital Media"
@@ -105,7 +105,7 @@ export default function Layout() {
             <Link to="/" aria-label="Cactus Digital Media home">
               <img
                 className="footer-logo"
-                src="/images/cactus-logo-white.svg"
+                src="/images/cactus-digital-media-cactus-logo-white.svg"
                 width="260"
                 height="49"
                 alt="Cactus Digital Media"

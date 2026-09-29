@@ -24,6 +24,7 @@ function SEO() {
     const set = (selector: string, content: string) =>
       document.querySelector(selector)?.setAttribute("content", content);
     set('meta[name="description"]', m.description);
+    set('meta[name="keywords"]', m.keywords);
     set('meta[property="og:title"]', m.title);
     set('meta[property="og:description"]', m.description);
     set('meta[property="og:url"]', m.canonical);
