@@ -1,4 +1,27 @@
+# Public pages remain available to search and AI discovery crawlers.
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /access-restricted.html
+
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /api/
+Disallow: /access-restricted.html
+
+# These voluntary directives supplement the HTTP 403 route rule.
+User-agent: HTTrack
+User-agent: WebCopier
+User-agent: WebZIP
+User-agent: Teleport Pro
+User-agent: Offline Explorer
+User-agent: SiteSucker
+User-agent: CyotekWebCopy
+Disallow: /
+
 Sitemap: https://cactusdigitalmedia.ng/sitemap.xml
