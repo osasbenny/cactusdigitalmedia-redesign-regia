@@ -66,11 +66,22 @@ test("mobile navigation opens, navigates, and closes", async ({ page }) => {
 });
 test("portfolio filters and search work", async ({ page }) => {
   await page.goto("/portfolio");
-  await expect(page.locator(".project-card")).toHaveCount(11);
+  await expect(page.locator(".project-card")).toHaveCount(12);
   await page
     .getByRole("button", { name: "Mobile Applications", exact: true })
     .click();
-  await expect(page.locator(".project-card")).toHaveCount(1);
+  await expect(page.locator(".project-card")).toHaveCount(2);
+  const habit = page.getByRole("link", { name: "View HabitMind", exact: true });
+  await expect(habit.locator("img")).toHaveCount(3);
+  await habit.click();
+  await expect(page.locator(".app-gallery img")).toHaveCount(4);
+  await expect(
+    page.getByRole("link", { name: "View on Google Play" }),
+  ).toHaveAttribute(
+    "href",
+    "https://play.google.com/store/apps/details?id=com.habitmind.app",
+  );
+  await page.goto("/portfolio?view=Mobile+Applications");
   await page.getByRole("searchbox", { name: "Search projects" }).fill("GoFuel");
   await expect(page.locator(".project-card")).toHaveCount(1);
   await page.locator(".project-picture").click();

@@ -15,21 +15,16 @@ export default function ProjectCard({
       >
         {project.category === "Mobile Applications" && project.gallery ? (
           <div className="mobile-preview">
-            {["wallet-screen", "fuel-stations-screen", "history-screen"].map(
-              (name) => {
-                const img = project.gallery?.find((i) => i.src.includes(name));
-                return img ? (
-                  <img
-                    key={name}
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    width={img.width}
-                    height={img.height}
-                  />
-                ) : null;
-              },
-            )}
+            {project.gallery.slice(0, 3).map((img) => (
+              <img
+                key={img.src}
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                width={img.width}
+                height={img.height}
+              />
+            ))}
           </div>
         ) : project.image ? (
           <img

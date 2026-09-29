@@ -4,6 +4,8 @@
 React/Vite/TypeScript/Tailwind website using current Cactus logo, purple branding, 11 verified service definitions and current public email/WhatsApp details. Cinematic homepage, About, Services, Portfolio, Blog, Contact, Start a Project, Products, Privacy, Terms and a real 404. Build generates 83 prerendered routes with per-page SEO and structured data.
 
 ## Portfolio
+On 2026-09-29 the owner requested HabitMind and TaskFlow Android entries. HabitMind was added using official Google Play information and four screenshots; it appears under Recent work and Mobile Applications. The two complete original `Portfolio-Mockups-screencapture` ZIPs contain the same ten website screenshots and no TaskFlow assets. TaskFlow remains blocked on the correct images; no substitute app or fabricated screenshot was published. App cards now use the first three images in each project's gallery. The build now generates 84 routes.
+
 Owner approved Portfolio-Mockups-screencapture(1).zip and GoFuel screenshots from https://gofuel.ng/. 11 recent projects now lead the portfolio: GoFuel, AuraReach, Eecki, EcoRoute, AuraHire, Beyond The Machine, Elijah Ogunsanya Associates, Elsmith Consulting, Lignel Healthcare, RenownCrown, EchoBroad. Six homepage feature cards use the recent work. Full screenshots and GoFuel galleries are local, optimized assets. 35 older entries remain under archive/all-work filtering. No invented metrics, tech stacks or business outcomes. See RECENT_PORTFOLIO_SOURCES.md.
 
 ## Content and architecture

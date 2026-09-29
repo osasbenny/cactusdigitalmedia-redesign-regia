@@ -14,20 +14,8 @@
     "image": "/images/projects/gofuel-wallet-screen.webp",
     "gallery": [
       {
-        "src": "/images/projects/gofuel-history-screen.webp",
-        "alt": "GoFuel history screen",
-        "width": 576,
-        "height": 1280
-      },
-      {
         "src": "/images/projects/gofuel-wallet-screen.webp",
         "alt": "GoFuel wallet screen",
-        "width": 720,
-        "height": 1600
-      },
-      {
-        "src": "/images/projects/gofuel-fuel-assist-screenshot.webp",
-        "alt": "GoFuel fuel assist screenshot",
         "width": 720,
         "height": 1600
       },
@@ -36,6 +24,18 @@
         "alt": "GoFuel fuel stations screen",
         "width": 576,
         "height": 1280
+      },
+      {
+        "src": "/images/projects/gofuel-history-screen.webp",
+        "alt": "GoFuel history screen",
+        "width": 576,
+        "height": 1280
+      },
+      {
+        "src": "/images/projects/gofuel-fuel-assist-screenshot.webp",
+        "alt": "GoFuel fuel assist screenshot",
+        "width": 720,
+        "height": 1600
       },
       {
         "src": "/images/projects/gofuel-login-screen.webp",
@@ -51,6 +51,54 @@
     "technologies": [],
     "credit": "Developed by JCobiq Energy Solutions in partnership with Cactus Digital Media.",
     "sourceFile": "https://gofuel.ng/"
+  },
+  {
+    "slug": "habitmind",
+    "title": "HabitMind",
+    "category": "Mobile Applications",
+    "description": "An Android habit-building app for setting daily goals, staying consistent, and seeing progress.",
+    "context": "A focused habit-tracking experience that brings custom routines, reminders, and progress insights into one place.",
+    "features": [
+      "Custom habits and personal goals",
+      "Daily reminders and streak tracking",
+      "Weekly and monthly progress charts",
+      "Light and dark themes",
+      "Offline use"
+    ],
+    "image": "/images/projects/habitmind-progress.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/habitmind-new-habit.webp",
+        "alt": "HabitMind new habit screen with category and frequency settings",
+        "width": 720,
+        "height": 1600
+      },
+      {
+        "src": "/images/projects/habitmind-progress.webp",
+        "alt": "HabitMind progress screen with completion and streak summaries",
+        "width": 720,
+        "height": 1600
+      },
+      {
+        "src": "/images/projects/habitmind-insights.webp",
+        "alt": "HabitMind AI suggestions screen with weekly insights and scheduling",
+        "width": 720,
+        "height": 1600
+      },
+      {
+        "src": "/images/projects/habitmind-welcome.webp",
+        "alt": "HabitMind welcome screen",
+        "width": 720,
+        "height": 1600
+      }
+    ],
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.habitmind.app",
+    "liveUrl": "https://play.google.com/store/apps/details?id=com.habitmind.app",
+    "featured": false,
+    "status": "Recent work",
+    "technologies": [],
+    "credit": "Published on Google Play by Cactus Digital Media NG.",
+    "sourceFile": "Google Play listing and screenshots, retrieved 2026-09-29"
   },
   {
     "slug": "aurareach",

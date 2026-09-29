@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-09-29 — HabitMind Android portfolio
+- Added HabitMind under Mobile Applications and Recent work, with four optimized screenshots from its official Google Play listing and a direct store link.
+- Generalized app card previews so every app displays its own gallery rather than GoFuel-specific image names.
+- Both original portfolio screenshot ZIPs were inspected; neither contains TaskFlow images. TaskFlow publication awaits the correct assets.
+
 ## 2026-09-28 — Reconstruction checkpoint
 - Audited legacy archive and current public Cactus identity.
 - Rebuilt homepage, service pages, portfolio, articles, contact and project inquiry flow.

@@ -1,5 +1,8 @@
 # Tasks
 
+- [x] Add HabitMind Android app with official Play Store screenshots, features and link.
+- [ ] Add TaskFlow once the owner supplies its missing screenshots or the correct archive; both supplied portfolio ZIPs contain only ten website captures.
+
 - [x] Audit archived site and current Cactus identity/services.
 - [x] Build responsive React site with native routing and cinematic layout.
 - [x] Integrate 11 owner-approved recent projects and GoFuel screenshots.

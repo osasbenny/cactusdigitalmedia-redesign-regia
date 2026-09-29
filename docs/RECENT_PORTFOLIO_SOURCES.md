@@ -5,6 +5,7 @@ Owner explicitly approved these projects for publication on 2026-09-28. Screensh
 | Project | Category | Source |
 |---|---|---|
 | GoFuel | Mobile Applications | https://gofuel.ng/ |
+| HabitMind | Mobile Applications | https://play.google.com/store/apps/details?id=com.habitmind.app |
 | AuraReach | SaaS / Products | screencapture-aurareach-one-vercel-app-2026-09-22-22_55_42.png |
 | Eecki | E-commerce | screencapture-eecki-bd2d8-firebaseapp-2026-09-22-22_53_56.png |
 | EcoRoute | Websites | screencapture-ecoroute-a918d-firebaseapp-2026-09-22-22_55_59.png |
@@ -17,6 +18,8 @@ Owner explicitly approved these projects for publication on 2026-09-28. Screensh
 | EchoBroad | Websites | screencapture-echobroad-2026-09-22-22_53_04.png |
 
 ## URL checks
+HabitMind was retrieved on 2026-09-29 from the owner-supplied Google Play listing, published by Cactus Digital Media NG. Four listing screenshots (new habit, progress, AI suggestions, welcome) are stored locally as WebP. Descriptions paraphrase the listing; no download counts or outcome claims are published. TaskFlow assets were absent from both complete original portfolio ZIPs, each containing the same ten website PNG files.
+
 ```json
 [
   {

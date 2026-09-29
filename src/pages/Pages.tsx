@@ -325,7 +325,10 @@ export function ProjectDetail() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Visit project <Arrow diagonal />
+                {p.liveUrl.startsWith("https://play.google.com/")
+                  ? "View on Google Play"
+                  : "Visit project"}{" "}
+                <Arrow diagonal />
               </a>
             ) : (
               <p className="muted">Explore the project design below.</p>
