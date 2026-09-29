@@ -20,7 +20,7 @@
 - [x] Separate optional SMS consent and server-side consent evidence; production origin fix.
 - [x] Configure SMTP values in Vercel and redeploy.
 - [x] Verify provider acceptance for controlled contact and project submissions in Vercel.
-- [ ] Verify both test messages arrived in the Cactus mailbox.
+- [x] Verify both test messages arrived in the Cactus mailbox (owner-confirmed screenshot).
 - [x] Provision and connect free Upstash Redis, set salt, and wire generated credentials.
 - [x] Verify connected rate limiter allows controlled submissions in the redeployed site.
 - [ ] Confirm 429 behavior without sending additional real messages.

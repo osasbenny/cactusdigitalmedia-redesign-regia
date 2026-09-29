@@ -34,5 +34,5 @@
 - Attached the apex to Production and configured a permanent 308 redirect from www to the apex. Both show valid configuration and the live site loads at the canonical domain.
 - A controlled live form request reached the server but returned 503 because no working Redis rate limiter is connected. Upstash integration creation requires acceptance of marketplace/provider terms before Redis credentials and live SMTP delivery can be verified.
 - After owner confirmation, provisioned a free Upstash Redis database, connected it to Production and Preview, and set a random 32-byte rate-limit salt in Vercel. Updated the API to prefer Vercel's generated REST credentials, preserving manual configuration support.
-- Production contact and project-brief submissions using the Cactus mailbox both returned the success state after SMTP accepted the messages. Inbox receipt is not independently verified.
+- Production contact and project-brief submissions using the Cactus mailbox both returned the success state after SMTP accepted the messages. The owner confirmed both arrived in the mailbox with an inbox screenshot.
 - Added the owner's January 2020 founding history, founder/CEO and lead engineering role, service-to-product evolution, specialist collaboration, and long-term direction to About, with a concise homepage introduction.
