@@ -53,3 +53,7 @@ Production verified: exact owner meta description, all five homepage videos play
 ## 2026-09-29 — Geographic context and branded media
 
 Owner-confirmed markets: Nigeria (Lagos and Abuja), Tanzania, Egypt, Australia, USA and Canada. Added requested keyword metadata on all 87 pages, Organization areaServed, and visible About-page client-market context without inventing offices. Preserved exact homepage description. Renamed all 94 public images/videos/icons with descriptive cactus-digital-media prefixes, updated source/social/schema references and dynamic video/poster paths, and added 308 redirects from old media URLs. Mapping: docs/MEDIA_RENAMES.json. Build, lint, 26 tests and asset-reference checks pass. Google ignores meta keywords; visible relevant content and descriptive media context are the useful SEO elements.
+
+## 2026-09-29 — Narrow copier deterrent and crawler access
+
+Added early HTTP 403 route for explicit HTTrack/WebCopier/WebZIP/Teleport Pro/Offline Explorer/SiteSucker/CyotekWebCopy identifiers. No CAPTCHA, global bot block, or generic scripting-client restriction. Ordinary visitors, search and AI crawlers remain allowed; robots.txt advertises the existing 87-page sitemap. Production source maps explicitly off. This deters declared copiers, cannot prevent copying of publicly served assets or spoofed user agents. Build, lint and 28 tests passed. Live status verification pending deployment. See docs/CRAWLER_POLICY.md.
