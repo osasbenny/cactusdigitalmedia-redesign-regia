@@ -209,9 +209,11 @@ export default function Home() {
             Not just <em>screens.</em>
           </h2>
           <p>
-            Behind every click is someone trying to get something done. We
-            combine product thinking, clear design, and careful engineering to
-            make that next step easier.
+            Founded in Lagos in January 2020 by Osagie Bernard Ebhuomhan,
+            Cactus Digital Media grew from a digital agency into a team that
+            builds client solutions and its own software, SaaS, and AI
+            products. We bring product thinking, design, and engineering to
+            work that helps people move forward.
           </p>
           <Link className="text-link" to="/about">
             Meet Cactus Digital Media <Arrow diagonal />

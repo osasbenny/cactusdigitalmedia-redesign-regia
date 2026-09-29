@@ -19,7 +19,10 @@
 - [x] Four responsive homepage videos with motion preferences and playback controls.
 - [x] Separate optional SMS consent and server-side consent evidence; production origin fix.
 - [x] Configure SMTP values in Vercel and redeploy.
-- [ ] Verify provider authentication and inbox delivery in Vercel.
+- [x] Verify provider acceptance for controlled contact and project submissions in Vercel.
+- [ ] Verify both test messages arrived in the Cactus mailbox.
 - [x] Provision and connect free Upstash Redis, set salt, and wire generated credentials.
-- [ ] Verify rate limiting and real email delivery in the redeployed site.
+- [x] Verify connected rate limiter allows controlled submissions in the redeployed site.
+- [ ] Confirm 429 behavior without sending additional real messages.
 - [x] Verify new deployment and reassign cactusdigitalmedia.ng, preserving old project; www redirects to apex.
+- [x] Add founder history and product-company direction to About and homepage.

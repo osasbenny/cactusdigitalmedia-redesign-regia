@@ -17,7 +17,7 @@ export function About() {
       <PageHero
         eyebrow="Meet Cactus Digital Media"
         title="Good technology starts with understanding."
-        copy="We bring design, engineering, and product thinking together to help businesses take their next digital step."
+        copy="Founded in January 2020 in Lagos, Nigeria, we bring design, engineering, and product thinking together for businesses and the products they build."
       />
       <section className="wrap about-grid">
         <img
@@ -48,6 +48,63 @@ export function About() {
           <Link to="/start-project" className="text-link">
             Tell us what you’re building <Arrow diagonal />
           </Link>
+        </div>
+      </section>
+      <section className="wrap section about-story" aria-labelledby="our-story-title">
+        <div className="about-story-heading">
+          <span className="eyebrow">Our story</span>
+          <h2 id="our-story-title">
+            From digital services to <em>products and platforms.</em>
+          </h2>
+          <p>
+            Cactus Digital Media was founded in January 2020 by Osagie Bernard
+            Ebhuomhan in Lagos, Nigeria. What began as a service-based digital
+            and software agency has grown into a broader software and
+            digital-product engineering company.
+          </p>
+        </div>
+        <div className="about-story-grid">
+          <article>
+            <span className="eyebrow">2020 / Our beginnings</span>
+            <h3>Building for businesses.</h3>
+            <p>
+              We started with website and mobile app development, e-commerce,
+              UI/UX design, digital marketing, maintenance, IT support, and
+              custom technology services.
+            </p>
+          </article>
+          <article>
+            <span className="eyebrow">Our evolution</span>
+            <h3>Going beyond agency work.</h3>
+            <p>
+              Our work expanded into full-stack business software, SaaS
+              platforms, dashboards, portals, fintech and marketplace
+              solutions, cloud integrations, automation systems, and
+              AI-powered applications.
+            </p>
+          </article>
+          <article>
+            <span className="eyebrow">Today and ahead</span>
+            <h3>Creating what comes next.</h3>
+            <p>
+              Alongside custom client solutions, we research, design, and
+              develop our own applications, SaaS products, AI systems, and
+              technology platforms for businesses and consumers in Africa and
+              globally.
+            </p>
+          </article>
+        </div>
+        <div className="about-leadership">
+          <span className="eyebrow">Leadership & collaboration</span>
+          <p>
+            Founder and CEO <strong>Osagie Bernard Ebhuomhan</strong> also
+            serves as Lead Product/Software Engineer. Depending on the
+            project, we work with specialists in software development, UI/UX
+            and product design, infrastructure, digital strategy, and related
+            disciplines. Our long-term direction is to keep growing from a
+            traditional digital agency into a technology company that can
+            create, launch, and scale software, SaaS, and AI products.
+          </p>
         </div>
       </section>
       <section className="wrap section">

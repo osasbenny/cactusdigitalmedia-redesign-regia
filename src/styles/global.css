@@ -782,6 +782,58 @@ footer p {
 .detail-split p {
   margin-top: 24px;
 }
+.about-story {
+  padding-top: 120px;
+}
+.about-story-heading {
+  max-width: 780px;
+}
+.about-story-heading h2 {
+  margin-top: 20px;
+}
+.about-story-heading p {
+  margin-top: 24px;
+  max-width: 670px;
+}
+.about-story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+.about-story-grid article {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.about-story-grid h3 {
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.2;
+  margin: 18px 0;
+}
+.about-story-grid p {
+  font-size: 15px;
+}
+.about-leadership {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  align-items: start;
+  margin-top: 70px;
+  padding: 36px;
+  border-radius: 20px;
+  background: #f7f6fa;
+}
+.about-leadership p {
+  margin: 0;
+}
+.about-leadership strong {
+  color: var(--ink);
+}
+@media (max-width: 768px) {
+  .about-story { padding-top: 80px; }
+  .about-story-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 42px; }
+  .about-leadership { grid-template-columns: 1fr; gap: 20px; margin-top: 48px; padding: 26px; }
+}
 .detail-split .button {
   margin-top: 24px;
 }

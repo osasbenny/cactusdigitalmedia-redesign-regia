@@ -7,7 +7,7 @@ export function metadata(path: string) {
   const base: Record<string, [string, string]> = {
     "/about": [
       "About Cactus Digital Media",
-      "Design, engineering, and product thinking for ambitious businesses.",
+      "Founded in Lagos in January 2020 by Osagie Bernard Ebhuomhan. Explore our journey from digital agency to software, SaaS, and AI product engineering.",
     ],
     "/services": [
       "Our services",
