@@ -4,6 +4,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Menu, X } from "lucide-react";
 import { brand } from "../data/site";
 import InquiryForm from "./InquiryForm";
+import CookieConsent from "./CookieConsent";
 import WhatsAppChat from "./WhatsAppChat";
 import { Arrow } from "./Shared";
 const nav = [
@@ -15,6 +16,7 @@ const nav = [
   ["Contact us", "/contact"],
 ];
 export default function Layout() {
+  const [cookieSettings, setCookieSettings] = useState(false);
   const [menu, setMenu] = useState(false);
   const [modal, setModal] = useState(false);
   const { pathname } = useLocation();
@@ -154,6 +156,13 @@ export default function Layout() {
           <div>
             <Link to="/privacy">Privacy</Link>
             <Link to="/terms">Terms</Link>
+            <button
+              id="cookie-settings"
+              className="cookie-settings"
+              onClick={() => setCookieSettings(true)}
+            >
+              Cookie settings
+            </button>
             <span>
               Designed and Developed By The Cactus Digital Media Team.
             </span>
@@ -161,6 +170,10 @@ export default function Layout() {
         </div>
       </footer>
       <WhatsAppChat />
+      <CookieConsent
+        reopen={cookieSettings}
+        onClose={() => setCookieSettings(false)}
+      />
     </>
   );
 }

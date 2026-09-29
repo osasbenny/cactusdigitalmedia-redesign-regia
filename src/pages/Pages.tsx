@@ -581,7 +581,7 @@ export function Legal({ terms = false }: { terms?: boolean }) {
       <PageHero
         eyebrow="Cactus Digital Media"
         title={terms ? "Website terms" : "Privacy policy"}
-        copy="Last updated: 28 September 2026"
+        copy="Last updated: 29 September 2026"
       />
       <article className="article-body wrap">
         {terms ? (
@@ -670,9 +670,42 @@ export function Legal({ terms = false }: { terms?: boolean }) {
             </p>
             <h2>Cookies and external services</h2>
             <p>
-              This site does not currently load advertising or analytics
-              cookies. Opening WhatsApp or a portfolio website takes you to a
-              separate service with its own privacy practices.
+              Optional cookies are off by default. When Google Analytics is
+              connected, it loads only after you select “Accept optional
+              cookies”. Rejecting optional cookies keeps Analytics off and does
+              not prevent you from browsing or submitting an inquiry. Until our
+              Analytics property is connected, no Analytics tracking runs, even
+              if you accept.
+            </p>
+            <p>
+              Google Analytics helps us understand page visits and how visitors
+              use the website. It may process cookie identifiers, device and
+              browser information, and usage information through Google’s
+              services. We do not send inquiry messages, phone numbers, email
+              addresses, or project briefs to Analytics. Advertising features
+              are disabled.
+            </p>
+            <p>
+              Your choice is stored in your browser for 180 days solely to
+              remember your preference. Use “Cookie settings” in the footer to
+              change it at any time. Withdrawing consent stops future Analytics
+              collection and removes accessible Analytics cookies; it does not
+              delete data already collected. If browser storage is unavailable,
+              the choice applies to the current page session and may be
+              requested again.
+            </p>
+            <p>
+              Opening WhatsApp or a portfolio website takes you to a separate
+              service with its own privacy practices. For details about Google’s
+              processing, see{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google’s Privacy Policy
+              </a>
+              .
             </p>
           </>
         )}

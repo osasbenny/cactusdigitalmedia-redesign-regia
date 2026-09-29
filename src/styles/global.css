@@ -2195,5 +2195,98 @@ footer p {
   padding-block: 0 3rem;
 }
 @media (max-width: 600px) {
-  .back-to-top-row { padding-right: 88px; }
+  .back-to-top-row {
+    padding-right: 88px;
+  }
+}
+
+body {
+  padding-bottom: var(--cookie-banner-height, 0px);
+}
+.cookie-banner {
+  position: fixed;
+  inset: auto 12px 12px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 24px;
+  border: 1px solid #ddd7ea;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 35px #21114820;
+  color: #211148;
+}
+.cookie-copy {
+  flex: 1;
+}
+.cookie-copy h2 {
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+.cookie-copy p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 620px;
+}
+.cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cookie-choice {
+  border: 1px solid #211148;
+  border-radius: 8px;
+  background: #fff;
+  color: #211148;
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.cookie-choice:hover {
+  background: #f3f0f8;
+}
+.cookie-actions a {
+  font-size: 13px;
+  text-decoration: underline;
+}
+.cookie-settings {
+  background: none;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.whatsapp {
+  bottom: calc(24px + var(--cookie-banner-height, 0px));
+}
+.whatsapp-panel {
+  bottom: calc(100px + var(--cookie-banner-height, 0px));
+}
+@media (max-width: 900px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .cookie-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .cookie-choice {
+    padding: 10px 8px;
+  }
+  .cookie-actions a {
+    grid-column: 1 / -1;
+  }
 }
