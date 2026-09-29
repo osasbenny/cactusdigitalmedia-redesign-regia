@@ -29,6 +29,24 @@ http
         if (!route.src) continue;
         const match = new RegExp(`^${route.src}$`).test(path);
         if (!match) continue;
+        const conditionMatches = (condition) => {
+          const value =
+            condition.type === "header"
+              ? req.headers[condition.key.toLowerCase()]
+              : condition.type === "query"
+                ? url.searchParams.get(condition.key)
+                : condition.type === "host"
+                  ? url.hostname
+                  : undefined;
+          if (value === undefined || value === null) return false;
+          return (
+            condition.value === undefined ||
+            new RegExp(`^(?:${condition.value})$`).test(String(value))
+          );
+        };
+        if (route.has && !route.has.every(conditionMatches)) continue;
+        if (route.missing && route.missing.some(conditionMatches)) continue;
+        if (route.methods && !route.methods.includes(req.method)) continue;
         if (route.headers)
           for (const [key, value] of Object.entries(route.headers))
             res.setHeader(key, value);
@@ -38,6 +56,7 @@ http
           return;
         }
         if (route.dest && route.status !== 404) {
+          status = route.status || 200;
           path = route.dest;
           break;
         }
@@ -72,7 +91,11 @@ http
         String(req.headers["accept-encoding"]).includes("gzip");
       if (compress) {
         res.setHeader("Content-Encoding", "gzip");
-        res.setHeader("Vary", "Accept-Encoding");
+        const vary = res.getHeader("Vary");
+        res.setHeader(
+          "Vary",
+          vary ? `${vary}, Accept-Encoding` : "Accept-Encoding",
+        );
       }
       res.writeHead(status, {
         "Content-Type": types[extname(file)] || "application/octet-stream",
