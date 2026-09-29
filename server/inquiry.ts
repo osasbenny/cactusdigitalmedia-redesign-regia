@@ -81,11 +81,13 @@ export function allowedOrigin(
 }
 async function rateLimit(req: VercelRequest) {
   const env = process.env;
-  if (
-    !env.UPSTASH_REDIS_REST_URL ||
-    !env.UPSTASH_REDIS_REST_TOKEN ||
-    !env.RATE_LIMIT_SALT
-  )
+  // Vercel's Upstash Marketplace connection prefixes its REST credentials.
+  // Prefer the connected store over older manually configured values.
+  const redisUrl =
+    env.UPSTASH_REDIS_REST_KV_REST_API_URL || env.UPSTASH_REDIS_REST_URL;
+  const redisToken =
+    env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN || env.UPSTASH_REDIS_REST_TOKEN;
+  if (!redisUrl || !redisToken || !env.RATE_LIMIT_SALT)
     throw new Error("rate_limit_unconfigured");
   const ip = String(
     req.headers["x-vercel-forwarded-for"] ||
@@ -101,10 +103,10 @@ async function rateLimit(req: VercelRequest) {
   const key = `cactus:inquiry:${hash}`;
   const script =
     "local n=redis.call('INCR',KEYS[1]); if n==1 then redis.call('EXPIRE',KEYS[1],3600) end; return n";
-  const r = await fetch(`${env.UPSTASH_REDIS_REST_URL.replace(/\/$/, "")}`, {
+  const r = await fetch(redisUrl.replace(/\/$/, ""), {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${env.UPSTASH_REDIS_REST_TOKEN}`,
+      Authorization: `Bearer ${redisToken}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(["EVAL", script, "1", key]),

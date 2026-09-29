@@ -20,5 +20,6 @@
 - [x] Separate optional SMS consent and server-side consent evidence; production origin fix.
 - [x] Configure SMTP values in Vercel and redeploy.
 - [ ] Verify provider authentication and inbox delivery in Vercel.
-- [ ] Verify Redis credentials for form rate limiting.
+- [x] Provision and connect free Upstash Redis, set salt, and wire generated credentials.
+- [ ] Verify rate limiting and real email delivery in the redeployed site.
 - [x] Verify new deployment and reassign cactusdigitalmedia.ng, preserving old project; www redirects to apex.

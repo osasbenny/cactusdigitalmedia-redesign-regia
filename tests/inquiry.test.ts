@@ -119,6 +119,26 @@ function configure() {
   vi.stubEnv("UPSTASH_REDIS_REST_URL", "https://redis.example");
 }
 describe("Delivery and abuse protection", () => {
+  it("uses the connected Upstash REST credentials when available", async () => {
+    configure();
+    vi.stubEnv("UPSTASH_REDIS_REST_KV_REST_API_URL", "https://connected.example");
+    vi.stubEnv("UPSTASH_REDIS_REST_KV_REST_API_TOKEN", "connected-token");
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ result: 1 }),
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    sendMail.mockResolvedValue({ accepted: ["inbox@example.com"] });
+    const res = response();
+    await createHandler()(request(), res as unknown as VercelResponse);
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(fetchMock).toHaveBeenCalledWith(
+      "https://connected.example",
+      expect.objectContaining({
+        headers: expect.objectContaining({ Authorization: "Bearer connected-token" }),
+      }),
+    );
+  });
   it("fails closed when rate limiting is unavailable", async () => {
     configure();
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("offline")));

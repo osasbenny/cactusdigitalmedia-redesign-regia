@@ -13,9 +13,11 @@ Set these in Vercel **Preview** first, then Production after acceptance:
 | SMTP_FROM | Provider-authorized sender, e.g. Cactus Digital Media <info@cactusdigitalmedia.ng> |
 | CONTACT_TO | Owner-approved recipient inbox |
 | ALLOWED_ORIGINS | Comma-separated exact HTTPS origins, including the specific preview URL; production cactusdigitalmedia.ng and www.cactusdigitalmedia.ng |
-| UPSTASH_REDIS_REST_URL | Upstash HTTPS REST endpoint |
-| UPSTASH_REDIS_REST_TOKEN | Upstash token |
+| UPSTASH_REDIS_REST_URL | Upstash HTTPS REST endpoint, for manually configured stores |
+| UPSTASH_REDIS_REST_TOKEN | Upstash token, for manually configured stores |
 | RATE_LIMIT_SALT | Random secret, at least 32 bytes |
+
+The Vercel Marketplace Upstash connection for `cactus-inquiry-rate-limit` supplies `UPSTASH_REDIS_REST_KV_REST_API_URL` and `UPSTASH_REDIS_REST_KV_REST_API_TOKEN` automatically to Production and Preview. The API prefers these connected credentials over manual variables. Never put either credential or the salt in Git.
 
 Never prefix secrets with VITE_. Missing SMTP or rate-limit setup returns 503 and a visible direct-contact fallback. Failed SMTP returns 502. Rate limit returns 429 with Retry-After. No message text or email address is logged. Redis stores only an HMAC-derived identifier and count for at most one hour.
 

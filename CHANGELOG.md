@@ -33,3 +33,4 @@
 - Moved the apex and www domains from the previous Vercel project to `cactusdigitalmedia`; retained the previous project.
 - Attached the apex to Production and configured a permanent 308 redirect from www to the apex. Both show valid configuration and the live site loads at the canonical domain.
 - A controlled live form request reached the server but returned 503 because no working Redis rate limiter is connected. Upstash integration creation requires acceptance of marketplace/provider terms before Redis credentials and live SMTP delivery can be verified.
+- After owner confirmation, provisioned a free Upstash Redis database, connected it to Production and Preview, and set a random 32-byte rate-limit salt in Vercel. Updated the API to prefer Vercel's generated REST credentials, preserving manual configuration support.
