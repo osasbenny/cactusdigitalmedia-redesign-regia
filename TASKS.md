@@ -29,3 +29,7 @@
 - [ ] Confirm 429 behavior without sending additional real messages.
 - [x] Verify new deployment and reassign cactusdigitalmedia.ng, preserving old project; www redirects to apex.
 - [x] Add founder history and product-company direction to About and homepage.
+
+## 2026-09-29 — Portfolio and search updates
+
+Added supplied Adfidia and Devdan designs plus Logistica logistics design concept (placeholder imagery; no client/results claims). Added explicit Vercel routes and sitemap entries. Homepage meta description uses the owner’s exact high-performance web/mobile/enterprise wording. Expanded organization/page/breadcrumb metadata, per-page social previews and crawl directives; preserved prerendered HTML and noindex 404. Cinematic videos now autoplay muted in view with pause/reduced-motion support. Back-to-top is in homepage document flow, separate from floating WhatsApp. Build (87 routes), lint and static SEO checks passed. Git push triggers production deployment; live verification pending.

@@ -43,3 +43,7 @@
 - Added the owner's January 2020 founding history, founder/CEO and lead engineering role, service-to-product evolution, specialist collaboration, and long-term direction to About, with a concise homepage introduction.
 
 - Renamed the GoFuel portfolio display title to GoFuel App at the owner’s request; the existing URL remains /portfolio/gofuel.
+
+## 2026-09-29 — Portfolio and search updates
+
+Added supplied Adfidia and Devdan designs plus Logistica logistics design concept (placeholder imagery; no client/results claims). Added explicit Vercel routes and sitemap entries. Homepage meta description uses the owner’s exact high-performance web/mobile/enterprise wording. Expanded organization/page/breadcrumb metadata, per-page social previews and crawl directives; preserved prerendered HTML and noindex 404. Cinematic videos now autoplay muted in view with pause/reduced-motion support. Back-to-top is in homepage document flow, separate from floating WhatsApp. Build (87 routes), lint and static SEO checks passed. Git push triggers production deployment; live verification pending.

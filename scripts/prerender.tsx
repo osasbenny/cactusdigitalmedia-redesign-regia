@@ -43,12 +43,26 @@ for (const route of [...allRoutes, "/404"]) {
       '<script type="application/ld+json" id="structured-data">{}</script>',
       `<script type="application/ld+json" id="structured-data">${JSON.stringify(structuredData(route)).replaceAll("<", "\\u003c")}</script>`,
     );
+  for (const [attribute, key, value] of [
+    ["property", "og:image", m.image],
+    ["property", "og:type", m.type],
+    ["name", "twitter:title", m.title],
+    ["name", "twitter:description", m.description],
+    ["name", "twitter:image", m.image],
+  ])
+    html = html.replace(
+      new RegExp(`(<meta ${attribute}="${key}" content=")[^"]*`),
+      `$1${escape(value)}`,
+    );
   html = html.replace(
     "</body>",
     `<script type="application/json" id="article-data">${JSON.stringify(article).replaceAll("<", "\\u003c")}</script></body>`,
   );
   if (route === "/404")
-    html = html.replace('content="index,follow"', 'content="noindex"');
+    html = html.replace(
+      'content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"',
+      'content="noindex"',
+    );
   const dir = route === "/" ? "dist" : `dist${route}`;
   mkdirSync(dir, { recursive: true });
   writeFileSync(`${dir}/index.html`, html);

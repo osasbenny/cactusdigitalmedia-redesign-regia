@@ -31,3 +31,7 @@ Owner reports the site deployed at https://cactusdigitalmedia.vercel.app. Added 
 Owner explicitly authorized moving cactusdigitalmedia.ng from the old Vercel project to this project, preserving the old project. This is completed. Never commit the supplied SMTP password. SMTP authentication could not be verified from this workspace: public DNS resolves mail.cactusdigitalmedia.ng, but direct SMTP connectivity is unavailable here. Redis rate-limiter credentials are still required; do not disable the fail-closed protection.
 
 The owner requested the display name GoFuel App on 2026-09-29; retain /portfolio/gofuel as the stable URL.
+
+## 2026-09-29 — Portfolio and search updates
+
+Added supplied Adfidia and Devdan designs plus Logistica logistics design concept (placeholder imagery; no client/results claims). Added explicit Vercel routes and sitemap entries. Homepage meta description uses the owner’s exact high-performance web/mobile/enterprise wording. Expanded organization/page/breadcrumb metadata, per-page social previews and crawl directives; preserved prerendered HTML and noindex 404. Cinematic videos now autoplay muted in view with pause/reduced-motion support. Back-to-top is in homepage document flow, separate from floating WhatsApp. Build (87 routes), lint and static SEO checks passed. Git push triggers production deployment; live verification pending.

@@ -27,7 +27,17 @@ function SEO() {
     set('meta[property="og:title"]', m.title);
     set('meta[property="og:description"]', m.description);
     set('meta[property="og:url"]', m.canonical);
-    set('meta[name="robots"]', m.found ? "index,follow" : "noindex");
+    set('meta[property="og:image"]', m.image);
+    set('meta[property="og:type"]', m.type);
+    set('meta[name="twitter:title"]', m.title);
+    set('meta[name="twitter:description"]', m.description);
+    set('meta[name="twitter:image"]', m.image);
+    set(
+      'meta[name="robots"]',
+      m.found
+        ? "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+        : "noindex",
+    );
     document
       .querySelector('link[rel="canonical"]')
       ?.setAttribute("href", m.canonical);

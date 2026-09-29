@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {
+  ArrowUp,
   Code2,
   Smartphone,
   Layers,
@@ -29,7 +30,7 @@ export default function Home() {
             <span className="small-line" />
             Creative technology. Real possibilities.
           </span>
-          <h1>
+          <h1 id="home-top" tabIndex={-1}>
             Build better.
             <br />
             Grow <em>smarter.</em>
@@ -209,11 +210,11 @@ export default function Home() {
             Not just <em>screens.</em>
           </h2>
           <p>
-            Founded in Lagos in January 2020 by Osagie Bernard Ebhuomhan,
-            Cactus Digital Media grew from a digital agency into a team that
-            builds client solutions and its own software, SaaS, and AI
-            products. We bring product thinking, design, and engineering to
-            work that helps people move forward.
+            Founded in Lagos in January 2020 by Osagie Bernard Ebhuomhan, Cactus
+            Digital Media grew from a digital agency into a team that builds
+            client solutions and its own software, SaaS, and AI products. We
+            bring product thinking, design, and engineering to work that helps
+            people move forward.
           </p>
           <Link className="text-link" to="/about">
             Meet Cactus Digital Media <Arrow diagonal />
@@ -280,6 +281,23 @@ export default function Home() {
         </div>
       </section>
       <CTA />
+      <div className="wrap back-to-top-row">
+        <button
+          className="button plain"
+          onClick={() => {
+            document.getElementById("home-top")?.focus({ preventScroll: true });
+            window.scrollTo({
+              top: 0,
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "instant"
+                : "smooth",
+            });
+          }}
+        >
+          <ArrowUp size={18} aria-hidden="true" /> Back to top
+        </button>
+      </div>
     </>
   );
 }

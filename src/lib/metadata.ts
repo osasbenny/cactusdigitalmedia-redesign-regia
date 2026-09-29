@@ -1,8 +1,9 @@
 import { brand, services, projects, posts } from "../data/site";
 export function metadata(path: string) {
-  let title = "Cactus Digital Media — Build better. Grow smarter.";
+  path = path.split(/[?#]/)[0].replace(/\/$/, "") || "/";
+  let title = "Cactus Digital Media | Web & Mobile App Development";
   let description =
-    "Websites, apps, SaaS products, and AI automation. Cactus Digital Media connects design and technology around your business.";
+    "We build high-performance web applications, custom mobile apps (Android & iOS), and enterprise digital solutions engineered for business growth.";
   let found = true;
   const base: Record<string, [string, string]> = {
     "/about": [
@@ -11,11 +12,11 @@ export function metadata(path: string) {
     ],
     "/services": [
       "Our services",
-      "Websites, applications, SaaS, AI automation, e-commerce, and digital growth.",
+      "Explore web and mobile app development, SaaS engineering, AI automation, e-commerce, and UI/UX design services from Cactus Digital Media in Lagos.",
     ],
     "/portfolio": [
       "Our portfolio",
-      "Explore website design and development work across different industries.",
+      "Explore Cactus Digital Media’s portfolio of Android apps, websites, e-commerce stores, and digital product designs, including GoFuel App and HabitMind.",
     ],
     "/blog": [
       "Ideas & insights",
@@ -23,11 +24,11 @@ export function metadata(path: string) {
     ],
     "/contact": [
       "Contact Cactus Digital Media",
-      "Tell us what you want to build, improve, or connect.",
+      "Contact Cactus Digital Media in Lagos, Nigeria about websites, mobile apps, SaaS platforms, AI systems, and support for your business.",
     ],
     "/start-project": [
       "Start a project",
-      "Share your project brief with Cactus Digital Media.",
+      "Share your goals, scope, and timeline with Cactus Digital Media to start planning your website, mobile app, or custom software project.",
     ],
     "/products": [
       "Digital products",
@@ -62,6 +63,11 @@ export function metadata(path: string) {
       : `${title} — Cactus Digital Media`,
     description,
     canonical: brand.origin + path,
+    image:
+      brand.origin +
+      (projects.find((p) => path === `/portfolio/${p.slug}`)?.image ||
+        "/images/business-meeting.webp"),
+    type: posts.some((p) => path === `/blog/${p.slug}`) ? "article" : "website",
     found,
   };
 }
@@ -93,12 +99,36 @@ export function structuredData(path: string) {
         url: brand.origin,
         email: brand.email,
         logo: brand.origin + "/apple-touch-icon.png",
+        description: metadata("/").description,
+        foundingDate: "2020-01",
+        foundingLocation: { "@type": "Place", name: "Lagos, Nigeria" },
+        founder: {
+          "@type": "Person",
+          name: "Osagie Bernard Ebhuomhan",
+          jobTitle: "Founder, CEO and Lead Product/Software Engineer",
+        },
       },
       {
         "@type": "WebSite",
         "@id": brand.origin + "/#website",
         name: brand.name,
         url: brand.origin,
+      },
+      {
+        "@type":
+          path === "/about"
+            ? "AboutPage"
+            : path === "/contact"
+              ? "ContactPage"
+              : "WebPage",
+        "@id": m.canonical + "#webpage",
+        url: m.canonical,
+        name: m.title,
+        description: m.description,
+        inLanguage: "en",
+        isPartOf: { "@id": brand.origin + "/#website" },
+        about: { "@id": brand.origin + "/#organization" },
+        primaryImageOfPage: { "@type": "ImageObject", url: m.image },
       },
       ...(path === "/"
         ? []
@@ -115,9 +145,25 @@ export function structuredData(path: string) {
                 {
                   "@type": "ListItem",
                   position: 2,
-                  name: m.title,
-                  item: m.canonical,
+                  name:
+                    path.split("/").length > 2
+                      ? metadata("/" + path.split("/")[1]).title
+                      : m.title,
+                  item:
+                    path.split("/").length > 2
+                      ? brand.origin + "/" + path.split("/")[1]
+                      : m.canonical,
                 },
+                ...(path.split("/").length > 2
+                  ? [
+                      {
+                        "@type": "ListItem",
+                        position: 3,
+                        name: m.title,
+                        item: m.canonical,
+                      },
+                    ]
+                  : []),
               ],
             },
           ]),

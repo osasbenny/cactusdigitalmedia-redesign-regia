@@ -66,7 +66,7 @@ test("mobile navigation opens, navigates, and closes", async ({ page }) => {
 });
 test("portfolio filters and search work", async ({ page }) => {
   await page.goto("/portfolio");
-  await expect(page.locator(".project-card")).toHaveCount(12);
+  await expect(page.locator(".project-card")).toHaveCount(15);
   await page
     .getByRole("button", { name: "Mobile Applications", exact: true })
     .click();

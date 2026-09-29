@@ -84,3 +84,5 @@ HabitMind was retrieved on 2026-09-29 from the owner-supplied Google Play listin
   }
 ]
 ```
+
+Adfidia: owner portfolio.png; Devdan: owner devdan.png; Logistica design concept: owner shipping.jpg. Only visible interface features described; no inferred URLs, stacks, metrics, or testimonials.

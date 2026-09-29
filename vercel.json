@@ -533,6 +533,18 @@
       "dest": "/portfolio/echobroad/index.html"
     },
     {
+      "src": "/portfolio/adfidia/?",
+      "dest": "/portfolio/adfidia/index.html"
+    },
+    {
+      "src": "/portfolio/devdan/?",
+      "dest": "/portfolio/devdan/index.html"
+    },
+    {
+      "src": "/portfolio/logistica/?",
+      "dest": "/portfolio/logistica/index.html"
+    },
+    {
       "handle": "filesystem"
     },
     {

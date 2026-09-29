@@ -101,6 +101,85 @@
     "sourceFile": "Google Play listing and screenshots, retrieved 2026-09-29"
   },
   {
+    "slug": "logistica",
+    "title": "Logistica — Logistics Design Concept",
+    "category": "Business Websites",
+    "description": "A logistics website design concept bringing freight services and quote requests into one visual experience.",
+    "context": "A design concept for presenting transport services, shipping information, and a quote-request journey.",
+    "features": [
+      "Freight service overview",
+      "Quote-request form layout",
+      "Transport-focused visual design"
+    ],
+    "image": "/images/projects/logistica.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/logistica.webp",
+        "alt": "Logistica — Logistics Design Concept supplied design preview",
+        "width": 800,
+        "height": 500
+      }
+    ],
+    "sourceUrl": null,
+    "liveUrl": null,
+    "featured": false,
+    "status": "Recent work",
+    "technologies": []
+  },
+  {
+    "slug": "devdan",
+    "title": "Devdan",
+    "category": "E-commerce",
+    "description": "A ceramic tile storefront with product discovery, account access, and shopping cart navigation.",
+    "context": "A commerce experience for browsing ceramic tiles and reaching the store for assistance.",
+    "features": [
+      "Shop and account navigation",
+      "Shopping cart access",
+      "Product-led visual merchandising",
+      "Contact and support links"
+    ],
+    "image": "/images/projects/devdan.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/devdan.webp",
+        "alt": "Devdan supplied design preview",
+        "width": 1600,
+        "height": 776
+      }
+    ],
+    "sourceUrl": null,
+    "liveUrl": null,
+    "featured": false,
+    "status": "Recent work",
+    "technologies": []
+  },
+  {
+    "slug": "adfidia",
+    "title": "Adfidia",
+    "category": "Business Websites",
+    "description": "A marketing agency website with a campaign-led homepage and clear service navigation.",
+    "context": "A bold digital presence for introducing marketing services and connecting visitors with the agency.",
+    "features": [
+      "Campaign-focused hero",
+      "Services and careers navigation",
+      "Social media links"
+    ],
+    "image": "/images/projects/adfidia.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/adfidia.webp",
+        "alt": "Adfidia supplied design preview",
+        "width": 1306,
+        "height": 601
+      }
+    ],
+    "sourceUrl": null,
+    "liveUrl": null,
+    "featured": false,
+    "status": "Recent work",
+    "technologies": []
+  },
+  {
     "slug": "aurareach",
     "title": "AuraReach",
     "category": "SaaS / Products",
@@ -213,7 +292,7 @@
     "title": "Beyond The Machine",
     "category": "Websites",
     "description": "A book storefront exploring humanity in the age of technology.",
-    "context": "An editorial website that connects the book\u2019s themes, chapters, and purchase journey.",
+    "context": "An editorial website that connects the book’s themes, chapters, and purchase journey.",
     "features": [
       "Book presentation",
       "Chapter previews",
@@ -265,7 +344,7 @@
     "title": "Elsmith Consulting",
     "category": "Websites",
     "description": "A corporate website for business advisory and leadership services.",
-    "context": "A service-led experience that makes the firm\u2019s expertise easier to explore.",
+    "context": "A service-led experience that makes the firm’s expertise easier to explore.",
     "features": [
       "Business advisory services",
       "Leadership development",
@@ -292,7 +371,7 @@
     "slug": "lignel-healthcare",
     "title": "Lignel Healthcare",
     "category": "Websites",
-    "description": "A healthcare organisation\u2019s website for services, products, and community initiatives.",
+    "description": "A healthcare organisation’s website for services, products, and community initiatives.",
     "context": "A clear public-facing home for healthcare information and organisational work.",
     "features": [
       "Service information",
@@ -650,9 +729,9 @@
   },
   {
     "slug": "davyo-s-place",
-    "title": "Davyo\u2019s Place",
+    "title": "Davyo’s Place",
     "category": "Websites",
-    "description": "Website design and development for Davyo\u2019s Place.",
+    "description": "Website design and development for Davyo’s Place.",
     "image": "/images/projects/davyo-s-place.jpg",
     "sourceUrl": "https://davyosplace.com/",
     "liveUrl": "https://davyosplace.com/",
