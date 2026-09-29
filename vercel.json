@@ -525,6 +525,10 @@
       "dest": "/portfolio/renowncrown/index.html"
     },
     {
+      "src": "/portfolio/habitmind/?",
+      "dest": "/portfolio/habitmind/index.html"
+    },
+    {
       "src": "/portfolio/echobroad/?",
       "dest": "/portfolio/echobroad/index.html"
     },
