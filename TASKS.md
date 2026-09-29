@@ -43,3 +43,5 @@ Owner-confirmed markets: Nigeria (Lagos and Abuja), Tanzania, Egypt, Australia, 
 ## 2026-09-29 — Narrow copier deterrent and crawler access
 
 Added early HTTP 403 route for explicit HTTrack/WebCopier/WebZIP/Teleport Pro/Offline Explorer/SiteSucker/CyotekWebCopy identifiers. No CAPTCHA, global bot block, or generic scripting-client restriction. Ordinary visitors, search and AI crawlers remain allowed; robots.txt advertises the existing 87-page sitemap. Production source maps explicitly off. This deters declared copiers, cannot prevent copying of publicly served assets or spoofed user agents. Build, lint and 28 tests passed. Live status verification pending deployment. See docs/CRAWLER_POLICY.md.
+
+Live verification: browser homepage 200; Googlebot homepage 200; OAI-SearchBot sitemap 200; HTTrack homepage 403; HTTrack branded image 403. Renamed legacy image URL redirects to branded asset with 200. Location text visible on About. Improved reach-section grid grouping after visual review.

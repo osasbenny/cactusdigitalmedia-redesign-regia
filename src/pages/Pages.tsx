@@ -99,13 +99,15 @@ export function About() {
         </div>
         <div className="about-leadership">
           <span className="eyebrow">Our reach</span>
-          <h3>Based in Lagos. Working across borders.</h3>
-          <p>
-            We have worked with clients in Nigeria, including Lagos and Abuja,
-            and across Tanzania, Egypt, Australia, the USA, and Canada. Our web
-            development, mobile app, and digital solutions services connect
-            local understanding with international project experience.
-          </p>
+          <div>
+            <h3>Based in Lagos. Working across borders.</h3>
+            <p>
+              We have worked with clients in Nigeria, including Lagos and Abuja,
+              and across Tanzania, Egypt, Australia, the USA, and Canada. Our
+              web development, mobile app, and digital solutions services
+              connect local understanding with international project experience.
+            </p>
+          </div>
         </div>
         <div className="about-leadership">
           <span className="eyebrow">Leadership & collaboration</span>
