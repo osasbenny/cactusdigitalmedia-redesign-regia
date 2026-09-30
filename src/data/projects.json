@@ -53,6 +53,56 @@
     "sourceFile": "https://gofuel.ng/"
   },
   {
+    "slug": "taskflow",
+    "title": "TaskFlow App",
+    "category": "Mobile Applications",
+    "description": "An Android task-management app for organizing daily work, setting priorities, and keeping track of upcoming tasks.",
+    "context": "A focused productivity experience that brings task planning, reminders, and completion tracking into one place.",
+    "features": [
+      "Personal, work, and important task categories",
+      "High, medium, and low priorities",
+      "Due dates, due times, and reminders",
+      "Task search and today, upcoming, and completed views",
+      "Light, dark, and system theme settings"
+    ],
+    "image": "/images/projects/cactus-digital-media-taskflow-app-featured-image.webp",
+    "imageWidth": 512,
+    "imageHeight": 250,
+    "icon": "/images/projects/cactus-digital-media-taskflow-app-icon.webp",
+    "gallery": [
+      {
+        "src": "/images/projects/cactus-digital-media-taskflow-app-task-list.webp",
+        "alt": "TaskFlow App task list with categories, priorities and completion checkboxes",
+        "width": 341,
+        "height": 512
+      },
+      {
+        "src": "/images/projects/cactus-digital-media-taskflow-app-add-task.webp",
+        "alt": "TaskFlow App add-task screen with notes, priority, due date, time and reminder",
+        "width": 341,
+        "height": 512
+      },
+      {
+        "src": "/images/projects/cactus-digital-media-taskflow-app-settings.webp",
+        "alt": "TaskFlow App settings with light, dark and system themes and notification preferences",
+        "width": 341,
+        "height": 512
+      },
+      {
+        "src": "/images/projects/cactus-digital-media-taskflow-app-today.webp",
+        "alt": "TaskFlow App today view with task search and upcoming and completed filters",
+        "width": 341,
+        "height": 512
+      }
+    ],
+    "sourceUrl": null,
+    "liveUrl": null,
+    "featured": true,
+    "status": "Recent work",
+    "technologies": [],
+    "sourceFile": "Owner-supplied TaskFlow artwork and four screenshots, 2026-09-30"
+  },
+  {
     "slug": "habitmind",
     "title": "HabitMind",
     "category": "Mobile Applications",
@@ -102,7 +152,7 @@
   },
   {
     "slug": "logistica",
-    "title": "Logistica — Logistics Design Concept",
+    "title": "Logistica \u2014 Logistics Design Concept",
     "category": "Websites",
     "description": "A logistics website design concept bringing freight services and quote requests into one visual experience.",
     "context": "A design concept for presenting transport services, shipping information, and a quote-request journey.",
@@ -115,7 +165,7 @@
     "gallery": [
       {
         "src": "/images/projects/cactus-digital-media-logistica-portfolio.webp",
-        "alt": "Logistica — Logistics Design Concept supplied design preview",
+        "alt": "Logistica \u2014 Logistics Design Concept supplied design preview",
         "width": 800,
         "height": 500
       }
@@ -292,7 +342,7 @@
     "title": "Beyond The Machine",
     "category": "Websites",
     "description": "A book storefront exploring humanity in the age of technology.",
-    "context": "An editorial website that connects the book’s themes, chapters, and purchase journey.",
+    "context": "An editorial website that connects the book\u2019s themes, chapters, and purchase journey.",
     "features": [
       "Book presentation",
       "Chapter previews",
@@ -344,7 +394,7 @@
     "title": "Elsmith Consulting",
     "category": "Websites",
     "description": "A corporate website for business advisory and leadership services.",
-    "context": "A service-led experience that makes the firm’s expertise easier to explore.",
+    "context": "A service-led experience that makes the firm\u2019s expertise easier to explore.",
     "features": [
       "Business advisory services",
       "Leadership development",
@@ -371,7 +421,7 @@
     "slug": "lignel-healthcare",
     "title": "Lignel Healthcare",
     "category": "Websites",
-    "description": "A healthcare organisation’s website for services, products, and community initiatives.",
+    "description": "A healthcare organisation\u2019s website for services, products, and community initiatives.",
     "context": "A clear public-facing home for healthcare information and organisational work.",
     "features": [
       "Service information",
@@ -729,9 +779,9 @@
   },
   {
     "slug": "davyo-s-place",
-    "title": "Davyo’s Place",
+    "title": "Davyo\u2019s Place",
     "category": "Websites",
-    "description": "Website design and development for Davyo’s Place.",
+    "description": "Website design and development for Davyo\u2019s Place.",
     "image": "/images/projects/cactus-digital-media-davyo-s-place-portfolio.jpg",
     "sourceUrl": "https://davyosplace.com/",
     "liveUrl": "https://davyosplace.com/",

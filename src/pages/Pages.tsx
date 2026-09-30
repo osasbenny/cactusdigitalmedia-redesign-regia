@@ -321,6 +321,15 @@ export function ProjectDetail() {
       <section className="wrap project-detail">
         <div className="case-summary case-intro">
           <div>
+            {p.icon && (
+              <img
+                className="case-app-icon"
+                src={p.icon}
+                alt={`${p.title} icon`}
+                width={64}
+                height={64}
+              />
+            )}
             <span className="eyebrow">The experience</span>
             <h2>{p.context || `A digital presence for ${p.title}.`}</h2>
             {p.credit && <p>{p.credit}</p>}
@@ -355,8 +364,8 @@ export function ProjectDetail() {
             <img
               src={p.image}
               alt={`${p.title} project design`}
-              width={mobile ? 1000 : 1000}
-              height={mobile ? 1000 : 760}
+              width={p.imageWidth || 1000}
+              height={p.imageHeight || (mobile ? 1000 : 760)}
             />
           </div>
         )}

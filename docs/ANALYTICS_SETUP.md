@@ -7,3 +7,5 @@ Use cactusdigitalmedia.ng as the stream URL. In Google Analytics → Admin → D
 Basic opt-in behavior: no Google tag or requests before acceptance. Accepted preference lasts 180 days. Reject keeps Analytics off. Footer Cookie settings supports withdrawal, removes accessible Analytics cookies and reloads to unload the tag. Existing collected data is not erased by withdrawal. Advertising consent is denied. Explicit page views contain paths and titles without query strings or form values.
 
 Verify fresh-browser accept/reject behavior and check Reports → Realtime after an accepted visit. Browser tests stub Google requests to avoid sending automated test traffic to the production property.
+
+Owner verification: on 29 September 2026, Tag Assistant detected G-LFWWQPX923 and sent a Page View. The owner supplied a Realtime screenshot showing four active users. Analytics integration is verified.

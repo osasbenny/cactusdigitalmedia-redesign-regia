@@ -59,3 +59,9 @@ Added responsive bottom bar with owner-approved privacy copy, equal accept/rejec
 ## 2026-09-29 — Connect owner-supplied GA4 stream
 
 Connected public Measurement ID G-LFWWQPX923 behind optional-cookie acceptance. Updated Privacy Policy to describe the active integration. Uses standard gtag arguments queue, manual route page views, denied advertising consent and no form values/query strings. Browser regression tests cover rejection, acceptance, route tracking and withdrawal without sending CI traffic to Google. Build override remains available; empty override disables tracking. Previous consent-bar deployment and full GitHub checks succeeded. Google Analytics property enhanced measurement settings and Realtime require owner access; setup steps documented in docs/ANALYTICS_SETUP.md.
+
+## 2026-09-30 — TaskFlow App and Analytics verification
+
+Added TaskFlow App to Mobile Applications, Recent work and the homepage featured selection. Converted all six owner-supplied assets to descriptive Cactus Digital Media WebP files; included app icon, featured cover and four screenshot captions. Description and features reflect the supplied screens; no store URL, stack or unsupported results invented. Added explicit Vercel detail route; metadata and sitemap generated automatically. Owner confirmed Google Analytics verification and Realtime data on 29 September.
+
+Validation: production build generated 88 routes; lint and all 28 unit tests passed, including direct Vercel reachability for every recent project.

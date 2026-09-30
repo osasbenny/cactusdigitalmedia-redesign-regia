@@ -8,6 +8,9 @@ export interface Project {
   category: string;
   description: string;
   image: string | null;
+  imageWidth?: number;
+  imageHeight?: number;
+  icon?: string;
   imageSmall?: string;
   gallery?: { src: string; alt: string; width?: number; height?: number }[];
   sourceUrl: string | null;
