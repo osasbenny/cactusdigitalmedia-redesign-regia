@@ -73,21 +73,22 @@ export function metadata(path: string) {
     ],
   };
 
-  if (base[path]) [title, description] = base[path];
-  else if (path !== "/") {
-    const item =
-      services.find((s) => path === `/services/${s.slug}`) ||
-      projects.find((p) => path === `/portfolio/${p.slug}`) ||
-      posts.find((p) => path === `/blog/${p.slug}`);
+  if (base[path]) {
+    [title, description] = base[path];
+  } else if (path !== "/") {
+    const service = services.find((s) => path === `/services/${s.slug}`);
+    const project = projects.find((p) => path === `/portfolio/${p.slug}`);
+    const article = posts.find((p) => path === `/blog/${p.slug}`);
 
-    if (item) {
-      title = "title" in item ? item.title : item.shortLabel;
-      description =
-        "description" in item
-          ? item.description
-          : "metaDescription" in item
-            ? item.metaDescription
-            : item.excerpt;
+    if (service) {
+      title = service.shortLabel;
+      description = service.description;
+    } else if (project) {
+      title = project.title;
+      description = project.description;
+    } else if (article) {
+      title = article.title;
+      description = article.metaDescription;
     } else {
       title = "Page not found";
       found = false;
