@@ -7,6 +7,31 @@ import {
 } from "../../server/seovision.js";
 
 const MAX_BODY_BYTES = 2_000_000;
+const META_DESCRIPTION_LIMIT = 155;
+
+function hasExplicitMetaDescription(body: unknown) {
+  if (!body || typeof body !== "object" || Array.isArray(body)) return false;
+  const record = body as Record<string, unknown>;
+  return [
+    "meta_description",
+    "metaDescription",
+    "seo_description",
+    "seoDescription",
+  ].some((key) => typeof record[key] === "string" && record[key]!.trim().length > 0);
+}
+
+function uniqueFallbackMetaDescription(title: string, excerpt: string) {
+  const candidate = excerpt
+    ? `${title}: ${excerpt}`
+    : `${title}. Practical guidance from Cactus Digital Media for businesses planning their next digital product or technology decision.`;
+
+  if (candidate.length <= META_DESCRIPTION_LIMIT) return candidate;
+
+  const clipped = candidate.slice(0, META_DESCRIPTION_LIMIT - 1);
+  const lastSpace = clipped.lastIndexOf(" ");
+  const cut = lastSpace >= 110 ? clipped.slice(0, lastSpace) : clipped;
+  return `${cut.replace(/[,:;\s]+$/g, "")}…`;
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader("Cache-Control", "no-store");
@@ -41,6 +66,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const article = normalizeSeoVisionArticle(body);
+
+    // Keep author-supplied SEO descriptions intact. If SeoVision omits one,
+    // build a title-aware fallback so articles that share a generic excerpt
+    // do not inherit identical meta descriptions.
+    if (!hasExplicitMetaDescription(body)) {
+      article.metaDescription = uniqueFallbackMetaDescription(
+        article.title,
+        article.excerpt,
+      );
+    }
+
     await saveSeoVisionArticle(article);
     const url = publicArticleUrl(article.slug);
 
