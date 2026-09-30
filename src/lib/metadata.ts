@@ -1,4 +1,5 @@
 import { brand, services, projects, posts } from "../data/site";
+
 export const servedMarkets = [
   "Nigeria",
   "Lagos",
@@ -9,12 +10,30 @@ export const servedMarkets = [
   "USA",
   "Canada",
 ];
+
+const organizationId = `${brand.origin}/#organization`;
+const websiteId = `${brand.origin}/#website`;
+const founderId = `${brand.origin}/about#osagie-bernard-ebhuomhan`;
+
+const socialProfiles = [
+  "https://github.com/osasbenny",
+  "https://www.linkedin.com/in/osagie-bernard-ebhuomhan-osg/",
+  "https://www.instagram.com/osas.codes/",
+  "http://www.behance.net/osas_codes",
+];
+
+const servedMarketSchema = servedMarkets.map((name) => ({
+  "@type": ["Lagos", "Abuja"].includes(name) ? "City" : "Country",
+  name: name === "USA" ? "United States" : name,
+}));
+
 export function metadata(path: string) {
   path = path.split(/[?#]/)[0].replace(/\/$/, "") || "/";
   let title = "Cactus Digital Media | Web & Mobile App Development";
   let description =
     "We build high-performance web applications, custom mobile apps (Android & iOS), and enterprise digital solutions engineered for business growth.";
   let found = true;
+
   const base: Record<string, [string, string]> = {
     "/about": [
       "About Cactus Digital Media",
@@ -30,7 +49,7 @@ export function metadata(path: string) {
     ],
     "/blog": [
       "Ideas & insights",
-      "Practical guidance for websites, digital products, and business growth.",
+      "Practical guidance for websites, digital products, automation, and business growth.",
     ],
     "/contact": [
       "Contact Cactus Digital Media",
@@ -42,7 +61,7 @@ export function metadata(path: string) {
     ],
     "/products": [
       "Digital products",
-      "Turn a recurring business problem into a useful digital product.",
+      "Explore digital products, software, SaaS, and AI systems created by Cactus Digital Media.",
     ],
     "/privacy": [
       "Privacy policy",
@@ -53,12 +72,14 @@ export function metadata(path: string) {
       "Terms for using the Cactus Digital Media website.",
     ],
   };
+
   if (base[path]) [title, description] = base[path];
   else if (path !== "/") {
     const item =
       services.find((s) => path === `/services/${s.slug}`) ||
       projects.find((p) => path === `/portfolio/${p.slug}`) ||
       posts.find((p) => path === `/blog/${p.slug}`);
+
     if (item) {
       title = "title" in item ? item.title : item.shortLabel;
       description = "description" in item ? item.description : item.excerpt;
@@ -67,6 +88,10 @@ export function metadata(path: string) {
       found = false;
     }
   }
+
+  const project = projects.find((p) => path === `/portfolio/${p.slug}`);
+  const article = posts.find((p) => path === `/blog/${p.slug}`);
+
   return {
     title: title.includes("Cactus Digital Media")
       ? title
@@ -75,20 +100,23 @@ export function metadata(path: string) {
     canonical: brand.origin + path,
     keywords: [
       brand.name,
-      "web development",
+      "custom software development",
+      "web application development",
       "mobile app development",
+      "SaaS development",
+      "AI automation",
       "Android and iOS apps",
       "enterprise digital solutions",
       ...servedMarkets,
     ].join(", "),
     image:
       brand.origin +
-      (projects.find((p) => path === `/portfolio/${p.slug}`)?.image ||
-        "/images/cactus-digital-media-business-meeting.webp"),
-    type: posts.some((p) => path === `/blog/${p.slug}`) ? "article" : "website",
+      (project?.image || "/images/cactus-digital-media-business-meeting.webp"),
+    type: article ? "article" : "website",
     found,
   };
 }
+
 export const allRoutes = [
   "/",
   "/about",
@@ -104,103 +132,215 @@ export const allRoutes = [
   ...projects.map((p) => `/portfolio/${p.slug}`),
   ...posts.map((p) => `/blog/${p.slug}`),
 ];
+
+function pageType(path: string) {
+  if (path === "/about") return "AboutPage";
+  if (path === "/contact" || path === "/start-project") return "ContactPage";
+  if (path === "/blog") return "Blog";
+  if (path === "/products" || path === "/portfolio" || path === "/services")
+    return "CollectionPage";
+  return "WebPage";
+}
+
+function breadcrumbName(segment: string) {
+  const names: Record<string, string> = {
+    services: "Services",
+    portfolio: "Portfolio",
+    blog: "Ideas & insights",
+    products: "Digital products",
+  };
+  return names[segment] || segment.replaceAll("-", " ");
+}
+
 export function structuredData(path: string) {
+  path = path.split(/[?#]/)[0].replace(/\/$/, "") || "/";
   const m = metadata(path);
   const article = posts.find((p) => path === `/blog/${p.slug}`);
+  const service = services.find((s) => path === `/services/${s.slug}`);
+  const project = projects.find((p) => path === `/portfolio/${p.slug}`);
+
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: brand.name,
+      url: brand.origin,
+      email: brand.email,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${brand.origin}/#logo`,
+        url: `${brand.origin}/cactus-digital-media-apple-touch-icon.png`,
+      },
+      image: `${brand.origin}/images/cactus-digital-media-business-meeting.webp`,
+      description: metadata("/").description,
+      areaServed: servedMarketSchema,
+      foundingDate: "2020-01",
+      foundingLocation: { "@type": "Place", name: "Lagos, Nigeria" },
+      founder: { "@id": founderId },
+      sameAs: socialProfiles,
+      knowsAbout: [
+        "Custom software development",
+        "Web application development",
+        "Mobile app development",
+        "SaaS product development",
+        "AI automation",
+        "UI/UX design",
+        "E-commerce development",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Cactus Digital Media services",
+        itemListElement: services.map((serviceItem) => ({
+          "@type": "Offer",
+          url: `${brand.origin}/services/${serviceItem.slug}`,
+          itemOffered: {
+            "@type": "Service",
+            name: serviceItem.shortLabel,
+            description: serviceItem.description,
+            provider: { "@id": organizationId },
+          },
+        })),
+      },
+    },
+    {
+      "@type": "Person",
+      "@id": founderId,
+      name: "Osagie Bernard Ebhuomhan",
+      jobTitle: "Founder, CEO and Lead Product/Software Engineer",
+      url: `${brand.origin}/about`,
+      worksFor: { "@id": organizationId },
+      sameAs: socialProfiles,
+      knowsAbout: [
+        "Software engineering",
+        "Product engineering",
+        "Mobile application development",
+        "SaaS",
+        "AI automation",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      name: brand.name,
+      url: brand.origin,
+      publisher: { "@id": organizationId },
+      inLanguage: "en",
+    },
+    {
+      "@type": pageType(path),
+      "@id": `${m.canonical}#webpage`,
+      url: m.canonical,
+      name: m.title,
+      description: m.description,
+      inLanguage: "en",
+      isPartOf: { "@id": websiteId },
+      about: { "@id": organizationId },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: m.image,
+      },
+    },
+  ];
+
+  if (path !== "/") {
+    const segments = path.split("/").filter(Boolean);
+    const itemListElement = [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: brand.origin,
+      },
+    ];
+
+    if (segments.length > 1) {
+      itemListElement.push({
+        "@type": "ListItem",
+        position: 2,
+        name: breadcrumbName(segments[0]),
+        item: `${brand.origin}/${segments[0]}`,
+      });
+      itemListElement.push({
+        "@type": "ListItem",
+        position: 3,
+        name: article?.title || service?.shortLabel || project?.title || m.title,
+        item: m.canonical,
+      });
+    } else {
+      itemListElement.push({
+        "@type": "ListItem",
+        position: 2,
+        name: m.title,
+        item: m.canonical,
+      });
+    }
+
+    graph.push({
+      "@type": "BreadcrumbList",
+      "@id": `${m.canonical}#breadcrumb`,
+      itemListElement,
+    });
+  }
+
+  if (service) {
+    graph.push({
+      "@type": "Service",
+      "@id": `${m.canonical}#service`,
+      name: service.shortLabel,
+      serviceType: service.shortLabel,
+      description: service.description,
+      url: m.canonical,
+      provider: { "@id": organizationId },
+      areaServed: servedMarketSchema,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `${service.shortLabel} capabilities`,
+        itemListElement: service.capabilities.map((capability) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: capability,
+          },
+        })),
+      },
+    });
+  }
+
+  if (project) {
+    graph.push({
+      "@type": "CreativeWork",
+      "@id": `${m.canonical}#project`,
+      name: project.title,
+      description: project.description,
+      url: m.canonical,
+      image: project.image ? `${brand.origin}${project.image}` : m.image,
+      creator: { "@id": organizationId },
+      about: project.category,
+    });
+  }
+
+  if (article) {
+    graph.push({
+      "@type": "BlogPosting",
+      "@id": `${m.canonical}#article`,
+      headline: article.title,
+      description: article.excerpt,
+      image: {
+        "@type": "ImageObject",
+        url: m.image,
+      },
+      datePublished: article.date,
+      dateModified: article.date,
+      author: { "@id": founderId },
+      publisher: { "@id": organizationId },
+      mainEntityOfPage: { "@id": `${m.canonical}#webpage` },
+      isPartOf: { "@id": websiteId },
+      inLanguage: "en",
+    });
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": brand.origin + "/#organization",
-        name: brand.name,
-        url: brand.origin,
-        email: brand.email,
-        logo: brand.origin + "/cactus-digital-media-apple-touch-icon.png",
-        description: metadata("/").description,
-        areaServed: servedMarkets.map((name) => ({
-          "@type": ["Lagos", "Abuja"].includes(name) ? "City" : "Country",
-          name: name === "USA" ? "United States" : name,
-        })),
-        foundingDate: "2020-01",
-        foundingLocation: { "@type": "Place", name: "Lagos, Nigeria" },
-        founder: {
-          "@type": "Person",
-          name: "Osagie Bernard Ebhuomhan",
-          jobTitle: "Founder, CEO and Lead Product/Software Engineer",
-        },
-      },
-      {
-        "@type": "WebSite",
-        "@id": brand.origin + "/#website",
-        name: brand.name,
-        url: brand.origin,
-      },
-      {
-        "@type":
-          path === "/about"
-            ? "AboutPage"
-            : path === "/contact"
-              ? "ContactPage"
-              : "WebPage",
-        "@id": m.canonical + "#webpage",
-        url: m.canonical,
-        name: m.title,
-        description: m.description,
-        inLanguage: "en",
-        isPartOf: { "@id": brand.origin + "/#website" },
-        about: { "@id": brand.origin + "/#organization" },
-        primaryImageOfPage: { "@type": "ImageObject", url: m.image },
-      },
-      ...(path === "/"
-        ? []
-        : [
-            {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: brand.origin,
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name:
-                    path.split("/").length > 2
-                      ? metadata("/" + path.split("/")[1]).title
-                      : m.title,
-                  item:
-                    path.split("/").length > 2
-                      ? brand.origin + "/" + path.split("/")[1]
-                      : m.canonical,
-                },
-                ...(path.split("/").length > 2
-                  ? [
-                      {
-                        "@type": "ListItem",
-                        position: 3,
-                        name: m.title,
-                        item: m.canonical,
-                      },
-                    ]
-                  : []),
-              ],
-            },
-          ]),
-      ...(article
-        ? [
-            {
-              "@type": "Article",
-              headline: article.title,
-              datePublished: article.date,
-              dateModified: "2026-09-28",
-              author: { "@type": "Organization", name: brand.name },
-              mainEntityOfPage: m.canonical,
-            },
-          ]
-        : []),
-    ],
+    "@graph": graph,
   };
 }
