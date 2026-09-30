@@ -66,11 +66,20 @@ test("mobile navigation opens, navigates, and closes", async ({ page }) => {
 });
 test("portfolio filters and search work", async ({ page }) => {
   await page.goto("/portfolio");
-  await expect(page.locator(".project-card")).toHaveCount(15);
+  await expect(page.locator(".project-card")).toHaveCount(16);
   await page
     .getByRole("button", { name: "Mobile Applications", exact: true })
     .click();
-  await expect(page.locator(".project-card")).toHaveCount(2);
+  await expect(page.locator(".project-card")).toHaveCount(3);
+  await page
+    .getByRole("link", { name: "View TaskFlow App", exact: true })
+    .click();
+  await expect(page.locator("h1")).toHaveText("TaskFlow App");
+  await expect(page.locator(".app-gallery img")).toHaveCount(4);
+  await expect(
+    page.getByRole("img", { name: "TaskFlow App icon", exact: true }),
+  ).toBeVisible();
+  await page.goto("/portfolio?view=Mobile+Applications");
   const habit = page.getByRole("link", { name: "View HabitMind", exact: true });
   await expect(habit.locator("img")).toHaveCount(3);
   await habit.click();
