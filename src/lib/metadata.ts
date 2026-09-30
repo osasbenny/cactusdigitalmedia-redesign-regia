@@ -82,7 +82,12 @@ export function metadata(path: string) {
 
     if (item) {
       title = "title" in item ? item.title : item.shortLabel;
-      description = "description" in item ? item.description : item.excerpt;
+      description =
+        "description" in item
+          ? item.description
+          : "metaDescription" in item
+            ? item.metaDescription
+            : item.excerpt;
     } else {
       title = "Page not found";
       found = false;
@@ -324,7 +329,7 @@ export function structuredData(path: string) {
       "@type": "BlogPosting",
       "@id": `${m.canonical}#article`,
       headline: article.title,
-      description: article.excerpt,
+      description: article.metaDescription || article.excerpt,
       image: {
         "@type": "ImageObject",
         url: m.image,
