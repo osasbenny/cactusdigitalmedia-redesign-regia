@@ -75,7 +75,7 @@ export default function Home() {
             src="/images/cactus-digital-media-ring.webp"
             width="500"
             height="500"
-            alt=""
+            alt="Abstract metallic ring representing connected digital experiences"
           />
           <div className="art-caption">
             <span className="signal" aria-hidden="true">
@@ -265,7 +265,7 @@ export default function Home() {
                         "/images/cactus-digital-media-workspace-hands.webp",
                       ][i]
                     }
-                    alt=""
+                    alt={`${p.title} article illustration`}
                     loading="lazy"
                     width="768"
                     height="768"
