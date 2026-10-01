@@ -78,3 +78,109 @@ console.log(`Prerendered ${allRoutes.length} routes and a 404 page.`);
 mkdirSync("dist/content", { recursive: true });
 for (const post of postContent)
   writeFileSync(`dist/content/${post.slug}.json`, JSON.stringify(post));
+
+const STOREFRONT_ORIGIN = "https://59to10k-storefront.vercel.app";
+const STOREFRONT_ROUTE = "/59to10k-guide";
+const STOREFRONT_URL = `https://cactusdigitalmedia.ng${STOREFRONT_ROUTE}`;
+
+async function fetchStorefrontFile(path: string) {
+  const response = await fetch(`${STOREFRONT_ORIGIN}/${path}`, {
+    headers: { "User-Agent": "CactusDigitalMedia-Build/1.0" },
+    signal: AbortSignal.timeout(15_000),
+  });
+  if (!response.ok)
+    throw new Error(`Unable to mirror 59to10k ${path}: HTTP ${response.status}`);
+  return response.text();
+}
+
+async function mirror59to10kStorefront() {
+  const [sourceIndex, sourceSuccess, styles, sourceScript, analytics, attribution] =
+    await Promise.all([
+      fetchStorefrontFile("index.html"),
+      fetchStorefrontFile("success.html"),
+      fetchStorefrontFile("styles.css"),
+      fetchStorefrontFile("storefront.js"),
+      fetchStorefrontFile("analytics.js"),
+      fetchStorefrontFile("attribution.js"),
+    ]);
+
+  const targetDir = `dist${STOREFRONT_ROUTE}`;
+  mkdirSync(targetDir, { recursive: true });
+
+  const index = sourceIndex
+    .replace(
+      /<link rel="canonical" href="[^"]+">/,
+      `<link rel="canonical" href="${STOREFRONT_URL}">`,
+    )
+    .replace(
+      /<meta property="og:url" content="[^"]+">/,
+      `<meta property="og:url" content="${STOREFRONT_URL}">`,
+    )
+    .replace(
+      "https://59to10k-storefront.vercel.app/#offer",
+      `${STOREFRONT_URL}#offer`,
+    )
+    .replace(
+      '<link rel="stylesheet" href="styles.css">',
+      `<base href="${STOREFRONT_ROUTE}/">\n  <link rel="stylesheet" href="styles.css">`,
+    );
+
+  const storefrontScript = sourceScript
+    .replace(
+      "fetch('/api/offer-window'",
+      "fetch('/api/storefront-59to10k?action=offer-window'",
+    )
+    .replace(
+      "fetch('/api/create-checkout-session'",
+      "fetch('/api/storefront-59to10k?action=create-checkout-session'",
+    )
+    .replace(
+      "fetch('/api/recent-purchases'",
+      "fetch('/api/storefront-59to10k?action=recent-purchases'",
+    );
+
+  const inlineSuccessScript =
+    sourceSuccess.match(/<script type="module">([\s\S]*?)<\/script>/)?.[1] || "";
+  if (!inlineSuccessScript)
+    throw new Error("Unable to extract 59to10k delivery script.");
+
+  const successScript = inlineSuccessScript.replace(
+    "fetch(`/api/order?session_id=${encodeURIComponent(sessionId)}`",
+    "fetch(`/api/storefront-59to10k?action=order&session_id=${encodeURIComponent(sessionId)}`",
+  );
+
+  const success = sourceSuccess
+    .replace(
+      '<link rel="stylesheet" href="styles.css">',
+      `<base href="${STOREFRONT_ROUTE}/">\n  <link rel="stylesheet" href="styles.css">`,
+    )
+    .replace('href="/"', `href="${STOREFRONT_ROUTE}/"`)
+    .replace(
+      /<script type="module">[\s\S]*?<\/script>/,
+      '<script type="module" src="success.js"></script>',
+    );
+
+  writeFileSync(`${targetDir}/index.html`, index);
+  writeFileSync(`${targetDir}/success.html`, success);
+  writeFileSync(`${targetDir}/styles.css`, styles);
+  writeFileSync(`${targetDir}/storefront.js`, storefrontScript);
+  writeFileSync(`${targetDir}/success.js`, successScript);
+  writeFileSync(`${targetDir}/analytics.js`, analytics);
+  writeFileSync(`${targetDir}/attribution.js`, attribution);
+
+  const sitemapPath = "dist/sitemap.xml";
+  const sitemap = readFileSync(sitemapPath, "utf8");
+  if (!sitemap.includes(STOREFRONT_URL)) {
+    writeFileSync(
+      sitemapPath,
+      sitemap.replace(
+        "</urlset>",
+        `<url><loc>${STOREFRONT_URL}</loc></url></urlset>`,
+      ),
+    );
+  }
+
+  console.log(`Mirrored 59to10k storefront to ${STOREFRONT_ROUTE}.`);
+}
+
+await mirror59to10kStorefront();
