@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc --noEmit && vite build && node --import tsx scripts/prerender.tsx",
+    "build": "tsc --noEmit && vite build && node --import tsx scripts/prerender.tsx && node --import tsx scripts/mirror-book-storefronts.ts",
     "preview": "node scripts/preview.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
