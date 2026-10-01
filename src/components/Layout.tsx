@@ -114,9 +114,10 @@ export default function Layout() {
               />
             </Link>
             <p>
-              Design. Technology. Possibility.
-              <br />
-              Thoughtfully connected.
+              Cactus Digital Media builds websites, web and mobile applications,
+              SaaS products, AI automations, and custom digital systems for
+              businesses that need practical technology and a clear path from
+              idea to launch.
             </p>
             <a
               href={brand.whatsapp}
