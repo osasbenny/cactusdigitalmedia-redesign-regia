@@ -16,6 +16,7 @@ const STOREFRONTS: Storefront[] = [
   {
     name: "Beyond the Machine",
     origins: [
+      "https://beyond-the-machine-osasbennys-projects.vercel.app",
       "https://beyond-the-machine.vercel.app",
       "https://the-dance-of-intuition-book.vercel.app",
     ],
@@ -27,6 +28,7 @@ const STOREFRONTS: Storefront[] = [
   {
     name: "Thoughts Are Things",
     origins: [
+      "https://thoughts-are-things-osasbennys-projects.vercel.app",
       "https://thoughts-are-things.vercel.app",
       "https://thoughtsarethings.vercel.app",
     ],
@@ -38,6 +40,7 @@ const STOREFRONTS: Storefront[] = [
   {
     name: "My Big Adventure Coloring Book",
     origins: [
+      "https://aura-kids-books-osasbennys-projects.vercel.app",
       "https://aura-kids-books.vercel.app",
       "https://aurakids-books.vercel.app",
     ],
