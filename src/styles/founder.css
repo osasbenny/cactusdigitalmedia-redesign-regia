@@ -1,0 +1,41 @@
+.about-story > .about-leadership:last-of-type {
+  grid-template-columns: minmax(140px, 0.75fr) 160px minmax(0, 2fr);
+  align-items: center;
+}
+
+.about-story > .about-leadership:last-of-type::before {
+  content: "";
+  grid-column: 2;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #fff url("/images/osagie-bernard-ebhuomhan-founder.svg") center / cover no-repeat;
+  box-shadow: 0 14px 36px rgb(24 16 37 / 14%);
+  border: 4px solid #fff;
+}
+
+.about-story > .about-leadership:last-of-type > .eyebrow {
+  grid-column: 1;
+}
+
+.about-story > .about-leadership:last-of-type > p {
+  grid-column: 3;
+}
+
+@media (max-width: 768px) {
+  .about-story > .about-leadership:last-of-type {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .about-story > .about-leadership:last-of-type::before,
+  .about-story > .about-leadership:last-of-type > .eyebrow,
+  .about-story > .about-leadership:last-of-type > p {
+    grid-column: 1;
+  }
+
+  .about-story > .about-leadership:last-of-type::before {
+    width: 132px;
+    height: 132px;
+  }
+}
