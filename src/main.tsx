@@ -3,6 +3,7 @@ import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./styles/global.css";
+import "./styles/founder.css";
 const initialArticle = JSON.parse(
   document.getElementById("article-data")?.textContent || "null",
 );
