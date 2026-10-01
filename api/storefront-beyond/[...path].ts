@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const UPSTREAM_ORIGIN = "https://the-dance-of-intuition-book.vercel.app";
+const UPSTREAM_ORIGIN = "https://beyond-the-machine-osasbennys-projects.vercel.app";
 const CACTUS_ORIGIN = "https://cactusdigitalmedia.ng/beyond-the-machine-book";
 
 function pathSegments(value: string | string[] | undefined) {
