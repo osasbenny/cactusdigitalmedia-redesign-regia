@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const UPSTREAM_ORIGIN = "https://aura-kids-books.vercel.app";
+const UPSTREAM_ORIGIN = "https://aura-kids-books-osasbennys-projects.vercel.app";
 const CACTUS_ORIGIN = "https://cactusdigitalmedia.ng/my-big-adventure-coloring-book";
 
 function pathSegments(value: string | string[] | undefined) {
