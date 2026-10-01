@@ -88,6 +88,12 @@ function sanitizeExternalName(url: string, index: number) {
   return `external-${String(index + 1).padStart(2, "0")}${extension}`;
 }
 
+function normalizeAssetPath(value: string) {
+  if (value.startsWith("./assets/")) return `/assets/${value.slice("./assets/".length)}`;
+  if (value.startsWith("assets/")) return `/assets/${value.slice("assets/".length)}`;
+  return value;
+}
+
 async function mirrorStorefront(storefront: Storefront) {
   const targetDir = `dist${storefront.route}`;
   mkdirSync(`${targetDir}/assets`, { recursive: true });
@@ -96,8 +102,13 @@ async function mirrorStorefront(storefront: Storefront) {
   console.log(`Using ${origin} for ${storefront.name}.`);
 
   const queue = new Set<string>();
-  for (const match of sourceIndex.matchAll(/(?:src|href)=["'](\/assets\/[^"']+)["']/g)) queue.add(match[1]);
-  if (/href=["']\/favicon\.svg["']/.test(sourceIndex)) queue.add("/favicon.svg");
+  for (const match of sourceIndex.matchAll(/(?:src|href)=["']((?:\.\/|\/)?assets\/[^"']+)["']/g)) {
+    queue.add(normalizeAssetPath(match[1]));
+  }
+  for (const match of sourceIndex.matchAll(/(?:src|href)=["'](\/[A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))["']/gi)) {
+    queue.add(match[1]);
+  }
+  if (/href=["'](?:\.\/|\/)favicon\.svg["']/.test(sourceIndex)) queue.add("/favicon.svg");
 
   const mirrored = new Set<string>();
   const externalMap = new Map<string, string>();
@@ -109,8 +120,7 @@ async function mirrorStorefront(storefront: Storefront) {
     const localUrl = `${storefront.route}/assets/${localName}`;
     try {
       const response = await fetchResponse(url);
-      const bytes = Buffer.from(await response.arrayBuffer());
-      writeFileSync(`${targetDir}/assets/${localName}`, bytes);
+      writeFileSync(`${targetDir}/assets/${localName}`, Buffer.from(await response.arrayBuffer()));
       externalMap.set(url, localUrl);
       return localUrl;
     } catch {
@@ -119,7 +129,17 @@ async function mirrorStorefront(storefront: Storefront) {
   }
 
   async function processText(text: string) {
-    let output = text.replaceAll("/assets/", `${storefront.route}/assets/`);
+    let output = text.replace(/(?:\.\/|\/)assets\//g, `${storefront.route}/assets/`);
+
+    output = output.replace(
+      /(["'(=])\/(?!\/|api\/|assets\/)([A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))(?=["')?#])/gi,
+      (match, prefix: string, resource: string) => {
+        const absolute = `/${resource}`;
+        if (absolute.startsWith(`${storefront.route}/`)) return match;
+        return `${prefix}${storefront.route}${absolute}`;
+      },
+    );
+
     const externalUrls = Array.from(
       new Set(
         [...output.matchAll(/https:\/\/files\.manuscdn\.com\/[A-Za-z0-9_?&=./%+-]+/g)].map((match) => match[0]),
@@ -153,9 +173,13 @@ async function mirrorStorefront(storefront: Storefront) {
 
     if (contentTypeIsText(contentType)) {
       let text = await response.text();
-      for (const match of text.matchAll(/\/assets\/[A-Za-z0-9._~@%+\-/?=&]+/g)) {
-        const clean = match[0].split(/[?#]/)[0];
+      for (const match of text.matchAll(/(?:\.\/|\/)assets\/[A-Za-z0-9._~@%+\-/?=&]+/g)) {
+        const normalized = normalizeAssetPath(match[0]);
+        const clean = normalized.split(/[?#]/)[0];
         if (clean) queue.add(clean);
+      }
+      for (const match of text.matchAll(/(["'(=])\/(?!\/|api\/|assets\/)([A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))(?=["')?#])/gi)) {
+        queue.add(`/${match[2]}`);
       }
       text = await processText(text);
       writeFileSync(destination, text);
@@ -165,12 +189,14 @@ async function mirrorStorefront(storefront: Storefront) {
   }
 
   let index = await processText(sourceIndex);
-  index = index.replaceAll('href="/favicon.svg"', `href="${storefront.route}/favicon.svg"`);
-  index = index.replace(/<title>[\s\S]*?<\/title>/i, `<title>${storefront.title}</title>`);
-  index = index.replace(
-    /<meta\s+name=["']description["']\s+content=["'][^"']*["']\s*\/?\s*>/i,
-    `<meta name="description" content="${storefront.description}">`,
-  );
+  index = index
+    .replaceAll('href="/favicon.svg"', `href="${storefront.route}/favicon.svg"`)
+    .replaceAll('href="./favicon.svg"', `href="${storefront.route}/favicon.svg"`)
+    .replace(/<title>[\s\S]*?<\/title>/i, `<title>${storefront.title}</title>`)
+    .replace(
+      /<meta\s+name=["']description["']\s+content=["'][^"']*["']\s*\/?\s*>/i,
+      `<meta name="description" content="${storefront.description}">`,
+    );
 
   const canonical = `${SITE_ORIGIN}${storefront.route}`;
   if (/<link\s+rel=["']canonical["']/i.test(index)) {
