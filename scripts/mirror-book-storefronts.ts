@@ -88,13 +88,6 @@ function sanitizeExternalName(url: string, index: number) {
   return `external-${String(index + 1).padStart(2, "0")}${extension}`;
 }
 
-function normalizeAssetPath(value: string) {
-  if (value.startsWith("./assets/")) return `/assets/${value.slice("./assets/".length)}`;
-  if (value.startsWith("/assets/")) return value;
-  if (value.startsWith("./")) return `/${value.slice(2)}`;
-  return value;
-}
-
 async function mirrorStorefront(storefront: Storefront) {
   const targetDir = `dist${storefront.route}`;
   mkdirSync(`${targetDir}/assets`, { recursive: true });
@@ -103,12 +96,8 @@ async function mirrorStorefront(storefront: Storefront) {
   console.log(`Using ${origin} for ${storefront.name}.`);
 
   const queue = new Set<string>();
-  for (const match of sourceIndex.matchAll(/(?:src|href)=["']((?:\.?\/)?assets\/[^"']+)["']/g)) {
-    queue.add(normalizeAssetPath(match[1].startsWith("assets/") ? `/${match[1]}` : match[1]));
-  }
-  for (const match of sourceIndex.matchAll(/(?:src|href)=["'](\.?\/[A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))["']/gi)) {
-    queue.add(normalizeAssetPath(match[1]));
-  }
+  for (const match of sourceIndex.matchAll(/(?:src|href)=["'](\/assets\/[^"']+)["']/g)) queue.add(match[1]);
+  if (/href=["']\/favicon\.svg["']/.test(sourceIndex)) queue.add("/favicon.svg");
 
   const mirrored = new Set<string>();
   const externalMap = new Map<string, string>();
@@ -120,7 +109,8 @@ async function mirrorStorefront(storefront: Storefront) {
     const localUrl = `${storefront.route}/assets/${localName}`;
     try {
       const response = await fetchResponse(url);
-      writeFileSync(`${targetDir}/assets/${localName}`, Buffer.from(await response.arrayBuffer()));
+      const bytes = Buffer.from(await response.arrayBuffer());
+      writeFileSync(`${targetDir}/assets/${localName}`, bytes);
       externalMap.set(url, localUrl);
       return localUrl;
     } catch {
@@ -129,10 +119,12 @@ async function mirrorStorefront(storefront: Storefront) {
   }
 
   async function processText(text: string) {
-    let output = text
-      .replaceAll("./assets/", `${storefront.route}/assets/`)
-      .replaceAll("/assets/", `${storefront.route}/assets/`);
-    const externalUrls = Array.from(new Set([...output.matchAll(/https:\/\/files\.manuscdn\.com\/[A-Za-z0-9_?&=./%+-]+/g)].map(match => match[0])));
+    let output = text.replaceAll("/assets/", `${storefront.route}/assets/`);
+    const externalUrls = Array.from(
+      new Set(
+        [...output.matchAll(/https:\/\/files\.manuscdn\.com\/[A-Za-z0-9_?&=./%+-]+/g)].map((match) => match[0]),
+      ),
+    );
     for (const url of externalUrls) output = output.replaceAll(url, await mirrorExternal(url));
     return output;
   }
@@ -140,7 +132,7 @@ async function mirrorStorefront(storefront: Storefront) {
   while (queue.size) {
     const assetPath = queue.values().next().value as string;
     queue.delete(assetPath);
-    if (!assetPath.startsWith("/") || mirrored.has(assetPath) || assetPath.startsWith("/api/")) continue;
+    if (mirrored.has(assetPath)) continue;
     mirrored.add(assetPath);
 
     let response: Response;
@@ -151,8 +143,12 @@ async function mirrorStorefront(storefront: Storefront) {
       continue;
     }
     const contentType = response.headers.get("content-type") || "application/octet-stream";
-    const relativePath = assetPath.startsWith("/assets/") ? assetPath.slice(8) : assetPath.slice(1);
-    const destination = assetPath.startsWith("/assets/") ? `${targetDir}/assets/${relativePath}` : `${targetDir}/${relativePath}`;
+    const relativePath = assetPath.startsWith("/assets/")
+      ? assetPath.slice("/assets/".length)
+      : assetPath.slice(1);
+    const destination = assetPath.startsWith("/assets/")
+      ? `${targetDir}/assets/${relativePath}`
+      : `${targetDir}/${relativePath}`;
     ensureParent(destination);
 
     if (contentTypeIsText(contentType)) {
@@ -160,9 +156,6 @@ async function mirrorStorefront(storefront: Storefront) {
       for (const match of text.matchAll(/\/assets\/[A-Za-z0-9._~@%+\-/?=&]+/g)) {
         const clean = match[0].split(/[?#]/)[0];
         if (clean) queue.add(clean);
-      }
-      for (const match of text.matchAll(/(?:["'(])\/(?!api\/)([A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))(?:["')])/gi)) {
-        queue.add(`/${match[1]}`);
       }
       text = await processText(text);
       writeFileSync(destination, text);
@@ -172,24 +165,31 @@ async function mirrorStorefront(storefront: Storefront) {
   }
 
   let index = await processText(sourceIndex);
-  index = index
-    .replaceAll('href="/favicon.svg"', `href="${storefront.route}/favicon.svg"`)
-    .replaceAll('href="./favicon.svg"', `href="${storefront.route}/favicon.svg"`)
-    .replace(/<title>[\s\S]*?<\/title>/i, `<title>${storefront.title}</title>`)
-    .replace(/<meta\s+name=["']description["']\s+content=["'][^"']*["']\s*\/?\s*>/i, `<meta name="description" content="${storefront.description}">`);
+  index = index.replaceAll('href="/favicon.svg"', `href="${storefront.route}/favicon.svg"`);
+  index = index.replace(/<title>[\s\S]*?<\/title>/i, `<title>${storefront.title}</title>`);
+  index = index.replace(
+    /<meta\s+name=["']description["']\s+content=["'][^"']*["']\s*\/?\s*>/i,
+    `<meta name="description" content="${storefront.description}">`,
+  );
 
   const canonical = `${SITE_ORIGIN}${storefront.route}`;
-  if (/<link\s+rel=["']canonical["']/i.test(index)) index = index.replace(/<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${canonical}">`);
-  else index = index.replace("</head>", `  <link rel="canonical" href="${canonical}">\n</head>`);
-  if (/<meta\s+property=["']og:url["']/i.test(index)) index = index.replace(/<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${canonical}">`);
-  else index = index.replace("</head>", `  <meta property="og:url" content="${canonical}">\n</head>`);
+  if (/<link\s+rel=["']canonical["']/i.test(index)) {
+    index = index.replace(/<link\s+rel=["']canonical["'][^>]*>/i, `<link rel="canonical" href="${canonical}">`);
+  } else {
+    index = index.replace("</head>", `  <link rel="canonical" href="${canonical}">\n</head>`);
+  }
+  if (/<meta\s+property=["']og:url["']/i.test(index)) {
+    index = index.replace(/<meta\s+property=["']og:url["'][^>]*>/i, `<meta property="og:url" content="${canonical}">`);
+  } else {
+    index = index.replace("</head>", `  <meta property="og:url" content="${canonical}">\n</head>`);
+  }
 
   const googleFonts = [...index.matchAll(/<link[^>]+href=["'](https:\/\/fonts\.googleapis\.com\/[^"']+)["'][^>]*>/g)];
   for (const match of googleFonts) {
     try {
       const cssUrl = match[1];
       let css = await (await fetchResponse(cssUrl)).text();
-      const fontUrls = Array.from(new Set([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map(m => m[1])));
+      const fontUrls = Array.from(new Set([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map((m) => m[1])));
       for (const fontUrl of fontUrls) {
         const localName = sanitizeExternalName(fontUrl, externalCount++);
         const response = await fetchResponse(fontUrl);
@@ -217,6 +217,7 @@ async function mirrorStorefront(storefront: Storefront) {
     sitemap = sitemap.replace("</urlset>", `<url><loc>${canonical}</loc></url></urlset>`);
     writeFileSync(sitemapPath, sitemap);
   }
+
   console.log(`Mirrored ${storefront.name} to ${storefront.route}.`);
 }
 
