@@ -51,10 +51,6 @@ const STOREFRONTS: Storefront[] = [
   },
 ];
 
-function contentTypeIsText(contentType: string) {
-  return /(?:javascript|css|json|text|xml|svg)/i.test(contentType);
-}
-
 async function fetchResponse(url: string) {
   const response = await fetch(url, {
     headers: { "User-Agent": "CactusDigitalMedia-Build/1.0" },
@@ -77,21 +73,19 @@ async function discoverOrigin(storefront: Storefront) {
   throw new Error(`No reachable production origin for ${storefront.name}. ${failures.join(" | ")}`);
 }
 
+function assetPath(value: string) {
+  if (value.startsWith("./assets/")) return `/assets/${value.slice(9)}`;
+  if (value.startsWith("assets/")) return `/assets/${value.slice(7)}`;
+  return value;
+}
+
+function rewriteAssetReferences(text: string, route: string) {
+  return text.replace(/(?:\.\/|\/)assets\//g, `${route}/assets/`);
+}
+
 function ensureParent(path: string) {
   const parent = path.slice(0, path.lastIndexOf("/"));
   if (parent) mkdirSync(parent, { recursive: true });
-}
-
-function sanitizeExternalName(url: string, index: number) {
-  const pathname = new URL(url).pathname;
-  const extension = extname(pathname) || ".bin";
-  return `external-${String(index + 1).padStart(2, "0")}${extension}`;
-}
-
-function normalizeAssetPath(value: string) {
-  if (value.startsWith("./assets/")) return `/assets/${value.slice("./assets/".length)}`;
-  if (value.startsWith("assets/")) return `/assets/${value.slice("assets/".length)}`;
-  return value;
 }
 
 async function mirrorStorefront(storefront: Storefront) {
@@ -101,95 +95,51 @@ async function mirrorStorefront(storefront: Storefront) {
   const { origin, sourceIndex } = await discoverOrigin(storefront);
   console.log(`Using ${origin} for ${storefront.name}.`);
 
-  const queue = new Set<string>();
+  const primaryAssets = new Set<string>();
   for (const match of sourceIndex.matchAll(/(?:src|href)=["']((?:\.\/|\/)?assets\/[^"']+)["']/g)) {
-    queue.add(normalizeAssetPath(match[1]));
-  }
-  for (const match of sourceIndex.matchAll(/(?:src|href)=["'](\/[A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))["']/gi)) {
-    queue.add(match[1]);
-  }
-  if (/href=["'](?:\.\/|\/)favicon\.svg["']/.test(sourceIndex)) queue.add("/favicon.svg");
-
-  const mirrored = new Set<string>();
-  const externalMap = new Map<string, string>();
-  let externalCount = 0;
-
-  async function mirrorExternal(url: string) {
-    if (externalMap.has(url)) return externalMap.get(url)!;
-    const localName = sanitizeExternalName(url, externalCount++);
-    const localUrl = `${storefront.route}/assets/${localName}`;
-    try {
-      const response = await fetchResponse(url);
-      writeFileSync(`${targetDir}/assets/${localName}`, Buffer.from(await response.arrayBuffer()));
-      externalMap.set(url, localUrl);
-      return localUrl;
-    } catch {
-      return url;
-    }
+    const normalized = assetPath(match[1]);
+    if (normalized.startsWith("/assets/")) primaryAssets.add(normalized.split(/[?#]/)[0]);
   }
 
-  async function processText(text: string) {
-    let output = text.replace(/(?:\.\/|\/)assets\//g, `${storefront.route}/assets/`);
+  const publicAssets = new Set<string>();
 
-    output = output.replace(
-      /(["'(=])\/(?!\/|api\/|assets\/)([A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))(?=["')?#])/gi,
-      (match, prefix: string, resource: string) => {
-        const absolute = `/${resource}`;
-        if (absolute.startsWith(`${storefront.route}/`)) return match;
-        return `${prefix}${storefront.route}${absolute}`;
-      },
-    );
-
-    const externalUrls = Array.from(
-      new Set(
-        [...output.matchAll(/https:\/\/files\.manuscdn\.com\/[A-Za-z0-9_?&=./%+-]+/g)].map((match) => match[0]),
-      ),
-    );
-    for (const url of externalUrls) output = output.replaceAll(url, await mirrorExternal(url));
-    return output;
-  }
-
-  while (queue.size) {
-    const assetPath = queue.values().next().value as string;
-    queue.delete(assetPath);
-    if (mirrored.has(assetPath)) continue;
-    mirrored.add(assetPath);
-
-    let response: Response;
-    try {
-      response = await fetchResponse(`${origin}${assetPath}`);
-    } catch (error) {
-      console.warn(`Skipping optional mirrored asset ${assetPath}:`, error);
-      continue;
-    }
+  for (const path of primaryAssets) {
+    const response = await fetchResponse(`${origin}${path}`);
     const contentType = response.headers.get("content-type") || "application/octet-stream";
-    const relativePath = assetPath.startsWith("/assets/")
-      ? assetPath.slice("/assets/".length)
-      : assetPath.slice(1);
-    const destination = assetPath.startsWith("/assets/")
-      ? `${targetDir}/assets/${relativePath}`
-      : `${targetDir}/${relativePath}`;
+    const destination = `${targetDir}${path}`;
     ensureParent(destination);
 
-    if (contentTypeIsText(contentType)) {
+    if (/(?:javascript|css|json|text|xml|svg)/i.test(contentType)) {
       let text = await response.text();
-      for (const match of text.matchAll(/(?:\.\/|\/)assets\/[A-Za-z0-9._~@%+\-/?=&]+/g)) {
-        const normalized = normalizeAssetPath(match[0]);
-        const clean = normalized.split(/[?#]/)[0];
-        if (clean) queue.add(clean);
-      }
+
       for (const match of text.matchAll(/(["'(=])\/(?!\/|api\/|assets\/)([A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))(?=["')?#])/gi)) {
-        queue.add(`/${match[2]}`);
+        publicAssets.add(`/${match[2]}`);
       }
-      text = await processText(text);
+
+      text = rewriteAssetReferences(text, storefront.route);
+      text = text.replace(
+        /(["'(=])\/(?!\/|api\/|assets\/)([A-Za-z0-9_.@%+\-/]+\.(?:png|jpe?g|webp|svg|ico|woff2?|ttf))(?=["')?#])/gi,
+        (_match, prefix: string, resource: string) => `${prefix}${storefront.route}/${resource}`,
+      );
       writeFileSync(destination, text);
     } else {
       writeFileSync(destination, Buffer.from(await response.arrayBuffer()));
     }
   }
 
-  let index = await processText(sourceIndex);
-  index = index
+  publicAssets.add("/favicon.svg");
+  for (const path of publicAssets) {
+    try {
+      const response = await fetchResponse(`${origin}${path}`);
+      const destination = `${targetDir}${path}`;
+      ensureParent(destination);
+      writeFileSync(destination, Buffer.from(await response.arrayBuffer()));
+    } catch (error) {
+      console.warn(`Skipping optional public asset ${path} for ${storefront.name}:`, error);
+    }
+  }
+
+  let index = rewriteAssetReferences(sourceIndex, storefront.route)
     .replaceAll('href="/favicon.svg"', `href="${storefront.route}/favicon.svg"`)
     .replaceAll('href="./favicon.svg"', `href="${storefront.route}/favicon.svg"`)
     .replace(/<title>[\s\S]*?<\/title>/i, `<title>${storefront.title}</title>`)
@@ -209,26 +159,6 @@ async function mirrorStorefront(storefront: Storefront) {
   } else {
     index = index.replace("</head>", `  <meta property="og:url" content="${canonical}">\n</head>`);
   }
-
-  const googleFonts = [...index.matchAll(/<link[^>]+href=["'](https:\/\/fonts\.googleapis\.com\/[^"']+)["'][^>]*>/g)];
-  for (const match of googleFonts) {
-    try {
-      const cssUrl = match[1];
-      let css = await (await fetchResponse(cssUrl)).text();
-      const fontUrls = Array.from(new Set([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map((m) => m[1])));
-      for (const fontUrl of fontUrls) {
-        const localName = sanitizeExternalName(fontUrl, externalCount++);
-        const response = await fetchResponse(fontUrl);
-        writeFileSync(`${targetDir}/assets/${localName}`, Buffer.from(await response.arrayBuffer()));
-        css = css.replaceAll(fontUrl, `${storefront.route}/assets/${localName}`);
-      }
-      writeFileSync(`${targetDir}/fonts.css`, css);
-      index = index.replace(match[0], `<link rel="stylesheet" href="${storefront.route}/fonts.css">`);
-    } catch (error) {
-      console.warn(`Unable to localize fonts for ${storefront.name}:`, error);
-    }
-  }
-  index = index.replace(/<link[^>]+rel=["']preconnect["'][^>]+fonts\.(?:googleapis|gstatic)\.com[^>]*>/g, "");
 
   writeFileSync(`${targetDir}/index.html`, index);
   for (const fallback of storefront.fallbackRoutes) {
