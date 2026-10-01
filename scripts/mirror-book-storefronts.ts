@@ -5,7 +5,7 @@ const SITE_ORIGIN = "https://cactusdigitalmedia.ng";
 
 type Storefront = {
   name: string;
-  origin: string;
+  origins: string[];
   route: string;
   title: string;
   description: string;
@@ -15,7 +15,10 @@ type Storefront = {
 const STOREFRONTS: Storefront[] = [
   {
     name: "Beyond the Machine",
-    origin: "https://the-dance-of-intuition-book.vercel.app",
+    origins: [
+      "https://beyond-the-machine.vercel.app",
+      "https://the-dance-of-intuition-book.vercel.app",
+    ],
     route: "/beyond-the-machine-book",
     title: "Beyond The Machine — Osagie Bernard Ebhuomhan",
     description: "Beyond The Machine explores what it means to remain human in an age increasingly shaped by technology and artificial intelligence.",
@@ -23,7 +26,10 @@ const STOREFRONTS: Storefront[] = [
   },
   {
     name: "Thoughts Are Things",
-    origin: "https://thoughts-are-things.vercel.app",
+    origins: [
+      "https://thoughts-are-things.vercel.app",
+      "https://thoughtsarethings.vercel.app",
+    ],
     route: "/thoughts-are-things-book",
     title: "Thoughts Are Things — Osagie Bernard Ebhuomhan",
     description: "Thoughts Are Things explores how the mind shapes emotion, belief, behavior, and the life we build.",
@@ -31,7 +37,10 @@ const STOREFRONTS: Storefront[] = [
   },
   {
     name: "My Big Adventure Coloring Book",
-    origin: "https://aura-kids-books.vercel.app",
+    origins: [
+      "https://aura-kids-books.vercel.app",
+      "https://aurakids-books.vercel.app",
+    ],
     route: "/my-big-adventure-coloring-book",
     title: "My Big Adventure Coloring Book — AuraKidsBooks",
     description: "My Big Adventure Coloring Book is a playful AuraKidsBooks activity title for children, created by Osagie Bernard Ebhuomhan.",
@@ -52,6 +61,19 @@ async function fetchResponse(url: string) {
   return response;
 }
 
+async function discoverOrigin(storefront: Storefront) {
+  const failures: string[] = [];
+  for (const origin of storefront.origins) {
+    try {
+      const response = await fetchResponse(`${origin}/`);
+      return { origin, sourceIndex: await response.text() };
+    } catch (error) {
+      failures.push(`${origin}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+  throw new Error(`No reachable production origin for ${storefront.name}. ${failures.join(" | ")}`);
+}
+
 function ensureParent(path: string) {
   const parent = path.slice(0, path.lastIndexOf("/"));
   if (parent) mkdirSync(parent, { recursive: true });
@@ -67,7 +89,9 @@ async function mirrorStorefront(storefront: Storefront) {
   const targetDir = `dist${storefront.route}`;
   mkdirSync(`${targetDir}/assets`, { recursive: true });
 
-  const sourceIndex = await (await fetchResponse(`${storefront.origin}/`)).text();
+  const { origin, sourceIndex } = await discoverOrigin(storefront);
+  console.log(`Using ${origin} for ${storefront.name}.`);
+
   const queue = new Set<string>();
   for (const match of sourceIndex.matchAll(/(?:src|href)=["'](\/assets\/[^"']+)["']/g)) queue.add(match[1]);
   if (/href=["']\/favicon\.svg["']/.test(sourceIndex)) queue.add("/favicon.svg");
@@ -80,11 +104,15 @@ async function mirrorStorefront(storefront: Storefront) {
     if (externalMap.has(url)) return externalMap.get(url)!;
     const localName = sanitizeExternalName(url, externalCount++);
     const localUrl = `${storefront.route}/assets/${localName}`;
-    const response = await fetchResponse(url);
-    const bytes = Buffer.from(await response.arrayBuffer());
-    writeFileSync(`${targetDir}/assets/${localName}`, bytes);
-    externalMap.set(url, localUrl);
-    return localUrl;
+    try {
+      const response = await fetchResponse(url);
+      const bytes = Buffer.from(await response.arrayBuffer());
+      writeFileSync(`${targetDir}/assets/${localName}`, bytes);
+      externalMap.set(url, localUrl);
+      return localUrl;
+    } catch {
+      return url;
+    }
   }
 
   async function processText(text: string) {
@@ -104,7 +132,13 @@ async function mirrorStorefront(storefront: Storefront) {
     if (mirrored.has(assetPath)) continue;
     mirrored.add(assetPath);
 
-    const response = await fetchResponse(`${storefront.origin}${assetPath}`);
+    let response: Response;
+    try {
+      response = await fetchResponse(`${origin}${assetPath}`);
+    } catch (error) {
+      console.warn(`Skipping optional mirrored asset ${assetPath}:`, error);
+      continue;
+    }
     const contentType = response.headers.get("content-type") || "application/octet-stream";
     const relativePath = assetPath.startsWith("/assets/")
       ? assetPath.slice("/assets/".length)
@@ -149,17 +183,21 @@ async function mirrorStorefront(storefront: Storefront) {
 
   const googleFonts = [...index.matchAll(/<link[^>]+href=["'](https:\/\/fonts\.googleapis\.com\/[^"']+)["'][^>]*>/g)];
   for (const match of googleFonts) {
-    const cssUrl = match[1];
-    let css = await (await fetchResponse(cssUrl)).text();
-    const fontUrls = Array.from(new Set([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map((m) => m[1])));
-    for (const fontUrl of fontUrls) {
-      const localName = sanitizeExternalName(fontUrl, externalCount++);
-      const response = await fetchResponse(fontUrl);
-      writeFileSync(`${targetDir}/assets/${localName}`, Buffer.from(await response.arrayBuffer()));
-      css = css.replaceAll(fontUrl, `${storefront.route}/assets/${localName}`);
+    try {
+      const cssUrl = match[1];
+      let css = await (await fetchResponse(cssUrl)).text();
+      const fontUrls = Array.from(new Set([...css.matchAll(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/g)].map((m) => m[1])));
+      for (const fontUrl of fontUrls) {
+        const localName = sanitizeExternalName(fontUrl, externalCount++);
+        const response = await fetchResponse(fontUrl);
+        writeFileSync(`${targetDir}/assets/${localName}`, Buffer.from(await response.arrayBuffer()));
+        css = css.replaceAll(fontUrl, `${storefront.route}/assets/${localName}`);
+      }
+      writeFileSync(`${targetDir}/fonts.css`, css);
+      index = index.replace(match[0], `<link rel="stylesheet" href="${storefront.route}/fonts.css">`);
+    } catch (error) {
+      console.warn(`Unable to localize fonts for ${storefront.name}:`, error);
     }
-    writeFileSync(`${targetDir}/fonts.css`, css);
-    index = index.replace(match[0], `<link rel="stylesheet" href="${storefront.route}/fonts.css">`);
   }
   index = index.replace(/<link[^>]+rel=["']preconnect["'][^>]+fonts\.(?:googleapis|gstatic)\.com[^>]*>/g, "");
 
