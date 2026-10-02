@@ -1,5 +1,4 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { extname } from "node:path";
 
 const SITE_ORIGIN = "https://cactusdigitalmedia.ng";
 
