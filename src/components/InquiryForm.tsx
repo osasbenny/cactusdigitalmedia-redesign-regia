@@ -38,7 +38,9 @@ export default function InquiryForm({
           result.error || "We could not send your inquiry. Please try again.",
         );
       setMessage(
-        "Your inquiry has been sent. We’ll reply using the contact details you provided.",
+        project
+          ? "Your project brief has been received. We’ll review your requirements and contact you to discuss the best next step for your project."
+          : "Thanks — your message has been received. We’ll review your inquiry and respond using the contact details you provided.",
       );
       setState("success");
       form.reset();
