@@ -22,7 +22,20 @@ export interface Project {
   features?: string[];
   credit?: string;
 }
-export const projects: Project[] = projectData;
+
+const androidAppLinks: Record<string, string> = {
+  gofuel: "https://play.google.com/store/apps/details?id=com.jcobiq.gofuel",
+  taskflow:
+    "https://play.google.com/store/apps/details?id=com.cactusdigitalmedia.taskflow",
+  habitmind: "https://play.google.com/store/apps/details?id=com.habitmind.app",
+};
+
+export const projects: Project[] = projectData.map((project) => {
+  const playStoreUrl = androidAppLinks[project.slug];
+  return playStoreUrl
+    ? { ...project, sourceUrl: playStoreUrl, liveUrl: playStoreUrl }
+    : project;
+});
 export const posts = postData;
 export const brand = {
   name: "Cactus Digital Media",
