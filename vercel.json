@@ -1263,6 +1263,18 @@
       "dest": "/my-big-adventure-coloring-book/purchase/success/index.html"
     },
     {
+      "src": "/api/storefront-beyond/(.*)",
+      "dest": "/api/storefront-beyond/[...path]?path=$1"
+    },
+    {
+      "src": "/api/storefront-thoughts/(.*)",
+      "dest": "/api/storefront-thoughts/[...path]?path=$1"
+    },
+    {
+      "src": "/api/storefront-aurakids/(.*)",
+      "dest": "/api/storefront-aurakids/[...path]?path=$1"
+    },
+    {
       "handle": "filesystem"
     },
     {

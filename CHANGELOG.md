@@ -88,3 +88,5 @@ Vercel deployed TaskFlow successfully and live page shows all six assets. CI pas
 - Preserve original Stripe checkout, verification, webhooks, signed downloads and delivery email logic. No payment credentials or fulfillment data moved.
 - Add rendering/image/callback regression checks and align existing cookie/form assertions with current UI copy.
 - Local lint, typecheck and 28 unit tests pass; 17 existing and three new storefront browser checks pass. Rebased onto the newer careers changes and repaired the missing Blob dependency lockfile. CI, production deployment and live checkout verification pending.
+
+Checkout verification caught nested proxy API requests falling through to HTML. Added explicit Vercel dispatch to each deployed catch-all function, preserving tRPC paths, query parameters and trusted callback headers; added three proxy routing regressions. First repair commit bbeb3db passed CI and deployed as dpl_CY5reZGyZsjHEJuMbHC4pAcUdBxG. All three live storefronts visually render correctly; checkout retest pending routing deployment.
