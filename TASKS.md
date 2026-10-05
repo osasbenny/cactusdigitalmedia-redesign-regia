@@ -70,5 +70,8 @@ Vercel deployed TaskFlow successfully and live page shows all six assets. CI pas
 - [x] Inspect original repositories and Vercel production domains/build logs.
 - [x] Fix login-page mirroring, assets, route/CSP handling and backend proxy origins.
 - [x] Preserve original Stripe and digital delivery backends.
-- [ ] Finish storefront rendering regression checks, push and monitor CI/production deployment.
-- [ ] Visually verify all three live pages and checkout/callback behavior.
+- [x] Finish storefront rendering regression checks, push and monitor CI/production deployment.
+- [x] Visually verify all three live pages and live Stripe checkout initiation.
+- [x] Verify unpaid callbacks withhold digital downloads; inspect original signed delivery and webhook logic.
+- [ ] Final callback home-link release and visual recheck.
+- [ ] Successful paid delivery remains untested; no payment was made.

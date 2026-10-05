@@ -170,6 +170,7 @@ async function mirrorStorefront(storefront: Storefront) {
       );
       text = rewriteAssetReferences(text, storefront.route)
         .replaceAll('"/assets"', JSON.stringify(`${storefront.route}/assets`))
+        .replaceAll('href:"/"', `href:${JSON.stringify(storefront.route)}`)
         .replaceAll('window.location.hostname==="cactusdigitalmedia.ng"&&', "");
       writeFileSync(destination, rewriteMedia(text));
     } else {

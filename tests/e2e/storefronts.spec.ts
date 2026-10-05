@@ -59,6 +59,8 @@ for (const storefront of storefronts) {
     await page.goto(`${storefront.route}${storefront.callback}`);
     await expect(page.locator("#root")).not.toBeEmpty();
     await expect(page.locator("body")).not.toContainText("Page not found");
+    await expect(page.locator('a[href="/"]')).toHaveCount(0);
+    await expect(page.locator(`a[href="${storefront.route}"]`).first()).toBeVisible();
     expect(errors).toEqual([]);
     expect(brokenAssets).toEqual([]);
   });
