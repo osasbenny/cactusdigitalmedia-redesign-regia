@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import Careers from "./pages/Careers";
 import {
   About,
   Services,
@@ -33,15 +34,8 @@ function SEO() {
     set('meta[name="twitter:title"]', m.title);
     set('meta[name="twitter:description"]', m.description);
     set('meta[name="twitter:image"]', m.image);
-    set(
-      'meta[name="robots"]',
-      m.found
-        ? "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-        : "noindex",
-    );
-    document
-      .querySelector('link[rel="canonical"]')
-      ?.setAttribute("href", m.canonical);
+    set('meta[name="robots"]', m.found ? "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" : "noindex");
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", m.canonical);
     const schema = document.getElementById("structured-data");
     if (schema) schema.textContent = JSON.stringify(structuredData(pathname));
   }, [pathname]);
@@ -63,19 +57,14 @@ export default function App() {
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="contact" element={<Contact />} />
           <Route path="start-project" element={<Contact project />} />
+          <Route path="careers" element={<Careers />} />
           <Route path="products" element={<Products />} />
           <Route path="privacy" element={<Legal />} />
           <Route path="terms" element={<Legal terms />} />
           <Route path="work" element={<Navigate to="/portfolio" replace />} />
           <Route path="insights" element={<Navigate to="/blog" replace />} />
-          <Route
-            path="privacy-policy"
-            element={<Navigate to="/privacy" replace />}
-          />
-          <Route
-            path="terms-of-service"
-            element={<Navigate to="/terms" replace />}
-          />
+          <Route path="privacy-policy" element={<Navigate to="/privacy" replace />} />
+          <Route path="terms-of-service" element={<Navigate to="/terms" replace />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
