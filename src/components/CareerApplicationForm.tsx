@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Arrow } from "./Shared";
 
-const roles = ["Client Acquisition & Sales Assistant", "Junior Developer"];
+const roles = ["Client Acquisition & Sales Assistant", "Junior Developer", "Social Media Management"];
 const MAX_FILE = 2 * 1024 * 1024;
 const allowed = ["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "image/jpeg", "image/png"];
 

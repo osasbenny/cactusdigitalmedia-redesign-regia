@@ -13,6 +13,11 @@ const openings = [
     type: "Engineering",
     copy: "Work with the product and engineering team across websites, web applications and mobile products. We’re looking for solid fundamentals, curiosity, attention to detail and evidence of projects you have built or contributed to.",
   },
+  {
+    title: "Social Media Management",
+    type: "Marketing & Content",
+    copy: "Plan, create, schedule and manage social content across our brand channels, engage with audiences, support campaigns and track performance. Strong communication, content judgement, consistency and confidence with social media and creative tools are important.",
+  },
 ];
 
 export default function Careers() {
@@ -20,7 +25,7 @@ export default function Careers() {
     <>
       <PageHero eyebrow="Careers at Cactus Digital Media" title="Build useful things. Grow with us." copy="We’re building a team around thoughtful technology, practical execution and measurable business results. Explore our current openings and submit your application below." />
       <section className="wrap section compact">
-        <SectionTitle eyebrow="Current openings" title="Two roles. One growing team." copy="Applications are reviewed based on the requirements of the role and the information you provide." />
+        <SectionTitle eyebrow="Current openings" title="Three roles. One growing team." copy="Applications are reviewed based on the requirements of the role and the information you provide." />
         <div className="process-grid">
           {openings.map((role, i) => (
             <article key={role.title}>

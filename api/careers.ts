@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 import { z } from "zod";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const roles = ["Client Acquisition & Sales Assistant", "Junior Developer"] as const;
+const roles = ["Client Acquisition & Sales Assistant", "Junior Developer", "Social Media Management"] as const;
 const text = (max: number) => z.string().trim().max(max);
 const fileSchema = z.object({ name: text(180), type: text(120), data: z.string().max(2_900_000) }).nullable();
 const schema = z.object({
