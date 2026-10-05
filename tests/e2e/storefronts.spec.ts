@@ -60,8 +60,61 @@ for (const storefront of storefronts) {
     await expect(page.locator("#root")).not.toBeEmpty();
     await expect(page.locator("body")).not.toContainText("Page not found");
     await expect(page.locator('a[href="/"]')).toHaveCount(0);
-    await expect(page.locator(`a[href="${storefront.route}"]`).first()).toBeVisible();
+    await expect(
+      page.locator(`a[href="${storefront.route}"]`).first(),
+    ).toBeVisible();
     expect(errors).toEqual([]);
     expect(brokenAssets).toEqual([]);
+  });
+}
+
+for (const viewport of [
+  { width: 320, height: 568 },
+  { width: 375, height: 667 },
+  { width: 390, height: 844 },
+  { width: 430, height: 932 },
+  { width: 667, height: 375 },
+  { width: 1280, height: 800 },
+]) {
+  test(`Beyond checkout stays within ${viewport.width}x${viewport.height}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/beyond-the-machine-book");
+    for (const edition of ["Paperback", "eBook", "Audiobook"]) {
+      await page
+        .locator(".format-card")
+        .filter({
+          has: page.getByRole("heading", { name: edition, exact: true }),
+        })
+        .getByRole("button", { name: "Choose" })
+        .click();
+      const dialog = page.getByRole("dialog");
+      await expect(dialog).toBeVisible();
+      await expect
+        .poll(async () => {
+          const bounds = await dialog.boundingBox();
+          return (
+            !!bounds &&
+            bounds.x >= 0 &&
+            bounds.y >= 0 &&
+            bounds.x + bounds.width <= viewport.width + 1 &&
+            bounds.y + bounds.height <= viewport.height + 1
+          );
+        })
+        .toBe(true);
+      await dialog.getByLabel("Full name").fill("Mobile Layout Check");
+      await dialog.getByLabel("Email address").fill("layout@example.com");
+      // Scrolling must expose the submit button even with paperback fields
+      // and a short landscape viewport. Do not submit a live purchase.
+      await dialog
+        .getByRole("button", { name: "Continue to Stripe" })
+        .scrollIntoViewIfNeeded();
+      await expect(
+        dialog.getByRole("button", { name: "Continue to Stripe" }),
+      ).toBeInViewport();
+      await page.keyboard.press("Escape");
+      await expect(dialog).not.toBeVisible();
+    }
   });
 }

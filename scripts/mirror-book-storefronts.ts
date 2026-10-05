@@ -172,6 +172,16 @@ async function mirrorStorefront(storefront: Storefront) {
         .replaceAll('"/assets"', JSON.stringify(`${storefront.route}/assets`))
         .replaceAll('href:"/"', `href:${JSON.stringify(storefront.route)}`)
         .replaceAll('window.location.hostname==="cactusdigitalmedia.ng"&&', "");
+      // The upstream mobile checkout uses transform: translateY(-50%) and
+      // left/right gutters. Tailwind 4's independent translate property still
+      // applies the desktop -50% on both axes unless explicitly reset.
+      if (
+        storefront.route === "/beyond-the-machine-book" &&
+        /css/i.test(contentType)
+      ) {
+        text +=
+          "\n@media (max-width:679px){.checkout-dialog{translate:none!important}}\n";
+      }
       writeFileSync(destination, rewriteMedia(text));
     } else {
       writeFileSync(destination, Buffer.from(await response.arrayBuffer()));
