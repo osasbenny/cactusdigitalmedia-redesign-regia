@@ -73,5 +73,5 @@ Vercel deployed TaskFlow successfully and live page shows all six assets. CI pas
 - [x] Finish storefront rendering regression checks, push and monitor CI/production deployment.
 - [x] Visually verify all three live pages and live Stripe checkout initiation.
 - [x] Verify unpaid callbacks withhold digital downloads; inspect original signed delivery and webhook logic.
-- [ ] Final callback home-link release and visual recheck.
+- [x] Final callback home-link release and visual recheck.
 - [ ] Successful paid delivery remains untested; no payment was made.

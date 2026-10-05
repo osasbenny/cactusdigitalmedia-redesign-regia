@@ -1,6 +1,8 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
+import { describe, it, expect, vi, afterEach, beforeEach } from "vitest";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 const sendMail = vi.fn();
+const put = vi.hoisted(() => vi.fn());
+vi.mock("@vercel/blob", () => ({ put }));
 vi.mock("nodemailer", () => ({
   default: { createTransport: () => ({ sendMail, close: vi.fn() }) },
 }));
@@ -34,6 +36,9 @@ function request(body: unknown = valid) {
     socket: { remoteAddress: "127.0.0.1" },
   } as unknown as VercelRequest;
 }
+beforeEach(() =>
+  put.mockResolvedValue({ url: "https://blob.example/submission" }),
+);
 afterEach(() => {
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
@@ -97,11 +102,26 @@ describe("Inquiry boundaries", () => {
     expect(res.status).toHaveBeenCalledWith(400);
     expect(sendMail).not.toHaveBeenCalled();
   });
-  it("does not claim success when SMTP is unconfigured", async () => {
+  it("accepts a safely stored submission while reporting unconfigured SMTP", async () => {
+    configure();
     vi.stubEnv("SMTP_HOST", "");
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValue({ ok: true, json: async () => ({ result: 1 }) }),
+    );
     const res = response();
     await createHandler()(request(), res as unknown as VercelResponse);
-    expect(res.status).toHaveBeenCalledWith(503);
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({ ok: true, notification: "unconfigured" }),
+    );
+    expect(put).toHaveBeenCalledWith(
+      expect.stringMatching(/^submissions\/contacts\//),
+      expect.any(String),
+      expect.objectContaining({ access: "private" }),
+    );
     expect(sendMail).not.toHaveBeenCalled();
   });
 });
@@ -121,7 +141,10 @@ function configure() {
 describe("Delivery and abuse protection", () => {
   it("uses the connected Upstash REST credentials when available", async () => {
     configure();
-    vi.stubEnv("UPSTASH_REDIS_REST_KV_REST_API_URL", "https://connected.example");
+    vi.stubEnv(
+      "UPSTASH_REDIS_REST_KV_REST_API_URL",
+      "https://connected.example",
+    );
     vi.stubEnv("UPSTASH_REDIS_REST_KV_REST_API_TOKEN", "connected-token");
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
@@ -135,7 +158,9 @@ describe("Delivery and abuse protection", () => {
     expect(fetchMock).toHaveBeenCalledWith(
       "https://connected.example",
       expect.objectContaining({
-        headers: expect.objectContaining({ Authorization: "Bearer connected-token" }),
+        headers: expect.objectContaining({
+          Authorization: "Bearer connected-token",
+        }),
       }),
     );
   });
@@ -160,7 +185,7 @@ describe("Delivery and abuse protection", () => {
     expect(res.status).toHaveBeenCalledWith(429);
     expect(sendMail).not.toHaveBeenCalled();
   });
-  it("reports failure when provider rejects delivery", async () => {
+  it("reports notification failure after safely storing the inquiry", async () => {
     configure();
     vi.stubGlobal(
       "fetch",
@@ -171,9 +196,26 @@ describe("Delivery and abuse protection", () => {
     sendMail.mockResolvedValue({ accepted: [] });
     const res = response();
     await createHandler()(request(), res as unknown as VercelResponse);
-    expect(res.status).toHaveBeenCalledWith(502);
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({ ok: true, notification: "failed" }),
+    );
   });
-  it("returns success only after provider acceptance", async () => {
+  it("does not acknowledge or email an inquiry when persistence fails", async () => {
+    configure();
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValue({ ok: true, json: async () => ({ result: 1 }) }),
+    );
+    put.mockRejectedValueOnce(new Error("storage unavailable"));
+    const res = response();
+    await createHandler()(request(), res as unknown as VercelResponse);
+    expect(res.status).toHaveBeenCalledWith(503);
+    expect(sendMail).not.toHaveBeenCalled();
+  });
+  it("stores the inquiry before notifying the provider", async () => {
     configure();
     vi.stubGlobal(
       "fetch",
@@ -185,6 +227,12 @@ describe("Delivery and abuse protection", () => {
     const res = response();
     await createHandler()(request(), res as unknown as VercelResponse);
     expect(res.status).toHaveBeenCalledWith(200);
+    expect(put.mock.invocationCallOrder[0]).toBeLessThan(
+      sendMail.mock.invocationCallOrder[0],
+    );
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({ notification: "sent" }),
+    );
     expect(sendMail.mock.calls[0][0].replyTo).toBe(valid.email);
   });
 });
