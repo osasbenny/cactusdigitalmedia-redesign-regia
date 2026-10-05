@@ -65,3 +65,10 @@ Added TaskFlow App to Mobile Applications, Recent work and the homepage featured
 Validation: production build generated 88 routes; lint and all 28 unit tests passed, including direct Vercel reachability for every recent project.
 
 Vercel deployed TaskFlow successfully and live page shows all six assets. CI passed 16 browser tests; portfolio filter test had stale totals (15 projects / 2 apps). Updated to 16 projects / 3 apps and added TaskFlow detail/icon/gallery verification within that flow.
+
+## Book storefront repair — 2026-10-05
+- [x] Inspect original repositories and Vercel production domains/build logs.
+- [x] Fix login-page mirroring, assets, route/CSP handling and backend proxy origins.
+- [x] Preserve original Stripe and digital delivery backends.
+- [ ] Finish storefront rendering regression checks, push and monitor CI/production deployment.
+- [ ] Visually verify all three live pages and checkout/callback behavior.

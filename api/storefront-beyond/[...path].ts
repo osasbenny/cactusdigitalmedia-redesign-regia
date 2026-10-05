@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const UPSTREAM_ORIGIN = "https://beyond-the-machine-osasbennys-projects.vercel.app";
+const UPSTREAM_ORIGIN = "https://beyond-the-machine-book.vercel.app";
 const CACTUS_ORIGIN = "https://cactusdigitalmedia.ng/beyond-the-machine-book";
 
 function pathSegments(value: string | string[] | undefined) {
@@ -37,6 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       body,
       signal: AbortSignal.timeout(20_000),
+      redirect: "error",
     });
     const payload = Buffer.from(await upstream.arrayBuffer());
     res.status(upstream.status);

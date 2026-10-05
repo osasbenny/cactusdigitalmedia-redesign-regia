@@ -15,9 +15,9 @@ test("analytics loads only after acceptance and stops after withdrawal", async (
   await page
     .getByRole("button", { name: "Reject optional cookies", exact: true })
     .click();
-  await expect(page.locator(".cookie-banner")).toHaveCount(0);
+  await expect(page.locator(".cdm-cookie-banner")).toHaveCount(0);
   await page.reload();
-  await expect(page.locator(".cookie-banner")).toHaveCount(0);
+  await expect(page.locator(".cdm-cookie-banner")).toHaveCount(0);
   expect(
     await page.evaluate(
       () => JSON.parse(localStorage.getItem("cactus-cookie-consent")!).choice,
@@ -27,11 +27,11 @@ test("analytics loads only after acceptance and stops after withdrawal", async (
   await page
     .getByRole("button", { name: "Cookie settings", exact: true })
     .click();
-  await expect(page.locator(".cookie-banner")).toBeVisible();
+  await expect(page.locator(".cdm-cookie-banner")).toBeVisible();
   await page
     .getByRole("button", { name: "Accept optional cookies", exact: true })
     .click();
-  await expect(page.locator(".cookie-banner")).toHaveCount(0);
+  await expect(page.locator(".cdm-cookie-banner")).toHaveCount(0);
   await expect(
     page.getByRole("button", { name: "Cookie settings", exact: true }),
   ).toBeFocused();
@@ -105,12 +105,12 @@ test("cookie banner fits mobile and remains clear of WhatsApp", async ({
 }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   await page.goto("/");
-  await expect(page.locator(".cookie-banner")).toBeVisible();
+  await expect(page.locator(".cdm-cookie-banner")).toBeVisible();
   await expect
     .poll(async () =>
       page.evaluate(() => {
         const banner = document
-          .querySelector(".cookie-banner")!
+          .querySelector(".cdm-cookie-banner")!
           .getBoundingClientRect();
         const chat = document
           .querySelector(".whatsapp")!
@@ -123,5 +123,5 @@ test("cookie banner fits mobile and remains clear of WhatsApp", async ({
     )
     .toBe(true);
   await page.getByRole("button", { name: "Reject optional cookies" }).click();
-  await expect(page.locator(".cookie-banner")).toHaveCount(0);
+  await expect(page.locator(".cdm-cookie-banner")).toHaveCount(0);
 });

@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const UPSTREAM_ORIGIN = "https://thoughts-are-things-osasbennys-projects.vercel.app";
+const UPSTREAM_ORIGIN = "https://thoughts-are-things.vercel.app";
 const CACTUS_ORIGIN = "https://cactusdigitalmedia.ng/thoughts-are-things-book";
 
 function pathSegments(value: string | string[] | undefined) {
@@ -36,6 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       body,
       signal: AbortSignal.timeout(20_000),
+      redirect: "error",
     });
     const payload = Buffer.from(await upstream.arrayBuffer());
     res.status(upstream.status);

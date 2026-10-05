@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const UPSTREAM_ORIGIN = "https://aura-kids-books-osasbennys-projects.vercel.app";
+const UPSTREAM_ORIGIN = "https://aura-kids-books.vercel.app";
 const CACTUS_ORIGIN = "https://cactusdigitalmedia.ng/my-big-adventure-coloring-book";
 
 function pathSegments(value: string | string[] | undefined) {
@@ -36,6 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       body,
       signal: AbortSignal.timeout(20_000),
+      redirect: "error",
     });
     const payload = Buffer.from(await upstream.arrayBuffer());
     res.status(upstream.status);

@@ -11,7 +11,7 @@
   },
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/(?!beyond-the-machine-book(?:/|$)|thoughts-are-things-book(?:/|$)|my-big-adventure-coloring-book(?:/|$))(.*)",
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
@@ -37,6 +37,17 @@
         "Vary": "User-Agent",
         "X-Robots-Tag": "noindex, nofollow"
       }
+    },
+    {
+      "src": "/(?:beyond-the-machine-book|thoughts-are-things-book|my-big-adventure-coloring-book)(?:/.*)?",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://files.manuscdn.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+      },
+      "continue": true
     },
     {
       "src": "/apple-touch-icon\\.png",
@@ -1222,6 +1233,34 @@
     {
       "src": "/portfolio/logistica/?",
       "dest": "/portfolio/logistica/index.html"
+    },
+    {
+      "src": "/beyond-the-machine-book/?",
+      "dest": "/beyond-the-machine-book/index.html"
+    },
+    {
+      "src": "/beyond-the-machine-book/payment/callback/?",
+      "dest": "/beyond-the-machine-book/payment/callback/index.html"
+    },
+    {
+      "src": "/thoughts-are-things-book/?",
+      "dest": "/thoughts-are-things-book/index.html"
+    },
+    {
+      "src": "/thoughts-are-things-book/payment/success/?",
+      "dest": "/thoughts-are-things-book/payment/success/index.html"
+    },
+    {
+      "src": "/thoughts-are-things-book/payment/cancelled/?",
+      "dest": "/thoughts-are-things-book/payment/cancelled/index.html"
+    },
+    {
+      "src": "/my-big-adventure-coloring-book/?",
+      "dest": "/my-big-adventure-coloring-book/index.html"
+    },
+    {
+      "src": "/my-big-adventure-coloring-book/purchase/success/?",
+      "dest": "/my-big-adventure-coloring-book/purchase/success/index.html"
     },
     {
       "handle": "filesystem"

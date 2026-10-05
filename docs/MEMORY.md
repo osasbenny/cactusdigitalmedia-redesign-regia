@@ -67,3 +67,12 @@ Added TaskFlow App to Mobile Applications, Recent work and the homepage featured
 Validation: production build generated 88 routes; lint and all 28 unit tests passed, including direct Vercel reachability for every recent project.
 
 Vercel deployed TaskFlow successfully and live page shows all six assets. CI passed 16 browser tests; portfolio filter test had stale totals (15 projects / 2 apps). Updated to 16 projects / 3 apps and added TaskFlow detail/icon/gallery verification within that flow.
+
+## 2026-10-05 — Repair mirrored book storefronts
+
+- Use the public production domains confirmed in the original Vercel projects; reject redirects and non-storefront HTML instead of publishing Vercel login pages.
+- Mirror Vite dependency chunks, computed asset paths, public covers and external illustrations under each book route. Remove development runtime and unresolved analytics placeholders.
+- Route book home and payment callback pages explicitly; scope font/style CSP to these storefronts. Point the three API proxies at the original public backends with trusted Cactus callback headers.
+- Preserve original Stripe checkout, verification, webhooks, signed downloads and delivery email logic. No payment credentials or fulfillment data moved.
+- Add rendering/image/callback regression checks and align existing cookie/form assertions with current UI copy.
+- Local lint, typecheck and 28 unit tests pass; 17 existing and three new storefront browser checks pass. Rebased onto the newer careers changes and repaired the missing Blob dependency lockfile. CI, production deployment and live checkout verification pending.

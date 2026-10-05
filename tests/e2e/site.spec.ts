@@ -165,7 +165,7 @@ test("project requires budget and timeline; success is tied to accepted response
   );
   await page.getByRole("button", { name: "Send project brief" }).click();
   await expect(page.getByRole("status")).toContainText(
-    "Your inquiry has been sent",
+    "Your project brief has been received",
   );
 });
 test("unknown routes display a noindex 404 and reduced motion disables decorative animation", async ({
