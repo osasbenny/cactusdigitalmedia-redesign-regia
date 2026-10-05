@@ -58,7 +58,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const d = parsed.data;
   if (d.fax) return res.status(400).json({ error: "Submission rejected." });
   const env = process.env;
-  if (!env.BLOB_READ_WRITE_TOKEN) return res.status(503).json({ error: "Applications are temporarily unavailable. Please try again later." });
   try { if (!(await rateLimit(req))) return res.status(429).json({ error: "Too many applications. Please try again later." }); } catch { return res.status(503).json({ error: "Applications are temporarily unavailable. Please try again later." }); }
 
   const applicationId = `CDM-${new Date().toISOString().slice(0, 10).replace(/-/g, "")}-${randomUUID().slice(0, 8).toUpperCase()}`;
