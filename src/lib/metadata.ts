@@ -59,6 +59,10 @@ export function metadata(path: string) {
       "Start a project",
       "Share your goals, scope, and timeline with Cactus Digital Media to start planning your website, mobile app, or custom software project.",
     ],
+    "/careers": [
+      "Careers at Cactus Digital Media",
+      "Explore open roles at Cactus Digital Media, including client acquisition, junior development, and social media management opportunities.",
+    ],
     "/products": [
       "Digital products",
       "Explore digital products, software, SaaS, and AI systems created by Cactus Digital Media.",
@@ -131,6 +135,7 @@ export const allRoutes = [
   "/blog",
   "/contact",
   "/start-project",
+  "/careers",
   "/products",
   "/privacy",
   "/terms",
