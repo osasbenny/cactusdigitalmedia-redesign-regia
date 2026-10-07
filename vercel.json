@@ -11,6 +11,118 @@
   },
   "routes": [
     {
+      "src": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "host",
+          "value": "www.cactusdigitalmedia.ng"
+        }
+      ],
+      "headers": {
+        "Location": "https://cactusdigitalmedia.ng/$1"
+      },
+      "status": 308
+    },
+    {
+      "src": "/knowledge-base/?",
+      "headers": {
+        "Location": "/blog"
+      },
+      "status": 308
+    },
+    {
+      "src": "/blog-post/?",
+      "headers": {
+        "Location": "/blog"
+      },
+      "status": 308
+    },
+    {
+      "src": "/category/(.*)",
+      "headers": {
+        "Location": "/blog"
+      },
+      "status": 308
+    },
+    {
+      "src": "/tag/(.*)",
+      "headers": {
+        "Location": "/blog"
+      },
+      "status": 308
+    },
+    {
+      "src": "/author/(.*)",
+      "headers": {
+        "Location": "/blog"
+      },
+      "status": 308
+    },
+    {
+      "src": "/e-commerce-website-design-in-nigeria-what-you-need-to-succeed-online/?",
+      "headers": {
+        "Location": "/blog/e-commerce-website-development-in-nigeria-what-you-need-to-launch"
+      },
+      "status": 308
+    },
+    {
+      "src": "/professional-website-design-services-in-nigeria-from-idea-to-launch/?",
+      "headers": {
+        "Location": "/blog/website-design-in-nigeria-the-2026-guide-for-growing-businesses"
+      },
+      "status": 308
+    },
+    {
+      "src": "/how-the-80-20-rule-can-transform-your-website-design-skills-and-help-you-build-any-website/?",
+      "headers": {
+        "Location": "/blog/website-design-in-nigeria-the-2026-guide-for-growing-businesses"
+      },
+      "status": 308
+    },
+    {
+      "src": "/dark-mode-evolution-the-trend-thats-here-to-stay/?",
+      "headers": {
+        "Location": "/services/ui-ux"
+      },
+      "status": 308
+    },
+    {
+      "src": "/dynamic-typography-bringing-your-website-text-to-life/?",
+      "headers": {
+        "Location": "/services/ui-ux"
+      },
+      "status": 308
+    },
+    {
+      "src": "/minimalism-matters-embracing-simplicity-in-web-design/?",
+      "headers": {
+        "Location": "/services/ui-ux"
+      },
+      "status": 308
+    },
+    {
+      "src": "/immersive-storytelling-with-3d-scroll-based-animations-for-nigerian-audiences/?",
+      "headers": {
+        "Location": "/services/ui-ux"
+      },
+      "status": 308
+    },
+    {
+      "src": "/ai-powered-personalization-how-nigerian-websites-can-adapt-in-real-time/?",
+      "headers": {
+        "Location": "/services/ai-automation"
+      },
+      "status": 308
+    },
+    {
+      "src": "/eco-first-web-design-sustainable-accessible-websites-for-a-nigerian-future/?",
+      "headers": {
+        "Location": "/blog/seo-friendly-website-design-in-nigeria-what-it-actually-means"
+      },
+      "status": 308
+    },
+    {
       "src": "/(?!beyond-the-machine-book(?:/|$)|thoughts-are-things-book(?:/|$)|my-big-adventure-coloring-book(?:/|$))(.*)",
       "headers": {
         "X-Content-Type-Options": "nosniff",
